@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Dev Blog &middot; Ara-House
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <!-- <label for="sidebar-checkbox" class="sidebar-toggle"></label> -->
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Dev Blog</a>
+            <small>Ara-House</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/07/18/rotate-image/">
+        EXIF 옵션에 따라 이미지 회전시키기
+      </a>
+    </h1>
+
+    <span class="post-date">18 Jul 2016</span>
+
+    <p>모바일에서 세로로 찍은 사진을 <a href="https://ara-house.herokuapp.com">ara house</a>에 올리니, 데스크탑에서 제대로 보이지 않았다.
+모바일에서는 브라우저가 자동으로 이미지를 회전시켜주지만, 데스크탑에서는 그렇지 않은가보다.</p>
+
+<p><a href="https://www.railstutorial.org/">rails tutorial</a>를 충실히 따라한 ara house는 이미지 작업을 <code>Carrierwave gem</code>을 이용해서 구현했다.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">PictureUploader</span> <span class="o">&lt;</span> <span class="no">CarrierWave</span><span class="o">::</span><span class="no">Uploader</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">CarrierWave</span><span class="o">::</span><span class="no">MiniMagick</span>
+  <span class="p">.</span><span class="nf">.</span><span class="p">.</span>
+  <span class="nf">process</span> <span class="ss">:auto_orient</span>
+  <span class="k">def</span> <span class="nf">auto_orient</span>
+    <span class="n">manipulate!</span> <span class="k">do</span> <span class="o">|</span><span class="n">image</span><span class="o">|</span>
+      <span class="n">image</span><span class="p">.</span><span class="nf">tap</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:auto_orient</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p><code>process</code>를 이용해서 이미지가 업로드 될 때 callback method를 걸어둘 수 있다.</p>
+
+<p><code>manipulate!</code>는 이미지 프로세싱에 사용하는 MiniMagick command를 사용할 수 있게 해준다.</p>
+
+<p><code>image.tap(&amp;:auto_orient)</code>는 MiniMagick의 <code>-auto_orient</code> command을 실행시킨다. 이 command가 EXIF에 따라서 적절히 이미지를 회전시켜주는 고마운 아이이다.</p>
+
+<p><code>.tap</code>은 object를 단순히 block으로 넘기고, 결과값을 다시 return해주는 method이다.</p>
+
+<p><code>def auto_orient</code>를 아래와 같이 module에 method를 추가하는 형태로 하고 싶었는데, 파일을 어디에 둬야될지 몰라서 <code>PictureUploader</code>에 넣어뒀다.</p>
+
+<p>아는 분 계시면 좀 알려주세요.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">CarrierWave</span>
+  <span class="k">module</span> <span class="nn">MiniMagick</span>
+    <span class="k">def</span> <span class="nf">auto_orient</span>
+      <span class="n">manipulate!</span> <span class="k">do</span> <span class="o">|</span><span class="n">image</span><span class="o">|</span>
+        <span class="n">image</span><span class="p">.</span><span class="nf">tap</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:auto_orient</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<hr>
+
+<p><small>참고링크</small></p>
+
+<p><small><a href="http://www.imagemagick.org/script/command-line-options.php#auto-orient">MiniMagick auto_orient method</a></small></p>
+
+<p><small><a href="https://gist.github.com/tanraya/7438337">Carrierwave auto_orient</a></small></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/07/18/build-your-jekyll/">
+        Build Your Jekyll
+      </a>
+    </h1>
+
+    <span class="post-date">18 Jul 2016</span>
+
+    
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+      </div>
+    </div>
+
+  </body>
+</html>
