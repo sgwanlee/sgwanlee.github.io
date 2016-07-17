@@ -1,7 +1,6 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:         'rouge'
-gems: [jekyll-paginate]
 
 # Permalinks
 permalink:        pretty
@@ -23,3 +22,6 @@ version:          2.0.0
 
 github:
   repo:           https://github.com/poole/lanyon
+
+# Gem
+gems: [jekyll-paginate]
