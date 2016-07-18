@@ -1,5 +1,13 @@
+github:
+  repo: https://github.com/sgwanlee/sgwanlee.github.io
+kramdown:
+  input: GFM
+  hard_wrap: false
+gems:
+  - jekyll-coffeescript
+  - jekyll-paginate
+
 # Dependencies
-markdown:         redcarpet
 highlighter:         'rouge'
 
 # Permalinks
@@ -16,12 +24,3 @@ author:
   url:            https://twitter.com/sgwanlee
 
 paginate:         5
-
-# Custom vars
-version:          2.0.0
-
-github:
-  repo:           https://github.com/poole/lanyon
-
-# Gem
-gems: [jekyll-paginate]
