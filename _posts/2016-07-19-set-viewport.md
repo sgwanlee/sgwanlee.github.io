@@ -31,3 +31,4 @@ Viewport 적용 후
 <small>참고링크</small>
 
 <small>[w3schools viewport](http://www.w3schools.com/css/css_rwd_viewport.asp)</small>
+<small>[Responsive design with twitter bootstrap](http://www.telerik.com/blogs/responsive-design-with-twitter-bootstrap)</small>
