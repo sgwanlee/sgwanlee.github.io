@@ -8,3 +8,5 @@ gem 'github-pages', versions['github-pages']
 gem 'jekyll'
 gem 'jekyll-paginate'
 gem 'redcarpet'
+gem 'rouge'
+gem 'pygments.rb'

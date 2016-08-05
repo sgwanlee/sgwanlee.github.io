@@ -11,12 +11,12 @@ Rails는 많은 일을 해줘서, 가끔은 이게 Rails에서 해주는것인�
 < in Session Controller file >
 
 {% highlight ruby %}
-	def create
-		if [success]
-		else
-			render 'new'
-		end
-	end
+def create
+  if [success]
+  else
+    render 'new'
+  end
+end
 {% endhighlight %}
 
 < in new.html.erb >
