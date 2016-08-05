@@ -10,43 +10,43 @@ Rails는 많은 일을 해줘서, 가끔은 이게 Rails에서 해주는것인�
 
 < in Session Controller file >
 
-```
+{% highlight ruby %}
 	def create
 		if [success]
 		else
 			render 'new'
 		end
 	end
-```
+{% endhighlight %}
 
 < in new.html.erb >
 
-```
+{% highlight ruby %}
 	form @user do |f|
 	...
 
-```
+{% endhighlight %}
 
 
 Ara house의 로그인은 별도의 model없이 session을 이용하는데,
 그래서 params에 email이 있는지 확인하고, 있으면 다시 input field에 넣어주는 작업이 필요하다.
 이건 Rails가 해주지 않는 것 같다.
 
-```
+{% highlight ruby %}
 	<%= f.email_field :email, value: if parmams.key?("email") then params[:email] else "" end %>
-```
+{% endhighlight %}
 
 
 login 실패 시, email이 input에 그대로 남아있는지 확인하는 test를 login integration test에 추가한다.
 
-```
+{% highlight ruby %}
 users_login_test.rb
 	
 	...
 	assert_select 'form input[type=email][value="123"]'
 	...
 
-```
+{% endhighlight %}
 
 -----
 <small>참고링크</small>
