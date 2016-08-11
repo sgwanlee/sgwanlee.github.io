@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bootstrap collapse의 event handler 사용하기
+category: Bootstrap
 ---
 
 우선 만든것을 먼저 보여드린다.

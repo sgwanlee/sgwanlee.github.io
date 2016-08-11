@@ -1,6 +1,7 @@
 ---
 layout: post
 title: EXIF 옵션에 따라 이미지 회전시키기
+category: Rails
 ---
 
 모바일에서 세로로 찍은 사진을 [ara house](https://ara-house.herokuapp.com)에 올리니, 데스크탑에서 제대로 보이지 않았다.
