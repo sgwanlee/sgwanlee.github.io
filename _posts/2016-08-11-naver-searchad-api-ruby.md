@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ruby - Naver 검색광고 API
+category: Rails
 ---
 
 - API Access License 와 Secret Key를 발급받자. ([네이버 검색광고](https://manage.searchad.naver.com/) 에 들어가 도구 > API 사용관리)

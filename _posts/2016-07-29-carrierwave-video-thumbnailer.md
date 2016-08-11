@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Carrierwave video thumbnailer
+category: Rails
 ---
 
 video tag의 poster attribute에 동영상이 재생되기 전에 보이는 이미지를 정해 줄 수 있다.
