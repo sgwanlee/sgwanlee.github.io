@@ -5,3 +5,26 @@
 .masthead-title {
   display: inline-block;
 }
+
+/*category page*/
+.category-post {
+  color: #c0c0c0; 
+  text-decoration: none;
+}
+
+.category-post:focus, .category-post:hover{
+  color:#e0a0c5;
+  text-decoration: none;
+}
+
+.category-post>li>small {
+  font-size: 0.6em;
+}
+
+.category-posts {
+  margin-bottom: 3em;
+}
+
+.category-posts-container {
+  margin-top  : 3em;
+}

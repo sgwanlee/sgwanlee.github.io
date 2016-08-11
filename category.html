@@ -3,18 +3,27 @@ layout: default
 title: Category
 ---
 
-{% assign rawcats = "" %}
-{% for post in site.posts %}
-{% assign tcats = post.category | join:'|' | append:'|' %}
-{% assign rawcats = rawcats | append:tcats %}
-{% endfor %}
+<h1>Category</h1>
 
-{% for category in site.categories %}
-    <a href="#{{ category[0] | slugify }}" class="post-category">{{ category[0] }}</a>
+<div class="category-list">
+  {% for category in site.categories %}
+  <small><a href="#{{ category[0] | slugify }}" class="post-category">{{ category[0] }}</a></small>
+  {% endfor %}
+</div>
+
+<div class="category-posts-container">
+  {% for category in site.categories %}
+  <div class="category-posts">
+    <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
     <ul>
       {% for post in category[1] %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        <a href="{{ post.url }}" class="category-post">
+          <li>
+            {{ post.title }}
+            <small>{{post.date | date_to_string }}</small>
+          </li></a>
       {% endfor %}
     </ul>
-  </li>
-{% endfor %}
+  </div>
+  {% endfor %}
+</div>
