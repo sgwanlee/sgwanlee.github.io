@@ -31,7 +31,7 @@ category: Rails
   ...
 
   ms_since_epoch = (Time.now.to_f * 1000).floor
-  data = ms_since_epoch.to_s + '.' + http_method + '.' + api_path 
+  data = ms_since_epoch.to_s + '.' + http_method + '.' + api_path
   digest = OpenSSL::Digest::Digest.new('sha256')
   signature = Base64.encode64(OpenSSL::HMAC.digest(digest, secret_key, data)).strip
   {% endhighlight %}
@@ -45,6 +45,16 @@ category: Rails
   {% endhighlight %}
 
 - X-Timestamp의 값은 Signature 생성시 ms_since_epoch과 같은 값이어야 된다.
+- (update)
+  - 다른 mac에서 아래 에러가 난다.
+    {% highlight text %}
+    .../ruby/2.3.0/net/http.rb:933:in `connect_nonblock': SSL_connect returned=1 errno=0 state=error: certificate verify failed (OpenSSL::SSL::SSLError)
+    {% endhighlight%}
+  - 왜 이런지 모르겠다. [Googling 결과](http://mislav.net/2013/07/ruby-openssl/)는 state=SSLv3 인 에러에 대한 얘기다.
+  - 우선은 아래와 같이 땜질을 해서 넘어가자.
+     {% highlight ruby %}
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+     {% endhighlight %}
 
 ----
 참고링크
