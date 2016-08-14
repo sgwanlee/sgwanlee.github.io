@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rails Integration Test
+title: Jekyll - category array를 sub-category처럼 사용하기
 category: [dev, jekyll]
 ---
 
