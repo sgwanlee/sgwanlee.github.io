@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+{% include get_sub_category.html %}
+{% assign size = sub_categories | size %}
+
+{% if size == 0 %}
+  empty ;)
+{% else %}
+  <div class="category-list">
+    {% for category in sub_categories %}
+      <small><a href="#{{ category }}" class="post-category">{{ category }}</a></small>
+    {% endfor %}
+  </div>
+
+  <div class="category-posts-container">
+    {% for category in sub_categories %}
+    <div class="category-posts">
+      <h2 id="{{ category }}">{{ category }}</h2>
+      <ul>
+        {% for post in site.categories[category] %}
+          <a href="{{ post.url }}" class="category-post">
+            <li>
+              {{ post.title }}
+              <small>{{post.date | date_to_string }}</small>
+            </li></a>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}

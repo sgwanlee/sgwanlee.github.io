@@ -16,8 +16,8 @@ highlighter:         'rouge'
 permalink:        pretty
 
 # Setup
-title:            Dev Blog
-tagline:          'House 201'
+title:            House 201
+tagline:          'Blog'
 description:      ''
 url:              http://sgwanlee.github.io
 

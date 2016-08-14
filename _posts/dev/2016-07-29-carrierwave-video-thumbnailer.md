@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Carrierwave video thumbnailer
-category: Rails
+category: [dev, rails]
 ---
 
 video tag의 poster attribute에 동영상이 재생되기 전에 보이는 이미지를 정해 줄 수 있다.
@@ -14,11 +14,11 @@ class MediaUploader < CarrierWave::Uploader::Base
   include CarrierWave::Video::Thumbnailer
 
   version :thumb do
-    process_extensions VIDEO_EXTENSIONS, 
-                        thumbnail: [{format: 'png', 
-                                    quality: 5, 
-                                    size: 400, 
-                                    strip: false, 
+    process_extensions VIDEO_EXTENSIONS,
+                        thumbnail: [{format: 'png',
+                                    quality: 5,
+                                    size: 400,
+                                    strip: false,
                                     logger: Rails.logger}]
 
     def full_filename for_file

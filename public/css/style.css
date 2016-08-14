@@ -1,3 +1,8 @@
+html, body {
+  /*font-family: Menlo, Monaco, "Courier New", monospace;*/
+  font-size: 16px;
+}
+
 .pull-right {
   float: right;
 }
@@ -7,12 +12,16 @@
 }
 
 /*category page*/
-.category-post {
-  color: #c0c0c0; 
+.category-post, .category-menu{
+  color: #858484;
   text-decoration: none;
 }
 
-.category-post:focus, .category-post:hover{
+.category-menu{
+  margin-left:15px;
+}
+
+.category-post:focus, .category-post:hover, .category-menu:focus, .category-menu:hover{
   color:#e0a0c5;
   text-decoration: none;
 }

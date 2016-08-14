@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Heroku에 ffmpeg 설치하기 (Multi buildpack 사용하기)
-category: Heroku
+category: [dev, heroku]
 ---
 
 

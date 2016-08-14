@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 모바일 Layout - View port
-category: html
+category: [dev, html]
 ---
 
 

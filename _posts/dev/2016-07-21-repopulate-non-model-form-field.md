@@ -1,7 +1,7 @@
 ---
 layout: post
 title: model이 없는 form의 입력을 validation 이후에도 유지하기.
-category: Rails
+category: [dev, rails]
 ---
 
 Rails는 많은 일을 해줘서, 가끔은 이게 Rails에서 해주는것인지 브라우저에서 해주는 것인지 헷갈릴 때가 있다.
@@ -42,7 +42,7 @@ login 실패 시, email이 input에 그대로 남아있는지 확인하는 test�
 
 {% highlight ruby %}
 users_login_test.rb
-	
+
 	...
 	assert_select 'form input[type=email][value="123"]'
 	...

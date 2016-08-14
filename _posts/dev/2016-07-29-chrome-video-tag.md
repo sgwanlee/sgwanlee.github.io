@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Chrome에서 video tag 사용.
+title: Chrome에서 video tag 사용
+category: [dev, web]
 ---
 
 Chrome limits the number of videos/audio files to 4 or 6 (I can't remember which) so, as brianchirls mentions, you need to set the preload attribute, although you need to set it to none.
