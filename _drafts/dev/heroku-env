@@ -1,0 +1,1 @@
+heroku config:set GITHUB_USERNAME=joesmith
