@@ -1,5 +1,5 @@
 ---
-title: rails-bootstrap
+title: Rails(레일즈) bootstrap 세팅.
 layout: post
 ---
 [bootstrap-sass](https://github.com/twbs/bootstrap-sass) gem 초기 세팅 과정이다.

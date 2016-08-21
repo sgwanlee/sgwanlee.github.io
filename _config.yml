@@ -8,6 +8,8 @@ kramdown:
 gems:
   - jekyll-coffeescript
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
 
 # Dependencies
 highlighter:         'rouge'
@@ -18,7 +20,7 @@ permalink:        pretty
 # Setup
 title:            House 201
 tagline:          'Blog'
-description:      ''
+description:      'Startup Project, House201의 블로그입니다.'
 url:              http://sgwanlee.github.io
 
 author:

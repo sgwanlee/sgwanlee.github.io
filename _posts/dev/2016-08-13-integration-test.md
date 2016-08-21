@@ -9,12 +9,11 @@ category: [dev, rails]
   - get search_path, search: "keyword1"
 - Testing XHR (AJAX) requests
   {% highlight ruby %}
-  test "ajax request" do
-    article = articles(:one)
-    get article_url(article), xhr: true
-
-    assert_equal 'hello world', @response.body
-    assert_equal "text/javascript", @response.content_type
+    test "ajax request" do
+      article = articles(:one)
+      get article_url(article), xhr: true
+      assert_equal 'hello world', @response.body
+      assert_equal "text/javascript", @response.content_type
   end
   {% endhighlight %}
 - Model 생성 / 삭제 / 변경없음 확인

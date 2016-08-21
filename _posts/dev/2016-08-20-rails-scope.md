@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rails scope
+title: Rails(레일즈) scope
 category: [dev, rails]
 ---
 

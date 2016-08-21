@@ -6,11 +6,11 @@ category: [dev, rails]
 
 **Guard with minitest**
 - `Gemfile`
-    {% highlight ruby%}
-    group :test do
-      gem 'guard-minitest',     '2.3.1'
-    end
-    {% endhighlight%}
+    {% highlight ruby %}
+      group :test do
+        gem 'guard-minitest',     '2.3.1'
+      end
+    {% endhighlight %}
 - `bundle exec guard init`
 - Guardfile from [railstutorial.org](https://www.railstutorial.org/book/_single-page#sec-guard)
       {% highlight ruby %}
@@ -50,7 +50,6 @@ category: [dev, rails]
             ['test/integration/microposts_interface_test.rb']
           end
         end
-
         # Returns the integration tests corresponding to the given resource.
         def integration_tests(resource = :all)
           if resource == :all
@@ -59,12 +58,10 @@ category: [dev, rails]
             Dir["test/integration/#{resource}_*.rb"]
           end
         end
-
         # Returns the controller tests corresponding to the given resource.
         def controller_test(resource)
           "test/controllers/#{resource}_controller_test.rb"
         end
-
         # Returns all tests for the given resource.
         def resource_tests(resource)
           integration_tests(resource) << controller_test(resource)
