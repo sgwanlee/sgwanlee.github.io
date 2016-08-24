@@ -1,7 +1,7 @@
 {% assign sub_categories = "" | split: "" %}
 {% for post in site.categories[page.category] %}
   {% for category in post.categories %}
-    {% if category != "dev" %}
+    {% if category != page.category %}
       {% assign sub_categories = sub_categories | push: category %}
     {% endif %}
   {% endfor %}
