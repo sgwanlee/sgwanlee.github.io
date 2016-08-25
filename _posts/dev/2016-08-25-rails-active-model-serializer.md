@@ -25,7 +25,9 @@ category: [dev, rails]
 
 - serializer class에 원하는 data를 return하는 method를 만들고, `attributes`로 선언해주면, 해당 data를 가진 json을 serializer로 만들 수 있다.
 
-`render json: @task`
+  {% highlight ruby %}
+    render json: @task
+  {% endhighlight %}
 
 - `render` 이외에서 json data를 만들 수도 있다.
     {% highlight ruby %}
