@@ -16,6 +16,7 @@ layout: post
     {% highlight ruby %}
         group :test do
             gem 'guard-rspec'
+            gem "faker", "~> 1.4.3"
             gem 'rspec-rails', '~> 3.5' 
             gem "factory_girl_rails", "~> 4.0"
     {% endhighlight %}
@@ -39,6 +40,8 @@ layout: post
         {% endhighlight %}
 - `guard-rspec`
     + `bundle exec guard init rspec`
+- `faker`
+    + 
 
 
 **Controller**

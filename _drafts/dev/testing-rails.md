@@ -1,8 +1,6 @@
 
 
-
 ## Model ##
-
 
 What to test
 - The model’s create method, when passed valid attributes, should be valid.
@@ -12,7 +10,7 @@ What to test
 - 유효한 attritutes를 넘겼을 때 model의 create method가 유효해야한다.
     {% highlight text %}
         item = Item.new(name: "ABC")
-        expect(item).to be_valid 
+        expect(item).to be_valid
     {% endhighlight %}
 - 유효하지 않은 데이터는 유효성 검사를 통과하지 않아야 한다.
     {% highlight text %}
@@ -34,11 +32,45 @@ What to test
 - 복잡한 Assocation
     - FactoryGirl의 [callback](http://robots.thoughtbot.com/post/23039827914/get-your-callbacks-on-with-factory-girl-3-3) method를 이용.
 
-
-
 ##Controller##
+
 What to test
 - 7 CRUD methods
 - non CRUD method
 - Nested routes
 - non-HTML output (i.e. CSV, JSON)
+
+##Feature(Integration) Test##
+**Capybara**
+- [visit](https://github.com/jnicklas/capybara#navigating)
+- [click](https://github.com/jnicklas/capybara#clicking-links-and-buttons)
+- [fill](https://github.com/jnicklas/capybara#interacting-with-forms)
+- [css selector](https://github.com/jnicklas/capybara#querying)
+- [find](https://github.com/jnicklas/capybara#finding)
+- [scope](https://github.com/jnicklas/capybara#scoping)
+- [Modal](https://github.com/jnicklas/capybara#modals)
+
+**debug**
+Use launcy
+- `save_and_open_page` 를 `debugger`처럼 사용하면, firefox에서 method가 불리기 전까지 상태로 보여준다.
+
+##Feature tests with javascript##
+capybara에 javascript를 사용할 수 있는 webdriver를 설정 - selenium
+selenium은 FireFox를 직접 실행시켜서 진행.
+`Gemfile`
+{% highlight ruby %}
+group :test do
+  gem "capybara", "~> 2.8.1"
+  gem "selenium-webdriver", "~> 2.53.4"
+end
+{% endhighlight %}
+사용법은 간단. scenario에 `js: true` 옵션을 주면 된다.
+
+- `selenium-webdriver` 버전별로 지원하는 Firefox 버전이 다르다. [selenium changelog](https://github.com/SeleniumHQ/selenium/blob/master/rb/CHANGES)에서 확인 할 수 있다.
+- Transactional fixtures do not work with Selenium tests, because Capybara uses a separate server thread, which the transactions would be hidden from. We hence use DatabaseCleaner to truncate our test database.
+- [DatabaseCleaner setting](https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example)
+- capybara의 `first` finder를 쓰는 경우에, `find`처럼 javascript가 실행될 수 있게 기다리지 않는다. `Capybara.wait_on_first_by_default = true` 를 `rails_helper.rb`에 추가하면 `find`와 같이 match되는 element가 생길 때 까지 기다린다.
+- capybara의 method가 undefined라는 error가 나온다면 `rails_helper.rb`의 `Rspec.config ` 에 `config.include Capybara::DSL`를 추가한다.
+
+
+- seeds를 loading하지 말고, factorygirl로 만들어서 사용하자.
