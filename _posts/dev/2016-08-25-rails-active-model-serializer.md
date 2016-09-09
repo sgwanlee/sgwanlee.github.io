@@ -36,10 +36,24 @@ category: [dev, rails]
         @datum = TaskSerializer.new(Task.first).to_json
     {% endhighlight %}
 
+- `root: false` option을 사용하면 model_name으로 된 key를 없앨 수 있다.
+    {% highlight ruby %}
+      render @item
+      ==> {item: [~~~]}
+
+      render @item, root: false
+      ==> {[~~~]}
+    {% endhighlight %}
+- 천자리구분점을 위해 `number_with_delimeter`를 사용할 필요가 있다면, helper module을 include해준다.
+    {% highlight ruby %}
+    include ActionView::Helpers::NumberHelper
+    {% endhighlight %}
+
 - `active model serializer`는 0.9버전과 0.10버전이 호환되지 않는다. 사용하는 버전에 맞는 api 문서를 참고하자.
 
 
 ---
 Reference
 - [active model serializer 0.9 api](https://github.com/rails-api/active_model_serializers/tree/0-9-stable)
+- [stack overflow - How to use the “number_to_currency” helper method in the model rather than view?](http://stackoverflow.com/questions/5176718/how-to-use-the-number-to-currency-helper-method-in-the-model-rather-than-view)
 - 

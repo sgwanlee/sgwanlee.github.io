@@ -1,6 +1,0 @@
-http://stackoverflow.com/questions/14525734/pass-url-params-hash-in-controller-to-another-method-becomes-nil
-
-
-params = params[:key]
-
-nil object에 [] operator가 없다고 error 발생.
