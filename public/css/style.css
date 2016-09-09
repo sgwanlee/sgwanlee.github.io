@@ -37,3 +37,18 @@ html, body {
 .category-posts-container {
   margin-top  : 3em;
 }
+
+.post-date {
+  padding-right: 10px;
+}
+
+.post-description {
+  margin-bottom: 2rem;
+}
+
+.post-category {
+  float: right;
+  padding: 0 3px;
+  color: #9c9c9c;
+  font-weight: 300;
+}
