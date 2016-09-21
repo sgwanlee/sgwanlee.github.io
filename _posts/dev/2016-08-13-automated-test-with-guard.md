@@ -4,9 +4,9 @@ title: 빠른 테스트 - Guard & Zeus
 category: [dev, rails]
 ---
 
-rails app을 pre-loading해서 빠르게 실행시켜주는 zeus를 사용하면 test에 걸리는 시간을 줄일 수 있다. 
+rails app을 pre-loading해서 빠르게 실행시켜주는 [zeus][zeus]를 사용하면 test에 걸리는 시간을 줄일 수 있다. 
 
-Guard는 spec 파일이 변경되는 것을 인지해서, 변경된 spec 파일의 test suits만 실행시켜준다.
+[Guard][Guard]는 spec 파일이 변경되는 것을 인지해서, 변경된 spec 파일의 test suits만 실행시켜준다.
 
 Gemfile
 
@@ -84,3 +84,6 @@ Guard 시작
 Rails tutorial: [https://www.railstutorial.org/book/_single-page#sec-guard](https://www.railstutorial.org/book/_single-page#sec-guard)
 
 RailsCasts : [http://railscasts.com/episodes/413-fast-tests](http://railscasts.com/episodes/413-fast-tests)
+
+[zeus]: https://github.com/burke/zeus
+[Guard]: https://github.com/guard/guard
