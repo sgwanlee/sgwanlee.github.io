@@ -4,11 +4,11 @@ layout: post
 category: [dev, Jekyll]
 ---
 
-- 해결책
-	- `config.yml`
-    {% highlight yaml %}
-        excerpt_separator: "" 
-    {% endhighlight %} 
+config.yml
+{% highlight yaml %}
+excerpt_separator: "" 
+{% endhighlight %} 
 
+---
 
-[credit: Slaks](http://blog.slaks.net/2013-08-09/jekyll-tag-was-never-closed/)
+all credit: [Slaks](http://blog.slaks.net/2013-08-09/jekyll-tag-was-never-closed/)
