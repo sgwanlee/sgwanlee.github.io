@@ -1,5 +1,5 @@
 ---
-title: document ready & Turbolinks
+title: Turbolinks & Google analytics
 layout: post
 category: [dev, rails]
 ---

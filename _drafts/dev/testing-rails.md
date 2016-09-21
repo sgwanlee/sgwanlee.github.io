@@ -40,6 +40,31 @@ What to test
 - Nested routes
 - non-HTML output (i.e. CSV, JSON)
 
+- delete의 invalid
+{% highlight ruby %}
+sub_menu = double(name: "name")
+allow(SubMenu).to receive(:find_by).and_return(sub_menu)
+allow(sub_menu).to receive(:destroy).and_return(false)
+# allow(sub_menu).to receive(:name).and_return("name")
+delete :destroy, id: sub_menu
+expect(controller.flash[:danger]).to include("을 삭제할 수 없습니다.")
+{% endhighlight %}
+
+sub_menu = double
+allow(sub_menu).to receive(:name).and_return("name")
+와 
+sub_menu = double(name: "name")
+이 동일
+
+## Helper ##
+
+예상한 output이 나오는지만 확인
+- html을 반환하는 helper method인 경우 output확인에 regex 활용.
+    - expect().to match(/regex/)
+- session/params에 대한 접근은 `controller.session` 를 이용
+- TODO: helper에서 instance variable을 세팅할 경우에 어떻게 값을 확인해야 할까?
+    + controller에서처럼 `assigns()`을 사용했지만 안 먹힘.
+
 ##Feature(Integration) Test##
 **Capybara**
 - [visit](https://github.com/jnicklas/capybara#navigating)

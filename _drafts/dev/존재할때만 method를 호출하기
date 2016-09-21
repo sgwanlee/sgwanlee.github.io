@@ -1,0 +1,9 @@
+
+{% highlight ruby %}
+def try_method(meth)
+    self.send(meth.to_sym) if self.respond_to?(meth.to_sym)
+end
+{% endhighlight %}
+
+
+all credit : http://stackoverflow.com/questions/15787610/call-method-only-if-it-exists

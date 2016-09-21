@@ -1,5 +1,6 @@
 github:
   repo: https://github.com/sgwanlee/sgwanlee.github.io
+markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
