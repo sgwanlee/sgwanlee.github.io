@@ -1,7 +1,7 @@
 ---
 title: Turbolinks & Google analytics
 layout: post
-category: [dev, rails]
+category: [dev, rails, Google Analytics]
 ---
 
 Turbolink는 AJAX로 `<body>` tag내 컨텐츠만 바꿔서 page loading time을 줄여준다.

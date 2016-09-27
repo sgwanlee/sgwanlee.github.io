@@ -1,13 +1,13 @@
 ---
 title: Heroku database로 local database 세팅하기
 layout: post
-category: [dev, rails]
+category: [dev, rails, heroku]
 --- 
 
 ### 0.Codes first
 
     heroku pg:backups capture
-    curl -o latest.dump 'heroku pg:backups public-url'
+    curl -o latest.dump `heroku pg:backups public-url`
     bin/rake db:reset
     pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
 
@@ -26,7 +26,7 @@ CLI를 이용한 방법 (heroku version: 3.43.12)
 
     heroku pg:backups capture
 
-    curl -o latest.dump 'heroku pg:backups public-url'
+    curl -o latest.dump `heroku pg:backups public-url`
 
 
 heroku.com을 이용한 방법
