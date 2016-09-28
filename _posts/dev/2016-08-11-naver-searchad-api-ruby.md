@@ -60,3 +60,4 @@ category: [dev, rails]
 참고링크
 
 - [Spotify verify webhook tutorial](https://help.shopify.com/api/tutorials/webhooks#verify-webhook)
+- [Naver 검색광고 document](https://github.com/naver/searchad-apidoc)
