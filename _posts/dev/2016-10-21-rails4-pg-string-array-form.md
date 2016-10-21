@@ -1,5 +1,5 @@
 ---
-title: Rails4에서 PG String Array type 사용하
+title: Rails4에서 PG String Array type 사용하기
 layout: post
 category: [dev, rails]
 --- 
