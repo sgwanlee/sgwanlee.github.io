@@ -52,3 +52,23 @@ html, body {
   color: #9c9c9c;
   font-weight: 300;
 }
+
+/* To center images */
+.center {
+  text-align: center;
+}
+
+/*GDN*/
+.gdn-ads {
+  text-align:center; 
+  background-color:#eee;
+  padding-top: 44px;
+  padding-bottom: 22px;
+  position: relative;
+}
+
+.gdn-ads-title {
+  position:absolute;
+  top:0;
+  left:0;
+}
