@@ -12,9 +12,8 @@ category: [dev, rails]
     Kramdown을 사용하기에 코드블록간에 new line을 사용할 수 있습니다.
     
 
-소제목사이에는 br tag를 넣어서 사이를 띄워줍니다.
+소제목사이에는 margin-top:4.5em이 설정되어있습니다.
 
-<br>
 
 ### 1. 소제목은 H3로 합니다.
 글은 그냥 적습니다. 이렇게 적습니다.
@@ -39,7 +38,7 @@ Caption은 아래와 같이 다세요.
 {: .center}
 [source: 이미지출처]
 
-`{: .center}` 는 <p style="text-align"></p> 으로 변경되어 가운데 정렬을 시켜줍니다.
+`{: .center}` 는 <p style="text-align:center;"></p> 으로 변경되어 가운데 정렬을 시켜줍니다.
 caption 뒤에는 한 줄을 띄워주세요.
 
 ---

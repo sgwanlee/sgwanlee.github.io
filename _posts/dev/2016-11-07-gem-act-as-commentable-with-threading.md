@@ -15,7 +15,6 @@ category: [dev, rails]
 
 [act_as_commentable_with_threading][1]은 [act_as_commentable][2]에 댓글에 대한 댓글(대댓글) 기능을 추가시킨 gem 입니다.
 
-<br>  
 
 ### 1. 설치법
 
@@ -62,7 +61,6 @@ schema.rb
 `parent_id`         : 대댓글의 시작이되는 첫 댓글 아이디 (gem에서는 `root_comment`라 부릅니다.)
 
 
-<br>
 
 ### 2. 사용법
 
@@ -87,7 +85,6 @@ schema.rb
 Rails guide의 [polymorphic-association][3] 부분을 참고하세요.
 이전 버전이긴 하지만 [Ryan Bates의 RailsCast][4]에서도 polymorphic-assocation을 다루고 있습니다.
 
-<br>  
 
 ### 3. Controller
 
