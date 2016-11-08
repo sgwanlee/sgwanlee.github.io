@@ -5,7 +5,7 @@ category: [dev, rails]
 --- 
 
 
-![bebetem.com 대댓글][7]
+![bebetem.com 대댓글](/public/comment.png)
 
 {: .center}
 [[bebetem.com][6] 대댓글]

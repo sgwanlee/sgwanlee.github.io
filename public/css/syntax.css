@@ -3,7 +3,7 @@
  * MIT License
  */
  
-.highlight  {margin:1rem 0; border-left: 2px solid #bf616a;}
+.highlight  {margin:1rem 0;}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */
