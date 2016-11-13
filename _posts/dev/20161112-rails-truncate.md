@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/9503554/ruby-substring-to-a-certain-length-and-also-to-last-whitespace-within-substring

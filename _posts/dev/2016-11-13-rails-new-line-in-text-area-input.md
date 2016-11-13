@@ -1,0 +1,1 @@
+http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M002285

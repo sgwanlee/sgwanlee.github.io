@@ -24,66 +24,63 @@ category: [dev, rails]
 
 
 
-    <Gemfile>
+    //Gemfile
+        ...
         gem 'acts_as_votable'
+        ...
 
-    <terminal>
-    > bundle install
-    > rails generate acts_as_votable:migration
-    > rake db:migrate
+    //terminal
+
+        bundle install
+        rails generate acts_as_votable:migration
+        rake db:migrate
 
 
-마이그레이션이 끝나면 `votes` table이 생성됩니다.
+마이그레이션이 끝나면 *votes* table이 생성됩니다.
 
 
     //schema.rb
 
-    create_table "votes", force: :cascade do |t|
-        t.integer  "votable_id"
-        t.string   "votable_type"
-        t.integer  "voter_id"
-        t.string   "voter_type"
-        t.boolean  "vote_flag"
-        t.string   "vote_scope"
-        t.integer  "vote_weight"
-        t.datetime "created_at"
-        t.datetime "updated_at"
-      end
+        create_table "votes", force: :cascade do |t|
+            t.integer  "votable_id"
+            t.string   "votable_type"
+            t.integer  "voter_id"
+            t.string   "voter_type"
+            t.boolean  "vote_flag"
+            t.string   "vote_scope"
+            t.integer  "vote_weight"
+            t.datetime "created_at"
+            t.datetime "updated_at"
+        end
     
-      add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+        add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
 
-      add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+        add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-`votable_id`    : 투표 대상이 되는 객체의 아이디
+**votable_id**    : 투표 대상이 되는 객체의 아이디 <br>
+**votable_type**  : polymorphic association에 사용. 투표 대상이 되는 객체의 클래스명 <br>
+**voter_id**      : 투표하는 주체가 되는 객체의 아이디 <br>
+**voter_type**    : polymorphic association에 사용. 투표 주체가 되는 객체의 클래스명 <br>
+**vote_flag**     : true이면 좋아요. false이면 싫어요입니다. <br>
 
-`votable_type`  : polymorphic association에 사용. 투표 대상이 되는 객체의 클래스명
-
-`voter_id`      : 투표하는 주체가 되는 객체의 아이디
-
-`voter_type`    : polymorphic association에 사용. 투표 주체가 되는 객체의 클래스명
-
-`vote_flas`     : true이면 좋아요. false이면 싫어요입니다.
-
-
-act_as_votable 소스코드를 살펴보면 아래처럼 votable과 voter에 대해서 polymorphic association으로 구현되어 있습니다. 어떤 클래스든 votable과 voter가 될 수 있는거죠.
-
-[lib/acts_as_votable/vote.rb][3]
+[act_as_votable 소스코드][3]를 살펴보면 아래처럼 *votable*과 *voter*에 대해서 polymorphic association으로 구현되어 있습니다. 어떤 클래스든 votable과 voter가 될 수 있는거죠.
     
-    belongs_to :votable, :polymorphic => true
-    belongs_to :voter, :polymorphic => true
+    //lib/acts_as_votable/vote.rb
+        belongs_to :votable, :polymorphic => true
+        belongs_to :voter, :polymorphic => true
 
 
 
 ### 2. 사용법
+  
 
-
-투표의 대상이 되는 model에 `acts_as_votable`을 추가합니다.
+투표의 대상이 되는 model에 *acts_as_votable*을 추가합니다.
 
     class Post < ActiveRecord::Base
         acts_as_votable
     end
 
-투표 주체가 되는 model에 `acts_as_voter`을 추가합니다.
+투표 주체가 되는 model에 *acts_as_voter*을 추가합니다.
 
     class User < ActiveRecord::Base
       acts_as_voter
@@ -91,7 +88,7 @@ act_as_votable 소스코드를 살펴보면 아래처럼 votable과 voter에 대
 
 
 
-`acts_as_votable` 로 추가되는 method
+*acts_as_votable* 로 추가되는 method
 
 투표기능
 
@@ -104,7 +101,6 @@ act_as_votable 소스코드를 살펴보면 아래처럼 votable과 voter에 대
 
     //싫어요
     @post.disliked_by @user1
-    @user1
 
     //싫어요 취소
     @post.undisliked_by @user1    
@@ -129,14 +125,14 @@ act_as_votable 소스코드를 살펴보면 아래처럼 votable과 voter에 대
     @user.get_down_voted Post
 
 
-추가 기능들
+추가 기능들 <br>
 - [투표에 가중치 설정][2]
 
 
 ### 3. Controller
 
-comments_controller.rb
-
+    //comments_controller.rb
+    
     class CommentController < ApplicationController  
         ...
         def like
@@ -168,8 +164,8 @@ comments_controller.rb
     end
 
 
-routes.rb
-
+    //routes.rb
+    
     resources :comments do
         get 'like' => "comments#like"
         get 'dislike' => "comments#dislike"
