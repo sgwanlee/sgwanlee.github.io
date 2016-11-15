@@ -1,7 +1,7 @@
 ---
 title: Jekyll 이용한 Gibhub pag에서 sitemap 생성
 layout: post
-category: [dev, jekyll, seo]
+category: [dev, Jekyll, seo]
 --- 
 
 _config.yml 파일에 아래 *jekyll-sitemap* gem을 추가해주면, github page에서 자동으로 sitemap.xml을 생성합니다.

@@ -1,7 +1,7 @@
 ---
 title: Jekyll에 disqus 추가하기
 layout: post
-category: [dev, jekyll]
+category: [dev, Jekyll]
 --- 
 
 
