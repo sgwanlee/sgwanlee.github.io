@@ -34,6 +34,9 @@ category: [dev, rails]
 ![alt text](이미지 주소 링크)
 이미지는 자동으로 중앙정렬이 됩니다.
 
+이미지를 직접 업로드할 경우 /public 폴더에 넣고,
+![alt text](/public/image_file_name) 으로 작성하면 됩니다.
+
 Caption은 아래와 같이 다세요.
 {: .center}
 [source: 이미지출처]
