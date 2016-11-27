@@ -313,6 +313,16 @@ a.sidebar-nav-item:focus {
   margin-bottom: 10em;
 }
 
+.post-list > .post {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.post-list > .category {
+  margin-top: 3em;
+  margin-bottom: 10px;
+}
+
 /* Blog post or page title */
 .page-title,
 .post-title,

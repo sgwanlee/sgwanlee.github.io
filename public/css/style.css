@@ -43,14 +43,17 @@ html, body {
 }
 
 .post-description {
+  position: absolute;
+  top: 0;
+  right: 0;
   margin-bottom: 2rem;
+  font-weight: 300;
+  color: #9c9c9c;
 }
 
 .post-category {
-  float: right;
   padding: 0 3px;
-  color: #9c9c9c;
-  font-weight: 300;
+  
 }
 
 /* To center images */
