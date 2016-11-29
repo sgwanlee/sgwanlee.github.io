@@ -92,7 +92,6 @@ h2 {
   font-size: 1.5rem;
 }
 h3 {
-  margin-top: 4.5rem;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
@@ -128,7 +127,6 @@ dd {
 /* Misc */
 hr {
   position: relative;
-  margin: 1.5rem 0;
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;

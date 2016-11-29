@@ -22,7 +22,7 @@ layout: default
 <div class="posts post-list">
   {% for category in categories %}
     <div class="category">
-      <a href="/categories/{{category}}">{{category | upcase}}</a>
+      <a href="/categories/{{category}}">{{category | upcase}} ({{ site.categories[category] | size }})</a>
     </div>
     {% for post in site.categories[category] limit:5 %}
       <div class="post">
@@ -40,11 +40,10 @@ layout: default
         <!-- {{ post.content }} -->
       </div>
     {% endfor %}
-    <a href="/categories/{{category}}">...</a>
   {% endfor %}
 </div>
 
-<div class="pagination">
+<!-- <div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
   {% else %}
@@ -59,4 +58,4 @@ layout: default
   {% else %}
     <span class="pagination-item newer">Newer</span>
   {% endif %}
-</div>
+</div> -->
