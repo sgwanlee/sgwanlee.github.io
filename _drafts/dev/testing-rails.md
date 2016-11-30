@@ -1,5 +1,3 @@
-
-
 ## Model ##
 
 What to test

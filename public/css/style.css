@@ -43,6 +43,13 @@ html, body {
 .post-date {
   padding-right: 10px;
 }
+.post .post-categories {
+  padding-right: 15px;
+}
+.post .post-categories a {
+  color: #9a9a9a;
+  text-decoration: none;
+}
 
 .post-description {
   position: absolute;
