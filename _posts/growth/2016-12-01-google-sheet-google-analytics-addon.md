@@ -1,7 +1,7 @@
 ---
 title: Google Sheet에서 Google Analytics add-on 사용하기
 layout: post
-category: [growth, measure]
+category: [growth, Measure]
 --- 
 
 [Google analytic add-on][1] 사용시 주의점 간략히 정리해 봅니다.
