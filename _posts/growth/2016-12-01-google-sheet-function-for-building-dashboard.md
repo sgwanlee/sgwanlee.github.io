@@ -200,10 +200,11 @@ Error Type List
 
 
 ---
-
+reference
+[10-techniques-for-building-dashboards-in-google-sheets][5]
 
 [1]: https://support.google.com/docs/answer/3238305?hl=en
 [2]: https://support.google.com/docs/table/25273?hl=en
 [3]: https://productforums.google.com/forum/#!topic/docs/6B-wbF1Om1g
 [4]: https://productforums.google.com/forum/#!topic/docs/q_As66-Q3P4
-http://www.benlcollins.com/spreadsheets/10-techniques-for-building-dashboards-in-google-sheets/
+[5]: http://www.benlcollins.com/spreadsheets/10-techniques-for-building-dashboards-in-google-sheets/
