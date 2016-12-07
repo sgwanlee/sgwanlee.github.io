@@ -1,7 +1,7 @@
 ---
 title: 사업을 시작하기전 해야 할 질문
 layout: post
-category: [biz, Entrepreneurship]
+category: [biz, entrepreneurship]
 --- 
 
 

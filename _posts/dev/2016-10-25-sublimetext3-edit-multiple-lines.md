@@ -1,7 +1,7 @@
 ---
 title: SublimeText3 - 여러 줄 한번에 수정하기
 layout: post
-category: [dev, rails]
+category: [dev, sublimetext]
 --- 
 
 ### Command + shift + L : split into lines

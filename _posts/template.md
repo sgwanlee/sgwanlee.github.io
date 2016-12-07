@@ -1,8 +1,10 @@
 ---
 title: Heroku database로 local database 세팅하기
 layout: post
-category: [dev, rails]
+category: [dev, rails]              
 --- 
+
+### category는 소문자로 쓰세요.
 
 ### 0. 소제목은 H3로 합니다.
 

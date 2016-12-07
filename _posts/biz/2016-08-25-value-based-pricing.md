@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 가치 기반 가격 (Value-based pricing)
-category: [biz, Pricing]
+category: [biz, pricing]
 ---
 
 
