@@ -47,8 +47,10 @@ filter를 AND조건으로 붙일 때는 filter 사이에 ';'(세미콜론)을 �
 
 [Dimension/metric explorer][3]
 
+[Google Analytics AddOn][4]
 
 
 [1]: https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add-on
 [2]: https://ga-dev-tools.appspot.com/query-explorer/
 [3]: https://developers.google.com/analytics/devguides/reporting/core/dimsmets
+[4]: https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add-on
