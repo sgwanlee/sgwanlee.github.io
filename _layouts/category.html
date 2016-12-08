@@ -22,7 +22,7 @@ layout: default
     <div class="category">
       <a href="#{{category}}">{{category | upcase}} ({{ site.categories[category] | size }})</a>
     </div>
-    {% for post in site.categories[category] limit:5 %}
+    {% for post in site.categories[category] %}
       <div class="post">
         <h4 class="post-title">
           <a href="{{ post.url }}">
