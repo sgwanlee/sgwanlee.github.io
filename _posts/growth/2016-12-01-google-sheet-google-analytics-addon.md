@@ -23,6 +23,7 @@ filter의 operator는 string형태로 바로 사용하면 됩니다. (==, >, <)
 URL 버전(%3D%3D, %3E, %3C)으로 사용하면 동작하지 않습니다.
 
 Google sheet에서는 equal operator가 `=` 이지만, google anlaytics addon에서는 `==` 입니다.
+[filter operator list][5]
 
 아래와 같이 operator와 dimension사이에 빈칸있으면 안됩니다.
 
@@ -31,6 +32,10 @@ Google sheet에서는 equal operator가 `=` 이지만, google anlaytics addon에
 filter를 AND조건으로 붙일 때는 filter 사이에 ';'(세미콜론)을 붙입니다.
 
 `ga:channelGrouping==Referral;ga:sessions>10`
+
+문자열을 따움표로 감싸지 않아야 합니다.
+
+`ga:keyword!=(not set)`
 
 <br>
 
@@ -54,3 +59,4 @@ filter를 AND조건으로 붙일 때는 filter 사이에 ';'(세미콜론)을 �
 [2]: https://ga-dev-tools.appspot.com/query-explorer/
 [3]: https://developers.google.com/analytics/devguides/reporting/core/dimsmets
 [4]: https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add-on
+[5]: https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters
