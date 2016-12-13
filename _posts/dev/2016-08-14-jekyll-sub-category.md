@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Jekyll - category array를 sub-category처럼 사용하기
-category: [dev, Jekyll]
+category: [dev, jekyll]
 ---
 
 - `dev` category의 sub category를 만들려고 했다.

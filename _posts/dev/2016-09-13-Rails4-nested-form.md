@@ -126,6 +126,9 @@ category: [dev, rails]
     });
     {% endhighlight %}
 
+
+---
+
 [Rails github - nested_attributes.rb](https://github.com/rails/rails/blob/master/activerecord/lib/active_record/nested_attributes.rb)
 [RailsCast 196-nested-model-form](http://railscasts.com/episodes/196-nested-model-form-revised?view=asciicast)
 

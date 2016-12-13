@@ -1,7 +1,7 @@
 ---
 title: Jekyll에서 forloop index 알아내기
 layout: post
-category: [dev, Jekyll]
+category: [dev, jekyll]
 --- 
 
 jekyll은 liquid 문법을 사용합니다.

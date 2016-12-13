@@ -8,14 +8,6 @@ layout: default
 {% if size == 0 %}
   empty ;)
 {% else %}
-  <!-- <div class="category-list">
-    {% for category in sub_categories %}
-      <a href="#{{ category }}">{{ category | upcase }}</a>
-      {% if forloop.index != sub_categories | size %}
-      , 
-      {% endif %}
-    {% endfor %}
-  </div> -->
 
   <div class="posts post-list">
   {% for category in sub_categories %}

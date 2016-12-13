@@ -1,7 +1,7 @@
 ---
 title: Liquid syntax error - 'highlight' tag was never closed
 layout: post
-category: [dev, Jekyll]
+category: [dev, jekyll]
 ---
 
 config.yml

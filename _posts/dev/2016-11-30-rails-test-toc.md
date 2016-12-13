@@ -34,6 +34,10 @@ https://github.com/lelylan/betterspecs/issues/5
 
 <br>
 
+`Controller test`
+
+- [Rails controller test with Rspec]({% post_url 2016-12-06-rspec-controller %})
+
 ### Integration-test
 
 - [Integration test에서는 어떤 것을 테스트해야 될까]({% post_url 2016-11-30-railscast-how-to-test %})

@@ -46,3 +46,5 @@ category: [dev, rails]
     end
 
 
+Array로 타입으로 선언한 attribute 값을 쓸 때는 array로 넘겨야 값이 써진다.
+string으로 넘겼더니 기존 값도 사라지고 blank array가 되더라.
