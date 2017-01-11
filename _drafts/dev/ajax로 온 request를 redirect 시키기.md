@@ -1,6 +1,5 @@
 
 
-
 https://railskey.wordpress.com/2012/09/07/rails-3-how-to-redirect_to-in-ajax-call/
 
 http://stackoverflow.com/questions/29310187/rails-invalidcrossoriginrequest
@@ -17,3 +16,4 @@ http://stackoverflow.com/questions/29310187/rails-invalidcrossoriginrequest
           format.js {
             render :js => "window.location.pathname = '#{login_path}'"
           }
+

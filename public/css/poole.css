@@ -235,6 +235,9 @@ tbody tr:nth-child(odd) th {
   font-weight: 300;
 }
 
+.hl {
+  background-color: rgba(10, 153, 255, 0.21);
+}
 
 /*
  * Messages
