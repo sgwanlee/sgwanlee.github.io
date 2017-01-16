@@ -1,7 +1,7 @@
 ---
 title: Rspec 에서 referrer 설정하기
 layout: post
-category: [dev, rails, rspec]
+category: [dev, rspec]
 --- 
 
 referrer 설정하는 법

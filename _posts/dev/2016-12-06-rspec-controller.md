@@ -1,7 +1,7 @@
 ---
 title: Rails Controller Test with Rspec
 layout: post
-category: [dev, rails, test]
+category: [dev, rails, test, rspec]
 --- 
 
 ### Controller 테스트 범위

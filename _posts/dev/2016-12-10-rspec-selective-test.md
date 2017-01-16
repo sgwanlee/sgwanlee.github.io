@@ -1,7 +1,7 @@
 ---
 title: Rspec - 원하는 테스트만 실행하기
 layout: post
-category: [dev, rails, rspec]          
+category: [dev, rspec]          
 --- 
 
 spec_helper.rb
