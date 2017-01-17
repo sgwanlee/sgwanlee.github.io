@@ -25,4 +25,4 @@ category: [dev, sublimetext]
 
 `SideBarEnhancements`
 - 필수 package
-- sublime sidebar에서 파일 이동이 가능해집니다! (ST는 지원하지 않음)
+- sublime sidebar에서 파일 이동이 가능해집니다! (ST2는 지원하지 않음)
