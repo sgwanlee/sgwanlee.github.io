@@ -1,7 +1,7 @@
 ---
 title: SublimeText3 - terminal command 맵핑
 layout: post
-category: [dev, rails]
+category: [dev, sublimetext]
 --- 
 
     sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin
