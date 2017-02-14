@@ -3,25 +3,32 @@ layout: default
 ---
 
 <div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">
-    <small>{{ page.date | date_to_string }}</small>
-  </span>
-  <span class='post-categories'>
-    <small>
-      {% for category in page.categories %}
-        {% if forloop.index == 1 %}
-          <a href="/categories/{{category}}">{{category}}</a>
-        {% else %}
-          <a href="/categories/{{page.categories[0]}}/#{{category}}">{{category}}</a>
-        {% endif %}
-      {% endfor %}
-    </small>
-  </span>
+  <h1 class="post__title">{{ page.title }}</h1>
+  <div class="post__desc">
+    <small class="post-date">{{ page.date | date: "%b %d, %y" }}</small>
+    {% for category in page.categories %}
+      {% if forloop.index == 1 %}
+        <small>{{category}}</small>
+      {% else %}
+        <small>{{category}}</small>
+      {% endif %}
+    {% endfor %}
+  </div>
   <div class="post-content">
-  {{ content }}
+    {{ content }}
   </div>
 </div>
+
+<style type="text/css">
+  .post__desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #DAD9D9;
+  }
+  .post__title {
+    font-size: 1.6em;
+  }
+</style>
 
 <!-- <div class="gdn-ads">
   <div class="gdn-ads-title">Advertisement</div>
