@@ -1,17 +1,17 @@
 ---
-title: Preload/Eagerload Nest Assocation
+title: Preload/Eagerload Nest Association
 layout: post
 category: [dev, rails]
 --- 
 
 
-###Preload Nest Association
+## Preload Nest Association
 
     Menu.includes(submenus: :items)
 
 
-<br>
-###conditional preload
+
+## conditional preload
 
 scope은 preload에 사용할 수 없으니, lambda를 이용해서 condition을 만족하는 association을 생성.
 
