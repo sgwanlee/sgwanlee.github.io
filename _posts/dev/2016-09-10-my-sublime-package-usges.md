@@ -19,6 +19,15 @@ category: [dev, sublimetext]
 - ruby or rails 개발 시 필수
 - <% %> erb tag를 단축키(command + shift + .)를 이용해서 만들 수 있게 해준다.
 
+keybinding
+
+    [
+        { "keys": ["command+shift+."], "command": "erb" }
+    ]
+
+
+
+
 `rails partial`
 
 - View 파일의 특정부분을 선택하고 alt + p 를 누르면 partial file을 만들 수 있다.
