@@ -7,7 +7,7 @@ category: [dev, rails]
 
 ## 무료 SSL certificate
 
-(let's encrypt)[1] 에서 무료 SSL certificate 을 발급받을 수 있다.
+[let's encrypt][1] 에서 무료 SSL certificate 을 발급받을 수 있다.
 
 
 ## SSL certificate 발급
@@ -141,13 +141,24 @@ bebetem.herokuapp.com 에서 bebetem.com.herokudns.com으로 변경됨.
 사용하는 DNS 서비스를 이용해서 CNAME을 your_app_name.herokuapp.com 에서 your_domain.herokudns.com 으로 변경해주어야 합니다.
 
 
+## Issue
+
+### An unexpected error occurred: AttributeError: 'EntryPoint' object has no attribute 'resolve'
+
+brew를 최신버전으로 update 후에 certbot을 다시 설치
+
+    brew update                 // brew update
+    brew unlink certbot         // 설치된 certbot의 symbolic link 제거
+    brew install certbot        // cerbot 재설치
+
+
 ---
 
 
-(Heroku SSL)[2]
-(SSL에 대한 쉬운 설명 - kldp wiki)[3]
-(Let's encrypt CA 작동 설명)[4]
-(Rails codes reference - Daniel Morrison)[5]
+[Heroku SSL][2]
+[SSL에 대한 쉬운 설명 - kldp wiki][3]
+[Let's encrypt CA 작동 설명][4]
+[Rails codes reference - Daniel Morrison][5]
 
 [1]: https://letsencrypt.org/
 [2]: https://devcenter.heroku.com/articles/ssl#overview
