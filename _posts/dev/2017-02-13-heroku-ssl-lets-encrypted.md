@@ -1,7 +1,7 @@
 ---
 title: Heroku SSL 적용 - Let's encrypt CA
 layout: post
-category: [dev, rails]
+category: [dev, heroku]
 --- 
 
 
@@ -140,16 +140,26 @@ bebetem.herokuapp.com 에서 bebetem.com.herokudns.com으로 변경됨.
 
 사용하는 DNS 서비스를 이용해서 CNAME을 your_app_name.herokuapp.com 에서 your_domain.herokudns.com 으로 변경해주어야 합니다.
 
+dns 변경 확인
+
+    > dig www.bebetem.com +short
+    www.bebetem.com.herokudns.com
+
+
+
 
 ## Issue
 
 ### An unexpected error occurred: AttributeError: 'EntryPoint' object has no attribute 'resolve'
+
+[github issue link][6]
 
 brew를 최신버전으로 update 후에 certbot을 다시 설치
 
     brew update                 // brew update
     brew unlink certbot         // 설치된 certbot의 symbolic link 제거
     brew install certbot        // cerbot 재설치
+
 
 
 ---
@@ -165,4 +175,4 @@ brew를 최신버전으로 update 후에 certbot을 다시 설치
 [3]: https://wiki.kldp.org/HOWTO/html/SSL-Certificates-HOWTO/x70.html
 [4]: https://letsencrypt.org/how-it-works/
 [5]: https://collectiveidea.com/blog/archives/2016/01/12/lets-encrypt-with-a-rails-app-on-heroku
-[6]: 
+[6]: https://github.com/certbot/certbot/issues/3140#issuecomment-225274500

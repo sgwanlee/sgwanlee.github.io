@@ -1,7 +1,7 @@
 ---
 title: Godaddy에서 Heroku로 DNS 설정하기
 layout: post
-category: [dev, rails]
+category: [dev, heroku]
 --- 
 
 1. Godaddy DNS 관리페이지에서 모든 레코드를 삭제.
