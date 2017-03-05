@@ -13,7 +13,7 @@ category: [dev, rails, ruby]
 
 <br>
 
-    brew install
+    brew install readline
     git clone git://github.com/tpope/rbenv-readline.git ~/.rbenv/plugins/rbenv-readline
     rbenv install <ruby_version>
 
@@ -25,9 +25,11 @@ category: [dev, rails, ruby]
     rbenv install <ruby_version>
 
 
+irb에서는 한글이 제대로 입력되는데, rails console에서는 그대로 UTF-8로 나오는 경우에, 재부팅을 하고 나니 제대로 한글이 입력되더라.
+
 
 ---
 
-all credit to (https://blog.iamseapy.com/archives/177)[1]
+all credit to [https://blog.iamseapy.com/archives/177][1]
 
 [1]: https://blog.iamseapy.com/archives/177

@@ -6,6 +6,8 @@ category: [dev, rails]
 
 workaround 방법입니다.
 
+~/.bash_profile
+
     alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 
 
