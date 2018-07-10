@@ -5,7 +5,23 @@ category: [dev, rails]
 --- 
 
 
-## PG 관련 에러
+
+## bundler 설치
+    echo "gem: --no-rdoc --no-ri" >> ~/.gemrc
+
+    > gem install bundler
+
+
+
+
+## gem 설치
+    > bundle install
+
+
+
+
+
+### gem 설치 - PG 관련 에러
 
     Installing pg 0.17.1 with native extensions
     Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
@@ -27,8 +43,11 @@ category: [dev, rails]
 1. [postgresql.app](https://postgresapp.com/) 사용하고
 2. 아래와 같이 pg gem 설치
 
-
     gem install pg -v 0.17.1 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config
 
+3. postgresql cli command
+
+    sudo mkdir -p /etc/paths.d &&
+echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 
 
