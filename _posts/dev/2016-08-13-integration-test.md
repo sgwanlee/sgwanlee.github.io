@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Rails Integration Test
 category: [dev, rails]
 ---

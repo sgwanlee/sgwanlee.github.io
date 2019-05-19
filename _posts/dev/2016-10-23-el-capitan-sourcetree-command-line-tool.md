@@ -1,6 +1,7 @@
 ---
 title: Mac OS X 10.11(El capitan)에서 SourceTree CLT 설치 실패시
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

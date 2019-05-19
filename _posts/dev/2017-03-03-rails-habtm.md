@@ -1,6 +1,7 @@
 ---
 title: Rails - has_and_belongs_to_many
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

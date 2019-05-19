@@ -1,6 +1,7 @@
 ---
 title: .xyz 때문에 짜증이 나신다면 - GA에서 스팸제거하기
 layout: post
+comments: true
 category: [dev, google analytics]
 --- 
 

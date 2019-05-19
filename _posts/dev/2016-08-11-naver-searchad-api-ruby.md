@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Ruby - Naver 검색광고 API
 category: [dev, rails]
 ---

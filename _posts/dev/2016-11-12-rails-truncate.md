@@ -2,6 +2,7 @@
 title: Rails - 20자 이상 자르고 말줄임표 붙이기
 layout: post
 comments: true
+comments: true
 category: [dev, rails]
 --- 
 

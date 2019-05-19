@@ -1,6 +1,7 @@
 ---
 title: Heroku SSL 적용 - Let's encrypt CA
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

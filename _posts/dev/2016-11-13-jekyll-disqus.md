@@ -1,6 +1,7 @@
 ---
 title: Jekyll에 disqus 추가하기
 layout: post
+comments: true
 category: [dev, jekyll]
 --- 
 
@@ -38,6 +39,7 @@ category: [dev, jekyll]
     ---
     title: ###
     layout: post
+comments: true
     comments: true
     ...
     ---

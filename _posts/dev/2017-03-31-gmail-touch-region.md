@@ -1,6 +1,7 @@
 ---
 title: Gmail Touch region 구현
 layout: post
+comments: true
 category: [dev, ux]
 --- 
 

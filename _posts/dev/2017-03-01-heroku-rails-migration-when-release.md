@@ -1,6 +1,7 @@
 ---
 title: Heroku - Deploy시에 자동으로 migration 하기
 layout: post
+comments: true
 category: [dev, rails, heroku]
 --- 
 

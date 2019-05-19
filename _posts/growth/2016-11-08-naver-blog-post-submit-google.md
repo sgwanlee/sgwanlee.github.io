@@ -1,6 +1,7 @@
 ---
 title: 네이버 블로그 - 구글 검색 등록
 layout: post
+comments: true
 category: [growth, Google, 네이버블로그]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Rspec - 원하는 테스트만 실행하기
 layout: post
+comments: true
 category: [dev, rspec]          
 --- 
 

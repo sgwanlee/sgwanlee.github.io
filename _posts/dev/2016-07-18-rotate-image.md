@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: EXIF 옵션에 따라 이미지 회전시키기
 categories: [dev, rails]
 ---

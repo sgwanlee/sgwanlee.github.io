@@ -1,6 +1,7 @@
 ---
 title: Sublime Package
 layout: post
+comments: true
 category: [dev, sublimetext]
 ---
 

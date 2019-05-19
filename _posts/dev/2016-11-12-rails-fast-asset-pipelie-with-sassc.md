@@ -1,6 +1,7 @@
 ---
 title: Rails - dev 모드에서 sass 컴파일 속도 높이기
 layout: post
+comments: true
 category: [dev, rails]
 ---
 

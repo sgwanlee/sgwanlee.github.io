@@ -1,6 +1,7 @@
 ---
 title: [Rails/ActiveRecord] 자주 쓰는 API
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

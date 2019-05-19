@@ -1,6 +1,7 @@
 ---
 title: document ready & Turbolinks
 layout: post
+comments: true
 category: [dev, rails]
 ---
 

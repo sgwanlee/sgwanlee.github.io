@@ -1,6 +1,7 @@
 ---
 title: Google Sheet - 대시보드 만드는데 사용되는 function들
 layout: post
+comments: true
 category: [growth, Measure]
 --- 
 

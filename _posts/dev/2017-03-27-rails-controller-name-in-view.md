@@ -1,6 +1,7 @@
 ---
 title: Rails - View에서 현재 controller 이름 사용하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

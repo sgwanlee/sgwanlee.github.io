@@ -1,6 +1,7 @@
 ---
 title: Mobile에서 localhost 테스트하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: 루비 버전 관리 - rbenv Mac 설치
 layout: post
+comments: true
 category: [dev, ruby]
 --- 
 

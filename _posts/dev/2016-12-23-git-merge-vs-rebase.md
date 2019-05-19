@@ -1,6 +1,7 @@
 ---
 title: Git - merge vs. rebase
 layout: post
+comments: true
 category: [dev, git]
 --- 
 

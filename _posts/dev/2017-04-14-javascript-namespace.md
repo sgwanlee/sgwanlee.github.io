@@ -1,6 +1,7 @@
 ---
 title: Javascript - Namespace 사용하기
 layout: post
+comments: true
 category: [dev, javascript]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Jekyll에 Search 기능 넣기 Lunrjs
 layout: post
+comments: true
 category: [dev, jekyll]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Rails4 - nested form
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

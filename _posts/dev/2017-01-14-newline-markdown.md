@@ -1,6 +1,7 @@
 ---
 title: markdown에서 한줄 띄어쓰기
 layout: post
+comments: true
 category: [dev, jekyll, markdown]
 --- 
 

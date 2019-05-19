@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Chrome에서 video tag 사용
 category: [dev, web]
 ---

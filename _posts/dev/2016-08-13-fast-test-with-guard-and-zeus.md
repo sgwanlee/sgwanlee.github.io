@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: 빠른 테스트 - Guard & Zeus
 category: [dev, rails]
 ---

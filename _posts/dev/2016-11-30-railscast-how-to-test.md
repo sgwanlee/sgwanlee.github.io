@@ -1,6 +1,7 @@
 ---
 title: Integration test or Unit test
 layout: post
+comments: true
 category: [dev, rails, test]
 --- 
 

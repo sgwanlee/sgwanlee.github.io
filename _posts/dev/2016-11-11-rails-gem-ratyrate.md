@@ -1,6 +1,7 @@
 ---
 title: 별점넣기 - Rails Gem Ratyrate
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

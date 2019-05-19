@@ -1,6 +1,7 @@
 ---
 title: Omniauth Facebook
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

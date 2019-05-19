@@ -1,6 +1,7 @@
 ---
 title: Jekyll에서 forloop index 알아내기
 layout: post
+comments: true
 category: [dev, jekyll]
 --- 
 

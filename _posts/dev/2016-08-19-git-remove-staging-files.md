@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: git local strorage에 staging 파일을 제거.
 category: [dev, git]
 ---

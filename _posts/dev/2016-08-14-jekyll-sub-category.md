@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Jekyll - category array를 sub-category처럼 사용하기
 category: [dev, jekyll]
 ---
@@ -14,6 +15,7 @@ category: [dev, jekyll]
   - {% highlight text %}
       ---
       layout: post
+comments: true
       title: Rails Integration Test
       category: [dev, jekyll]
       ---

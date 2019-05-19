@@ -1,6 +1,7 @@
 ---
 title: Rails - jQuery DataTable pagination
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

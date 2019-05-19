@@ -1,6 +1,7 @@
 ---
 title: Heroku 서버 재시작
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

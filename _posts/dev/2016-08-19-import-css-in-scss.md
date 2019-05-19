@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Sass 파일에서 css 파일 import
 category: [dev, rails]
 ---

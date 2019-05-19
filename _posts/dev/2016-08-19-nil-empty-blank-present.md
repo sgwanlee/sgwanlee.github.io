@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: nil?, empty?, blank? 그리고 present?
 category: [dev, rails]
 ---

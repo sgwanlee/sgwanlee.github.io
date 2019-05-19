@@ -1,6 +1,7 @@
 ---
 title: Rails 개발환경 설정 하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

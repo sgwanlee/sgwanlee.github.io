@@ -1,6 +1,7 @@
 ---
 title: Rails - SSL 제거시 발생한 문제 (config.force_ssl의 비밀)
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Rails - 유저 role 별로 cache 사용
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

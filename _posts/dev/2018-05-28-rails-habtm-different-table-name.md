@@ -1,6 +1,7 @@
 ---
 title: Rails HABTM convention과 다른 table을 이용하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

@@ -1,6 +1,8 @@
 ---
 title: React + ESLint + VSCode
 layout: post
+comments: true
+comments: true
 category: [dev, react, eslint, vscode]
 ---
 

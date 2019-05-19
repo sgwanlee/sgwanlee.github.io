@@ -1,6 +1,7 @@
 ---
 title: Heroku에서 Timezone 설정하기
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

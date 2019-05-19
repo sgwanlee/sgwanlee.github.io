@@ -1,6 +1,7 @@
 ---
 title: Gem - Factory_girl
 layout: post
+comments: true
 category: [dev, rails, test]
 --- 
 

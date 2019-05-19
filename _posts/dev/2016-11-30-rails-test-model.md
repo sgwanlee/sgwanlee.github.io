@@ -1,6 +1,7 @@
 ---
 title: Rails Test 1 Model
 layout: post
+comments: true
 category: [dev, rails, test]
 --- 
 

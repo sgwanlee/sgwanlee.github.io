@@ -2,6 +2,7 @@
 ---
 title: SublimeText3 - terminal command 맵핑
 layout: post
+comments: true
 category: [dev, sublimetext]
 --- 
 

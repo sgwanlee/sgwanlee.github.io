@@ -1,6 +1,7 @@
 ---
 title: Pagination - 다른 페이지에 같은 record가 나오는 문제
 layout: post
+comments: true
 category: [dev, rails, sql]
 --- 
 

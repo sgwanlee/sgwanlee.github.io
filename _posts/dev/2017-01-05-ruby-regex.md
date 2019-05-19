@@ -1,6 +1,7 @@
 ---
 title: Ruby Regex
 layout: post
+comments: true
 category: [dev, ruby]
 --- 
 

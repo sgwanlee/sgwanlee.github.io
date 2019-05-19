@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: 모바일 Layout - View port
 category: [dev, html]
 ---

@@ -1,6 +1,7 @@
 ---
 title: Turbolinks & Google analytics
 layout: post
+comments: true
 category: [dev, rails, google analytics]
 ---
 

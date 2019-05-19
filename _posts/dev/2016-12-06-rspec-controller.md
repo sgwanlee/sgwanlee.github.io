@@ -1,6 +1,7 @@
 ---
 title: Rails Controller Test with Rspec
 layout: post
+comments: true
 category: [dev, rails, test, rspec]
 --- 
 

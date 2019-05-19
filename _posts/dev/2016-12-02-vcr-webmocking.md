@@ -1,6 +1,7 @@
 ---
 title: VCR - 빠른 3rd party API 테스트 
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

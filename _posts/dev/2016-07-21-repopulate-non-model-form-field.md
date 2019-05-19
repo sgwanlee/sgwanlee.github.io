@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: model이 없는 form의 입력을 validation 이후에도 유지하기.
 category: [dev, rails]
 ---

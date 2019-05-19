@@ -1,6 +1,7 @@
 ---
 title: irb, rails console에서의 한글 encoding 문제 해결
 layout: post
+comments: true
 category: [dev, rails, ruby]
 --- 
 

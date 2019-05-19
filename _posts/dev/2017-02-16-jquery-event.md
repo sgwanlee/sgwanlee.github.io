@@ -1,6 +1,7 @@
 ---
 title: JQuery Event
 layout: post
+comments: true
 category: [dev, jquery]
 --- 
 

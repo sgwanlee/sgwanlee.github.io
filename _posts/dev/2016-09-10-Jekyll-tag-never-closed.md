@@ -1,6 +1,7 @@
 ---
 title: Liquid syntax error - 'highlight' tag was never closed
 layout: post
+comments: true
 category: [dev, jekyll]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: webkit-pading-start 제거하기
 layout: post
+comments: true
 category: [dev, css]
 --- 
 

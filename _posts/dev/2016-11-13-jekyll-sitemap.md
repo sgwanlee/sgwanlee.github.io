@@ -1,6 +1,7 @@
 ---
 title: Jekyll 이용한 Gibhub pag에서 sitemap 생성
 layout: post
+comments: true
 category: [dev, jekyll, seo]
 --- 
 

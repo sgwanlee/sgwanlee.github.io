@@ -1,6 +1,7 @@
 ---
 title: Google Sheet에서 Google Analytics add-on 사용하기
 layout: post
+comments: true
 category: [growth, Measure]
 --- 
 

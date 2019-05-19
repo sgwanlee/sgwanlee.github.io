@@ -1,6 +1,7 @@
 ---
 title: Turbolinks - Kakao sdk
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

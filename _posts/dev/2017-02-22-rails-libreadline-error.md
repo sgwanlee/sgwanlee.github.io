@@ -1,6 +1,7 @@
 ---
 title: Rails - libreadline 에러 해결하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

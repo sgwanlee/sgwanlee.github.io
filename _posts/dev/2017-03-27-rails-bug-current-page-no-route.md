@@ -1,6 +1,7 @@
 ---
 title: Rails bug - current_page? No route matches
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

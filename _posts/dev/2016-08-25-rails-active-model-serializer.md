@@ -1,6 +1,7 @@
 ---
 title: Tips - Rails(레일즈) active model serializer
 layout: post
+comments: true
 category: [dev, rails]
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 생각좀 하고 살아라 - 야마다 아키오
 layout: post
+comments: true
 category: [book, 2017]
 --- 
 

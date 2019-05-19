@@ -1,6 +1,7 @@
 ---
 title: tip - nil이 아닌경우에 method를 실행
 layout: post
+comments: true
 category: [dev, ruby, rails]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: AWS RDS를 로컬에 복사하기
 layout: post
+comments: true
 category: [dev, aws]
 --- 
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Carrierwave video thumbnailer
 category: [dev, rails]
 ---

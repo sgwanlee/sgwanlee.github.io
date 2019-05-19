@@ -1,6 +1,7 @@
 ---
 title: Godaddy에서 Heroku로 DNS 설정하기
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

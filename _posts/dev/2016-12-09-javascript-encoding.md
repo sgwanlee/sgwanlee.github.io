@@ -1,6 +1,7 @@
 ---
 title: Javascript Unicdoe/UTF-8 인코딩
 layout: post
+comments: true
 category: [dev, javascript] 
 --- 
 

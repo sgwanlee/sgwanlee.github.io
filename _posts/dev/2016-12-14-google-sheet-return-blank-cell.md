@@ -1,6 +1,7 @@
 ---
 title: Google Sheet - 함수에서 blank cell 반환하기
 layout: post
+comments: true
 category: [dev, google sheet]              
 --- 
 

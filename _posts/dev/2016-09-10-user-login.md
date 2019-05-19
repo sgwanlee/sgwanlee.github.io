@@ -1,6 +1,7 @@
 ---
 title: Rails4 User Login - 처음부터
 layout: post
+comments: true
 category: [dev, rails]
 ---	
 

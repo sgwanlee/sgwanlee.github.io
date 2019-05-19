@@ -1,6 +1,7 @@
 ---
 title: 판매의 심리학 - 브라이언 트레이시
 layout: post
+comments: true
 category: [book, 2016]
 --- 
 

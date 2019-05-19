@@ -1,6 +1,7 @@
 ---
 title: Google Chart 로 그래프 그리기
 layout: post
+comments: true
 category: [dev, google-chart]
 --- 
 

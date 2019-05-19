@@ -1,6 +1,7 @@
 ---
 title: Rails - text-area 줄바꿈 입력값 보여주기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

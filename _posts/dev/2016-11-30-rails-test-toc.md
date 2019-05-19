@@ -1,6 +1,7 @@
 ---
 title: Rails Test 0 Table of Contents
 layout: post
+comments: true
 category: [dev, rails, test]
 --- 
 

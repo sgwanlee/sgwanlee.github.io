@@ -1,6 +1,7 @@
 ---
 title: 좋아요/싫어요 투표 기능 gem - acts_as_votable
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

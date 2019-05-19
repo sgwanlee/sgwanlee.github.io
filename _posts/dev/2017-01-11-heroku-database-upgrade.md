@@ -1,6 +1,7 @@
 ---
 title: Heroku database 업그레이드
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

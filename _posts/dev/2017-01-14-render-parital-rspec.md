@@ -1,6 +1,7 @@
 ---
 title: Rspec - partial rendering 테스트 하기
 layout: post
+comments: true
 category: [dev, rspec]
 --- 
 

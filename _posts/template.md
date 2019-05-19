@@ -1,6 +1,7 @@
 ---
 title: Heroku database로 local database 세팅하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

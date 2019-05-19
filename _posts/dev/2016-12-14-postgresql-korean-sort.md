@@ -1,6 +1,7 @@
 ---
 title: Postgresql 한글 정렬
 layout: post
+comments: true
 category: [dev, rails, pg]
 --- 
 

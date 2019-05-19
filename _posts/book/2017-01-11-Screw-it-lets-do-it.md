@@ -1,6 +1,7 @@
 ---
 title: Screw it! Let's do it! - Richard Branson
 layout: post
+comments: true
 category: [book, 2017]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Heroku - app option을 사용하라고 error 발생시
 layout: post
+comments: true
 category: [dev, heroku]
 --- 
 

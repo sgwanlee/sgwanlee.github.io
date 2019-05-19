@@ -1,6 +1,7 @@
 ---
 title: Development DB를 Postresql로 세팅
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

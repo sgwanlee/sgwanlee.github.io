@@ -1,6 +1,7 @@
 ---
 title: Rails - 로그인 유지하기
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

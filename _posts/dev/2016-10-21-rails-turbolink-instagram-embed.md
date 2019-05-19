@@ -1,6 +1,7 @@
 ---
 title: Turbolink - 인스타그램 embed가 load되지 않을 때
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

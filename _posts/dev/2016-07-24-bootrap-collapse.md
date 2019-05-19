@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Bootstrap collapse의 event handler 사용하기
 category: [dev, bootstrap]
 ---

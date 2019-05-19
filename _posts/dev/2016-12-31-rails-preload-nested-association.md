@@ -1,6 +1,7 @@
 ---
 title: Preload/Eagerload Nest Association
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

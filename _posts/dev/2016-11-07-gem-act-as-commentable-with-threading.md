@@ -1,6 +1,7 @@
 ---
 title: 대댓글 기능 gem - act_as_commentable_with_threading
 layout: post
+comments: true
 category: [dev, rails]
 --- 
 

@@ -1,6 +1,7 @@
 ---
 title: Jekyll에서 다른 post 링크를 넣는 방법
 layout: post
+comments: true
 category: [dev, jekyll]
 --- 
 
