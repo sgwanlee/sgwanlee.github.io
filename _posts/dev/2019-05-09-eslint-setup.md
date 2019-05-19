@@ -124,8 +124,3 @@ module.exports = {
 ---
 
 credit : [Velopert-리액트 프로젝트에 ESLint 와 Prettier 끼얹기](https://velog.io/@velopert/eslint-and-prettier-in-react)
-credit : [링크주소](링크주소)
-all credit : [누구누구누구](링크주소)
-all credit : [링크주소](링크주소)
-[참고 : 뭐뭐뭐](링크주소)
-[링크변수]: 링크주소
