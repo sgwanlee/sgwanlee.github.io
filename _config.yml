@@ -13,20 +13,20 @@ gems:
   - jekyll-feed
 
 # Dependencies
-highlighter:         'rouge'
+highlighter: "rouge"
 
 # Permalinks
-permalink:        pretty
+permalink: pretty
 
 # Setup
-title:            House 201
-tagline:          'Blog'
-description:      'Startup Project, House201의 블로그입니다.'
-url:              http://sgwanlee.github.io
+title: Seonggwan Lee
+tagline: "Blog"
+description: "이성관 블로그"
+url: http://sgwanlee.github.io
 
 author:
-  name:           'SG Lee'
-  url:            https://twitter.com/sgwanlee
+  name: "SG Lee"
+  url: https://twitter.com/sgwanlee
 
-paginate:         5
+paginate: 5
 excerpt_separator: ""
