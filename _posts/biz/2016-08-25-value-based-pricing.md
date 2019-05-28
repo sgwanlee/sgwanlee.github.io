@@ -1,7 +1,6 @@
 ---
 layout: post
 comments: true
-comments: true
 title: 가치 기반 가격 (Value-based pricing)
 category: [biz, pricing]
 ---
