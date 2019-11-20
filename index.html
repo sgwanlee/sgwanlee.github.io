@@ -26,7 +26,7 @@ layout: default
 
 {% include pagination.html %}
 
-{% for category in categories %}
+{% comment %} {% for category in categories %}
   <div class="posts post-list">
     <div class="category">
       <a href="/categories/{{category}}">{{category | upcase}}</a>
@@ -44,4 +44,4 @@ layout: default
       </div>
     {% endfor %}
   </div>
-{% endfor %}
+{% endfor %} {% endcomment %}
