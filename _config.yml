@@ -6,12 +6,6 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
 
-gems:
-  - jekyll-coffeescript
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
-
 # Dependencies
 highlighter: "rouge"
 
@@ -20,6 +14,9 @@ permalink: pretty
 
 plugins:
   - jekyll-paginate
+  - jekyll-coffeescript
+  - jekyll-sitemap
+  - jekyll-feed
 
 paginate: 5
 paginate_path: "/page/:num/"

@@ -18,11 +18,13 @@ layout: default
 
 {% assign categories = "biz dev book growth" | split: " " %}
 
-<ul id='post-list'>
-  {% for post in paginator.posts %}
-    {% include item.html %}
-  {% endfor %}
-</ul>
+<div id='post-list'>
+  <div class="posts post-list">
+    {% for post in paginator.posts %}
+      {% include item.html %}
+    {% endfor %}
+  </div>
+</div>
 
 {% include pagination.html %}
 
