@@ -18,6 +18,25 @@ highlighter: "rouge"
 # Permalinks
 permalink: pretty
 
+plugins:
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: "/page/:num/"
+excerpt_separator: <!--more-->
+
+# collections:
+#   tags:
+#     output: true
+#     permalink: /tags/:path/
+
+# defaults:
+#   - scope:
+#       path: ''
+#       type: tags
+#     values:
+#       layout: tag
+
 # Setup
 title: Seonggwan Lee
 tagline: "Blog"
@@ -27,6 +46,3 @@ url: http://sgwanlee.github.io
 author:
   name: "SG Lee"
   url: https://twitter.com/sgwanlee
-
-paginate: 5
-excerpt_separator: ""
