@@ -2,12 +2,15 @@
 title: 리엑트 패키지 소개 - classnames
 layout: post
 comments: true
+tags: [react]
 category: [dev, react]
 ---
 
 이번에 소개할 리엑트 패키지는 classnames.
 에러가 있을 때만 input box 색을 변경하는 경우처럼, 조건에 따라 css class를 추가/삭제 하고 싶을 때
 아래 처럼 쓰는 경우가 있을거야.
+
+<!--more-->
 
 ```javascript
 const className = error ? "form-control error" : "form-control";

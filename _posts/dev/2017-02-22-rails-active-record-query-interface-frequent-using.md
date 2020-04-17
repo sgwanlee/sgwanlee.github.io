@@ -1,10 +1,9 @@
 ---
-title: [Rails/ActiveRecord] 자주 쓰는 API
+title: Rails/ActiveRecord 자주 쓰는 API
 layout: post
 comments: true
 category: [dev, rails]
---- 
-
+---
 
 ## .find_each
 
@@ -13,5 +12,3 @@ category: [dev, rails]
     Item.find_each do |i|
         i.update_weekly_ranks
     end
-
-
