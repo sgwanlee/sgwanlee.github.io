@@ -2,11 +2,15 @@
 
 html,
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
   overflow-x: visible;
   color: #333;
-  background-color: #f1f1f1;
+  background-color: #f5f6fc;
+}
+
+a {
+  text-decoration: none;
 }
 
 p {
@@ -22,8 +26,6 @@ p {
   font-weight: 700;
   margin-top: 6em;
 }
-
-
 
 li {
   font-weight: 300;
@@ -67,7 +69,7 @@ li {
   text-decoration: none;
 }
 
-.category-post>li>small {
+.category-post > li > small {
   font-size: 0.6em;
 }
 
@@ -101,7 +103,6 @@ li {
 
 .post-category {
   padding: 0 3px;
-
 }
 
 /* To center images */
@@ -154,7 +155,7 @@ hr {
 
 .post a:hover,
 .post a:active {
-  color: #4f00ff
+  color: #4f00ff;
 }
 
 .post-list .post a {
@@ -187,7 +188,7 @@ hr {
 }
 
 .related-posts li a:hover {
-  color: #4f00ff
+  color: #4f00ff;
 }
 
 .post-list .category a {
@@ -196,15 +197,13 @@ hr {
   text-decoration: none;
 }
 
-.post-list>.category {
+.post-list > .category {
   margin-bottom: 15px;
 }
 
 .post-list {
   margin-bottom: 70px;
 }
-
-
 
 /* Code */
 code,
@@ -213,7 +212,7 @@ pre {
 }
 
 code {
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
   font-size: 85%;
   color: #6661bf;
   background-color: #f9f9f9;
@@ -225,7 +224,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
@@ -249,7 +248,6 @@ pre code {
   margin-bottom: 0;
 }
 
-
 .search-box {
   float: right;
 }
@@ -262,7 +260,6 @@ pre code {
   outline: none;
   box-shadow: none;
 }
-
 
 #search-results a {
   text-decoration: none;
@@ -279,11 +276,25 @@ pre code {
 }
 
 .post-tag {
-  background-color: #f0f0f0;
-  color: #2F89F0;
+  margin: 0 2px;
+  background-color: #fcfcfc;
+  color: #9e00ff;
   height: 21px;
   padding: 0 8px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 24px;
   vertical-align: top;
+  border-radius: 5px;
+}
+
+.catagory_post {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catagory_post .post-title {
+  font-size: 16px;
+  font-weight: 300;
 }
