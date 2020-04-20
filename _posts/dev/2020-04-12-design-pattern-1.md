@@ -89,3 +89,33 @@ public class Account {
   }
 }
 ```
+
+# Abstraction
+
+복잡한것을 감춰서 간단하게 만들기. 자동차를 운전하려고 자동차가 어떤식으로 움직이는지 몰라도, 핸들과 악셀 브레이크만 잘 밟을 줄 알아도 되는 것 처럼.
+
+메일을 보내기 위해, `connect`, `disconnect`, `authenticate` 와 같은 복잡한 내부동작을 감춰서 `Main`에서는 `sendEmail` 이라는 인터페이스만 보이도록 한다.
+
+```java
+//MailService.java
+public class MailService {
+    public void sendEmail() {
+        connect(1);
+        authenticate();
+        // send email
+        disconnect();
+    }
+    private void connect(int timeout) {}
+    private void disconnect() {}
+    private void authenticate() {}
+
+}
+
+//main.java
+public class Main {
+  public static void main(String[] args) {
+    var mailService = new MailService();
+    MailService.sendEmail();
+  }
+}
+```
