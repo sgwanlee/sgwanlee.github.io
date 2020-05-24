@@ -1,0 +1,19 @@
+더블카운터 개인정보 취급 방침
+
+더블카운터는 어떠한 개인정보도 수집하고 있지 않습니다.
+다만, 아래와 같은 서비스를 제공하는 주체에서 개입정보를 수집할 수 있습니다.
+
+* 광고 *
+Google Admob을 이용해 광고를 게재하고 있습니다.
+맞춤 광고를 제공하기 위해 사용자의 기기와 연결된 광고 식별자를 Google Admob에 제공되며
+해당 절차 및 책임은 Google Admob에 있습니다.
+
+
+Privacy Policy of Double Counter
+
+Double Counter ifself does not collect any of users' private information.
+However, service provider below may collect private information.
+
+* Advertisement *
+Double Counter uses Google Admob to post ads in the application.
+Google Admob collects ad identifier to provide personalized ads and is responsible for the information.
