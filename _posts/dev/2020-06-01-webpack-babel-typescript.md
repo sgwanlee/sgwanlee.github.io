@@ -3,6 +3,7 @@ title: Webpack + Babel + Typescript 그리고 절대경로 import시 버그 해�
 layout: post
 comments: true
 category: [dev, rails]
+tags: [rails]
 ---
 
 <!--more-->

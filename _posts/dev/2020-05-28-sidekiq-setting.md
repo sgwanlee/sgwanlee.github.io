@@ -3,6 +3,7 @@ title: AWS Elastic Beanstalk 그리고 Sidekiq
 layout: post
 comments: true
 category: [dev, rails]
+tags: [rails]
 ---
 
 AWS Elastic beanstalk에서 Sidekiq을 설정하는 방법
