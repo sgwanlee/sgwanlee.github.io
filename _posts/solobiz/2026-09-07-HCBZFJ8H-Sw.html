@@ -1,0 +1,111 @@
+---
+layout: post
+comments: true
+title: "시니어를 위한 태극권 앱이 월 $100,000를 버는 이유 — Base44로 코드 없이 통째로 만들기"
+categories: [solobiz]
+date: 2026-09-07 12:30:15 +0900
+source_video: https://www.youtube.com/watch?v=HCBZFJ8H-Sw
+---
+
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #222; max-width: 820px; margin: 0 auto;">
+
+<h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px; line-height: 1.3;">시니어를 위한 태극권 앱이 월 $100,000를 버는 이유 — Base44로 코드 없이 통째로 만들기</h1>
+<p style="color: #666; margin: 0 0 24px;">출처: <a href="https://www.youtube.com/watch?v=HCBZFJ8H-Sw" target="_blank" style="color: #666;">Jason Lee — This app for seniors makes $100K/month (Full Vibe Coding Tutorial)</a> · 러닝타임 14:33</p>
+
+<blockquote style="border-left: 4px solid #4285f4; background: #f2f6fd; padding: 16px 20px; margin: 0 0 32px; border-radius: 4px;">
+"제일 붐비는 니치를 골랐다면, 그 안에서 무시당하고 있는 사람이 누구인지 물어보세요." — Jason Lee
+</blockquote>
+
+<p>초보자·시니어를 위한 태극권 앱이 대형 피트니스 앱들(MyFitnessPal 등)과 경쟁하는 가장 붐비는 니치에서 운동 목록·타이머·진행 추적이라는 기본적인 기능만으로 월 $100,000를 벌고 있다는 사실에서 출발해, 이 앱을 통째로 분석하고 노코드 AI 툴 'Base44'로 처음부터 다시 만드는 과정을 시연한다. 아이디어를 찾는 법부터 캐릭터 애니메이션 추가, 강사용 웹 대시보드, 앱스토어 제출 준비까지 다룬다.</p>
+
+<div style="background: #f7f7f7; border-radius: 8px; padding: 20px 24px; margin: 24px 0;">
+<p style="margin: 0 0 10px; font-weight: 700;">목차</p>
+<ol style="margin: 0; padding-left: 20px; columns: 1;">
+<li>인트로 — 시니어 태극권 앱이 월 $100K를 버는 이유</li>
+<li>무시된 오디언스를 찾는 법 — 60대 이상을 겨냥한 틈새 전략</li>
+<li>경쟁 앱 분석 리포트 무료 제공</li>
+<li>Base44 소개와 첫 프롬프트 — 계획 먼저 확인하기</li>
+<li>디자인 레퍼런스를 붙여 완성된 앱 프리뷰</li>
+<li>캐릭터 애니메이션 추가하기 — WebM 투명배경 팁</li>
+<li>Base44의 강점 — 내장된 백엔드(DB·SEO·유저 관리)</li>
+<li>강사용 웹 대시보드까지 한 번에 만들기</li>
+<li>실기기 프리뷰와 앱스토어 제출 준비</li>
+<li>마무리 — Base44는 누구에게 적합한가</li>
+</ol>
+</div>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  1. 인트로 — 시니어 태극권 앱이 월 $100K를 버는 이유 <span style="color:#999; font-size:14px; font-weight:400;">(00:00~01:08)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s01_intro.jpg" alt="영상 인트로" style="width:100%; border-radius:8px;"></p>
+<p>초보자·시니어를 위한 태극권 앱은 MyFitnessPal 같은 대형 앱과 경쟁하는 가장 붐비는 피트니스 니치에서, 운동 목록과 타이머·진행 추적이라는 기본적인 기능만으로 월 $100,000를 벌고 있다. 이 앱을 통째로 분석해 마케팅 방식과 App Store 랭킹 키워드, 그리고 파고들 수 있는 약점까지 찾아냈고, 이번 영상에서는 코드 한 줄 없이 AI로 이 앱을 처음부터 다시 만드는 과정을 전부 보여준다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  2. 무시된 오디언스를 찾는 법 — 60대 이상을 겨냥한 틈새 전략 <span style="color:#999; font-size:14px; font-weight:400;">(01:08~02:16)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s02_ignored_audience.jpg" alt="무시된 오디언스 설명" style="width:100%; border-radius:8px;"></p>
+<p>대부분의 사람은 앱 아이디어를 찾을 때 트렌드를 따라가며 대형 플레이어를 베낀다. 하지만 이 앱의 제작자는 정반대로 했다 — 가장 붐비는 피트니스 니치를 고른 뒤 "여기서 무시당하고 있는 사람이 누구인가?"라고 물었고, 답은 <b>60대 이상 시니어</b>였다. 이들은 시간도 돈도 있고 의사가 운동하라고 권하는, 돈 있는 거대한 오디언스인데도 대부분의 피트니스 앱은 25살이 요가나 필라테스를 하는 걸 기준으로 만들어져 있다. 실제로 '태극권 걷기와 체어 요가' 앱은 월 $40,000, '요가 태극권 필라테스' 앱은 더 자리 잡아 월 $300,000를 벌고 있다 — 교훈은 새로운 아이디어를 발명할 필요 없이, 이미 수요가 증명된 시장에서 무시된 작은 부분을 찾으면 된다는 것이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  3. 경쟁 앱 분석 리포트 무료 제공 <span style="color:#999; font-size:14px; font-weight:400;">(02:16~02:47)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s03_teardown_report.jpg" alt="경쟁 앱 분석 자료" style="width:100%; border-radius:8px;"></p>
+<p>Jason은 이 앱에 대한 종합 분석 자료를 무료로 공개한다 — 마케팅 방식, 소셜미디어 최고 성과 영상, 실행 중인 광고, 그리고 앱스토어 리뷰 수천 개를 스크래핑해 유저들이 뭘 불평하는지(더 나은 버전을 만들 기회)까지 담았다. 이미 이 아이디어를 보고 자기 버전을 만들어 월 $10,000를 벌고 있는 사람도 있다는 것도 확인할 수 있다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  4. Base44 소개와 첫 프롬프트 — 계획 먼저 확인하기 <span style="color:#999; font-size:14px; font-weight:400;">(02:47~05:19)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s04_base44_first_prompt.jpg" alt="Base44 첫 프롬프트 화면" style="width:100%; border-radius:8px;"></p>
+<p>이번 빌드에는 30만 명 이상의 유저와 $350만 매출을 기록 중인 노코드 AI 툴 <b>Base44</b>를 사용한다(이 영상은 Base44의 스폰서를 받았지만 의견은 전적으로 본인 것임을 밝힌다). 무료 플랜으로 시작해 "Tai Chi Flow라는 이름의 iOS 앱을 만들어달라, 참고 앱 링크를 크롤링해서 기능을 리서치하라, 운동 최소 10개와 캐릭터 일러스트, 카운트다운 타이머를 넣어달라"고 프롬프트를 입력한다. 모델은 최신 모델들을 각 요청에 맞게 자동 선택해주는 '오토 모드'를 사용하고, 반드시 <b>플랜 모드</b>를 선택해 빌드 전에 기능·색상·의도 이해도를 먼저 확인한다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  5. 디자인 레퍼런스를 붙여 완성된 앱 프리뷰 <span style="color:#999; font-size:14px; font-weight:400;">(05:19~06:59)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s05_design_reference_preview.jpg" alt="디자인 레퍼런스와 완성된 앱" style="width:100%; border-radius:8px;"></p>
+<p>무작위 디자인이 나오지 않도록 Dribbble에서 찾은 디자인 레퍼런스를 프롬프트에 첨부한다. 몇 분 만에 완성된 앱은 레퍼런스의 색상·타이포그래피를 그대로 따랐고, 진행률 바에 애니메이션까지 들어가 있다. 플랜 페이지에는 운동 목록과 캐릭터 이미지가 있고, 연습 시작을 누르면 7초/10초 카운트다운 타이머와 오디오가 작동하며, 완료 후 "오늘 기분이 어땠나요"를 기록하면 진행 상황에 저장된다 — 첫 시도치고 상당히 완성도가 높다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  6. 캐릭터 애니메이션 추가하기 — WebM 투명배경 팁 <span style="color:#999; font-size:14px; font-weight:400;">(06:59~09:03)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s06_character_animation.jpg" alt="캐릭터 애니메이션 추가 작업" style="width:100%; border-radius:8px;"></p>
+<p>운동 캐릭터가 정지 이미지인 게 아쉬워서, 별도의 영상 생성 툴로 이미지를 움직이는 영상으로 만든 뒤 Base44에 첨부해 "정지 이미지를 이 움직이는 캐릭터 애니메이션으로 교체하고, 배경은 투명하게, 루프로 재생되게 해달라"고 요청한다. 핵심 팁은 <b>MP4가 아니라 WebM 파일을 사용하는 것</b>이다 — MP4는 검은색/흰색 배경이 그대로 들어가지만 WebM은 투명 배경을 지원한다. 이 작업은 약 30초 만에 끝났는데, Claude Code나 Codex로 같은 작업을 했다면 몇 분은 걸렸을 거라며 Base44의 속도에 놀란다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  7. Base44의 강점 — 내장된 백엔드(DB·SEO·유저 관리) <span style="color:#999; font-size:14px; font-weight:400;">(09:03~10:03)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s07_backend_builtin.jpg" alt="내장된 백엔드 대시보드" style="width:100%; border-radius:8px;"></p>
+<p>디자인 세부 조정은 '편집' 버튼으로 색상·크기·폰트를 바로 바꾸거나 재생성을 요청할 수 있다. Base44의 진짜 강점은 <b>대시보드 탭</b>에서 드러난다 — 어떤 앱을 만들든 데이터베이스, 도메인, 유저 관리(무료/유료 플랜 구분), SEO까지 이미 백엔드가 갖춰져 있어 별도의 서드파티 데이터베이스 연동이 필요 없다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  8. 강사용 웹 대시보드까지 한 번에 만들기 <span style="color:#999; font-size:14px; font-weight:400;">(10:03~11:18)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s08_instructor_dashboard.jpg" alt="강사용 웹 대시보드" style="width:100%; border-radius:8px;"></p>
+<p>피트니스 강사가 회원을 관리할 수 있도록 "회원 10명의 더미 데이터로 모든 지표와 활동을 모니터링할 수 있는 동반 앱(웹 대시보드)을 만들어달라"고 요청하자, 회원들의 진행 상황·활동일수·회복 상태 등을 한눈에 보는 웹 대시보드가 만들어진다. 이 데이터는 강사용 앱과 회원용 모바일 앱이 같은 데이터베이스를 공유해 실시간으로 동기화되며, 강사별로 브랜딩까지 커스터마이징할 수 있다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  9. 실기기 프리뷰와 앱스토어 제출 준비 <span style="color:#999; font-size:14px; font-weight:400;">(11:18~13:02)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s09_phone_preview.jpg" alt="실기기 프리뷰와 발행 화면" style="width:100%; border-radius:8px;"></p>
+<p>'Publish'를 누르고 링크를 아이폰 사파리에서 열어 '홈 화면에 추가'하면 URL 바 없는 진짜 앱처럼 테스트할 수 있다. 앱에 만족했다면 Base44는 App Store 제출 준비도 도와준다 — '앱 검사(check your app)'를 누르면 App Store 가이드라인 준수 여부를 스캔해 애니메이션 영상과 다크모드 관련 이슈 등을 리포트로 보여주고, 'Fix with AI'를 누르면 발견된 문제를 채팅에 자동으로 담아 AI가 알아서 고쳐준다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  10. 마무리 — Base44는 누구에게 적합한가 <span style="color:#999; font-size:14px; font-weight:400;">(13:02~14:33)</span>
+</h2>
+<p><img src="/assets/reports/HCBZFJ8H-Sw/s10_who_is_base44_for.jpg" alt="Base44 적합 대상 정리" style="width:100%; border-radius:8px;"></p>
+<p>Base44는 데이터베이스·결제·보안을 직접 구성할 필요 없이 1시간 안에 완전히 작동하는 프로토타입을 빠르게 원하는 사람, 또는 클라이언트 관리용 내부 툴이 필요한 서비스 제공자(피트니스 코치 등)에게 적합하다 — 분석·SEO·도메인·연동까지 전부 내장돼 있고, 아이디어가 없다면 템플릿에서 출발할 수도 있다. 반면 모든 요소를 자유롭게 커스터마이징하고 싶은 개발자, 혹은 더 많은 통제권을 원하며 배울 의지가 있는 비개발자라면 Claude Code로 처음부터 만드는 편이 낫다. Base44는 무료 체험이 가능하며 최저 요금제는 월 $16부터 시작한다.</p>
+
+<hr>
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">한줄 요약 & 체크리스트</h2>
+<p><b>한줄 요약:</b> 가장 붐비는 피트니스 니치 안에서도 '무시된 오디언스'(시니어)를 찾으면 기본적인 기능만으로 월 $100K를 벌 수 있으며, Base44 같은 노코드 AI 툴은 디자인 레퍼런스·플랜 모드·내장 백엔드를 활용하면 앱스토어 제출까지 코드 한 줄 없이 끝낼 수 있다.</p>
+<ul>
+<li>☑ 새 아이디어를 발명하기보다, 이미 수요가 증명된 니치에서 무시되고 있는 서브 오디언스를 찾아라.</li>
+<li>☑ 경쟁 앱을 마케팅·리뷰·매출까지 통째로 분석하면 개선 기회(약점)를 발견할 수 있다.</li>
+<li>☑ 빌드 전 반드시 '플랜 모드'로 기능·디자인·의도를 먼저 확인하고, Dribbble 등에서 디자인 레퍼런스를 첨부해 무작위 결과를 방지하라.</li>
+<li>☑ 캐릭터·오브젝트 애니메이션을 투명 배경으로 넣으려면 MP4가 아니라 WebM 파일을 사용하라.</li>
+<li>☑ 노코드 툴(Base44)은 DB·유저관리·SEO 같은 백엔드가 기본 내장돼 빠른 프로토타입과 내부 툴에 강하지만, 완전한 커스터마이징이 필요하면 Claude Code 같은 코딩 툴이 더 적합하다.</li>
+<li>☑ 앱스토어 제출 전 준수 여부를 자동 스캔하고 AI로 바로 수정하는 기능을 활용하면 심사 준비 시간을 줄일 수 있다.</li>
+</ul>
+
+<p style="color:#888; font-size:13px; margin-top:32px;">본 리포트는 유튜브 원본 영상을 요약·정리한 것이며, 이미지 캡처는 학습·비평 목적입니다. 원본 채널: <a href="https://www.youtube.com/@jasonleeme" target="_blank" style="color:#888;">Jason Lee</a></p>
+
+</div>
