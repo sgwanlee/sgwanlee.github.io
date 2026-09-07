@@ -1,0 +1,6 @@
+{% assign vid = include.post.source_video | split: 'v=' | last %}
+{% if vid and vid != include.post.source_video %}
+<div class="post-thumb">
+  <img src="https://img.youtube.com/vi/{{ vid }}/mqdefault.jpg" alt="" loading="lazy">
+</div>
+{% endif %}

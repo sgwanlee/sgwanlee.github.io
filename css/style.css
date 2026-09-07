@@ -48,6 +48,37 @@ li {
   display: inline-block;
 }
 
+/* post list thumbnails */
+.post-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.post-thumb {
+  flex: 0 0 auto;
+}
+
+.post-thumb img {
+  display: block;
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #eee;
+}
+
+.post-row-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .post-thumb img {
+    width: 84px;
+  }
+}
+
 /* category dashboard (home) */
 .category-dashboard {
   display: grid;

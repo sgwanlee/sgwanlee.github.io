@@ -1,10 +1,15 @@
 <div class="post">
   <a href="{{ post.url }}">
-	  <h5 class="post-title">
-      {{ post.title }}
-    </h5>
-    <div class="post-description">
-      <small class="post-date">{{ post.date | date: "%b %d, %y" }}</small>
+    <div class="post-row">
+      {% include thumbnail.html post=post %}
+      <div class="post-row-body">
+        <h5 class="post-title">
+          {{ post.title }}
+        </h5>
+        <div class="post-description">
+          <small class="post-date">{{ post.date | date: "%b %d, %y" }}</small>
+        </div>
+      </div>
     </div>
   </a>
 	{{ post.excerpt | strip_html | truncatewords : 75 }}
