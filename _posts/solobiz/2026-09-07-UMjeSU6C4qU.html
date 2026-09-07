@@ -1,0 +1,134 @@
+---
+layout: post
+comments: true
+title: "Claude Code로 월 $80,000 버는 영수증 스캔 앱 만들기 — 코드 한 줄 없이 웹·모바일 동시 빌드"
+categories: [solobiz]
+date: 2026-09-07 11:51:49 +0900
+source_video: https://www.youtube.com/watch?v=UMjeSU6C4qU
+---
+
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #222; max-width: 820px; margin: 0 auto;">
+
+<h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px; line-height: 1.3;">Claude Code로 월 $80,000 버는 영수증 스캔 앱 만들기 — 코드 한 줄 없이 웹·모바일 동시 빌드</h1>
+<p style="color: #666; margin: 0 0 24px;">출처: <a href="https://www.youtube.com/watch?v=UMjeSU6C4qU" target="_blank" style="color: #666;">Jason Lee — How I built an $80K/Mo mobile app with Claude Code (Full Vibe Code Tutorial)</a> · 러닝타임 26:04</p>
+
+<blockquote style="border-left: 4px solid #4285f4; background: #f2f6fd; padding: 16px 20px; margin: 0 0 32px; border-radius: 4px;">
+"작은 카테고리에서도 딱 한 가지 일만 하는 아주 작은 앱이 여전히 엄청나게 수익성 있을 수 있다는 걸 보여줍니다." — Jason Lee
+</blockquote>
+
+<p>회계 카테고리의 작은 하위 니치인 '영수증·지출 스캔' 앱들이 월 $60,000~$80,000를 벌고 있다는 사실에서 출발해, Claude Code(Opus 4.8 + Sonnet 5 멀티에이전트)와 Claude Design만으로 iOS 앱과 웹 대시보드를 동시에 만드는 전 과정을 코드 한 줄 없이 시연한다. Fable 5 없이도 충분한 이유, 프론트엔드를 먼저 디자인하고 백엔드를 붙이는 순서, Supabase MCP 연동, 실기기 QR 프리뷰, Lottie 애니메이션 추가까지 — 바이브 코딩으로 실제 배포 가능한 앱을 만들고 싶은 1인 개발자를 위한 실전 가이드다.</p>
+
+<div style="background: #f7f7f7; border-radius: 8px; padding: 20px 24px; margin: 24px 0;">
+<p style="margin: 0 0 10px; font-weight: 700;">목차</p>
+<ol style="margin: 0; padding-left: 20px; columns: 1;">
+<li>인트로 — 영수증 스캔 앱이 월 $40K~80K를 버는 이유</li>
+<li>이 니치가 좋은 3가지 이유</li>
+<li>도구 선택 — Fable 5 대신 Opus 4.8 + Sonnet 5 멀티에이전트</li>
+<li>첫 프롬프트 — 빌드 전에 계획부터 받기</li>
+<li>Claude Design으로 프론트엔드 먼저 만들기</li>
+<li>디자인 레퍼런스 첨부와 결과물 확인</li>
+<li>토큰 소모 없이 직접 수정하는 내장 에디터</li>
+<li>백엔드 빌드 — 멀티에이전트 역할 분담 계획</li>
+<li>사전 준비물 — Claude API 키와 Supabase MCP 연동</li>
+<li>웹·모바일 동시 완성 확인 — QR코드로 실시간 프리뷰</li>
+<li>실제 영수증 스캔 테스트와 스크린샷으로 버그 고치기</li>
+<li>애니메이션 추가하기 — LottieFiles 활용법</li>
+<li>데이터 저장 확인 — Supabase 테이블 직접 보기</li>
+</ol>
+</div>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  1. 인트로 — 영수증 스캔 앱이 월 $40K~80K를 버는 이유 <span style="color:#999; font-size:14px; font-weight:400;">(00:00~00:51)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s01_intro.jpg" alt="영상 인트로" style="width:100%; border-radius:8px;"></p>
+<p>회계(accounting) 카테고리 안의 작은 하위 니치인 '영수증·지출 추적' 앱들 — SimplyWise를 비롯해 월 $60,000, $80,000를 버는 앱들이 있다. 이들이 하는 일은 딱 하나, 물리적 영수증을 스캔하는 것뿐이다. Jason Lee는 이 영상에서 Claude Code로 이 영수증 트래커 앱을 만들되, 애니메이션을 더해 더 프리미엄한 버전으로 만드는 전 과정을 코드 한 줄 없이, 실기기 테스트까지 보여준다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  2. 이 니치가 좋은 3가지 이유 <span style="color:#999; font-size:14px; font-weight:400;">(00:51~02:34)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s02_niche_reasons.jpg" alt="니치 선택 이유 설명" style="width:100%; border-radius:8px;"></p>
+<p>이 앱은 카메라로 영수증을 찍으면 AI가 데이터를 분석해 대시보드에 정리하고, QuickBooks 같은 회계 소프트웨어와 연동된다. Jason이 이 카테고리를 좋아하는 이유는 셋이다. ① <b>지루한 니치</b>다 — 피트니스나 칼로리 추적 앱처럼 화려하지 않지만 매우 고통스러운 문제를 해결한다. ② <b>단일 문제 해결</b> — 거대한 CRM이나 복잡한 회계 소프트웨어가 아니라, 넓은 카테고리 안의 딱 한 가지 문제만 잘 해결한다. ③ <b>B2B</b>다 — 소상공인을 대상으로 하고 업무 문제를 해결하므로 얼마나 시간을 절약해주는지 바로 와닿고, 데이터가 이미 앱 안에 쌓여 있어 이탈이 잘 안 되는 '끈적한(sticky)' 구독이 된다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  3. 도구 선택 — Fable 5 대신 Opus 4.8 + Sonnet 5 멀티에이전트 <span style="color:#999; font-size:14px; font-weight:400;">(02:34~04:00)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s03_tool_choice.jpg" alt="도구 선택 설명" style="width:100%; border-radius:8px;"></p>
+<p>모바일 앱과 웹 대시보드 버전을 함께 만들고 두 앱이 데이터를 동기화하도록 구성한다. Fable 5가 화제지만 이 정도 규모의 앱에는 과하고 토큰을 많이 먹으며, 7월 12일부터는 API 요금제가 필요해 더 비싸진다. 대신 Jason은 전체를 Opus 4.8과 Sonnet 5(Sonnet 4.6 대비 큰 업그레이드)만으로 만들며, 토큰 효율을 높이기 위해 <b>무거운 작업은 Opus 4.8, 잡일은 Sonnet 5</b>가 맡는 멀티에이전트 구조를 활용한다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  4. 첫 프롬프트 — 빌드 전에 계획부터 받기 <span style="color:#999; font-size:14px; font-weight:400;">(04:00~06:08)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s04_plan_prompt.jpg" alt="첫 프롬프트와 계획 요청" style="width:100%; border-radius:8px;"></p>
+<p>Claude Code 데스크톱 앱에서 새 세션을 만들고 프로젝트 전용 폴더를 연결한 뒤, 모델은 Opus 4.8을 선택한다. 프롬프트에는 앱 이름("Track Rabbit"), 핵심 기능(영수증 사진 촬영→분류→QuickBooks 자동 동기화), 웹 대시보드 요구사항, 그리고 <b>경쟁 앱의 웹사이트와 앱스토어 링크</b>를 첨부해 Claude가 직접 크롤링하고 기능을 제안하도록 한다. 핵심은 "전체 계획을 먼저 달라, 바로 빌드하지 마라"고 명시하는 것 — 그래야 원치 않는 결과물에 토큰을 낭비하지 않는다. Claude는 몇 분 만에 기술 스택(iOS는 Expo React Native, 웹은 Next.js, DB는 Supabase, 영수증 인식은 Claude Vision API)과 기능 목록을 담은 계획을 제시한다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  5. Claude Design으로 프론트엔드 먼저 만들기 <span style="color:#999; font-size:14px; font-weight:400;">(06:08~08:08)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s05_claude_design.jpg" alt="Claude Design 작업 설명" style="width:100%; border-radius:8px;"></p>
+<p>Jason은 프론트엔드 → 백엔드 순서로 두 단계에 걸쳐 작업한다. 프론트엔드는 Claude Code보다 디자인 하네스가 더 좋은 <b>Claude Design</b>을 이용한다. Claude Code에게 "Claude Design에 줄 프롬프트를 만들어달라"고 요청하되 디자인 방향은 지정하지 말고 기능만 넘겨 창의적 자유를 주며, 예산 최적화 기능·재무 건강도 애니메이션·월별 필터링 가능한 카테고리별 지출 분석 등 추가 요구사항도 포함시킨다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  6. 디자인 레퍼런스 첨부와 결과물 확인 <span style="color:#999; font-size:14px; font-weight:400;">(08:08~09:56)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s06_design_reference_result.jpg" alt="드리블 디자인 레퍼런스" style="width:100%; border-radius:8px;"></p>
+<p>Claude Design이 색상·타이포그래피를 알아서 정해주지만, 무작위 디자인이 나오지 않도록 Pinterest나 Dribbble에서 마음에 드는 레퍼런스(둥근 모서리와 초록·주황 톤의 대시보드)를 찾아 이미지로 첨부한다. 몇 분 만에 레퍼런스의 타이포그래피와 스타일을 반영한 웹 대시보드와 iOS 모바일 앱 디자인이 동시에 완성된다 — 영수증 목록, 상세 페이지, 애니메이션까지 전부 반영되어 백엔드를 붙이기 전에 이미 완성된 앱의 모습을 미리 볼 수 있다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  7. 토큰 소모 없이 직접 수정하는 내장 에디터 <span style="color:#999; font-size:14px; font-weight:400;">(09:56~10:35)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s07_inline_editor.jpg" alt="Claude Design 인라인 에디터" style="width:100%; border-radius:8px;"></p>
+<p>최근 업데이트된 Claude Design은 좌측 패널에서 색상이나 배치 같은 <b>간단한 변경을 직접 수정</b>할 수 있게 해준다 — 매번 다시 프롬프트를 쳐서 토큰을 낭비할 필요 없이 마음에 드는 색을 바로 클릭해 바꾸고 저장하면 즉시 반영된다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  8. 백엔드 빌드 — 멀티에이전트 역할 분담 계획 <span style="color:#999; font-size:14px; font-weight:400;">(10:35~12:20)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s08_backend_multiagent.jpg" alt="멀티에이전트 백엔드 계획" style="width:100%; border-radius:8px;"></p>
+<p>디자인이 마음에 들면 'Share and export'로 전체 디자인을 zip 파일로 내려받아 Claude Code 작업 폴더에 저장한다. 이제 Claude Code에게 이 디자인 파일을 바탕으로 두 앱이 같은 데이터베이스를 공유하는 백엔드 계획을 요청하고, <b>어떤 에이전트가 어떤 작업을 왜 맡는지</b>까지 구체적으로 설명해달라고 요청한다 — 그래야 "그냥 알아서 멀티에이전트 돌려"가 아니라 이면에서 무슨 일이 일어나는지 이해하며 바이브 코딩할 수 있다. Sonnet 5가 웹·모바일 앱을 빌드하고, Opus 4.8이 코드 리뷰와 최종 검수를 맡는 구조로 계획이 나온다(계획에 남아있던 Fable 5는 Opus 4.8로 교체 요청).</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  9. 사전 준비물 — Claude API 키와 Supabase MCP 연동 <span style="color:#999; font-size:14px; font-weight:400;">(12:20~16:50)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s09_api_supabase_setup.jpg" alt="API 키와 Supabase 연동 설정" style="width:100%; border-radius:8px;"></p>
+<p>빌드 전 두 가지를 준비해야 한다. 첫째, platform.claude.com에서 크레딧을 충전하고 API 키를 발급받는다(OpenAI API가 더 저렴할 수 있지만 이 프로젝트에서는 Claude를 사용) — 이 키는 반드시 <b>.env 파일에 저장</b>해야 하며 채팅창에 그대로 붙여넣으면 유출 위험이 있다. 둘째, 무료 Supabase 계정을 만들고 Claude의 Supabase MCP 커넥터를 연결한다 — 이 연동이 되어 있으면 Claude가 직접 데이터베이스를 설계하고 관리해준다(스폰서 구간에서는 UGC 광고 영상을 AI로 생성하는 ArKads 서비스도 소개된다).</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  10. 웹·모바일 동시 완성 확인 — QR코드로 실시간 프리뷰 <span style="color:#999; font-size:14px; font-weight:400;">(16:50~19:56)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s10_qr_preview.jpg" alt="QR코드 실기기 프리뷰" style="width:100%; border-radius:8px;"></p>
+<p>몇 분 만에 웹과 모바일 앱이 모두 완성된다. Claude Code 데스크톱 앱 안에서 웹 버전을 바로 미리보기 할 수 있고, iPhone의 Expo Go 앱으로 스캔할 QR 코드도 함께 제공된다. 웹은 localhost:3000에서만 열려 있어(아직 아무도 접근 불가) 안전하게 디자인을 검증할 수 있다. QR코드를 스캔해 실제 아이폰에서 앱을 열어보면, Walmart·Target 영수증 데이터가 웹 대시보드와 <b>동일하게</b> 표시되어 같은 데이터베이스를 공유하고 있음을 확인할 수 있다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  11. 실제 영수증 스캔 테스트와 스크린샷으로 버그 고치기 <span style="color:#999; font-size:14px; font-weight:400;">(19:56~21:01)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s11_receipt_scan_test.jpg" alt="실제 영수증 스캔 테스트" style="width:100%; border-radius:8px;"></p>
+<p>카메라로 실제 스타벅스 영수증을 찍어보니, 정상적으로 처리되어 금액($7 치즈케이크)과 영수증 사진이 함께 저장된다. 카테고리별 지출 분석에서 월 선택 UI가 깨진 걸 발견하면, 화면을 <b>스크린샷으로 찍어 무엇이 잘못됐는지 표시한 뒤 그대로 Claude에게 전달</b>하는 것만으로 수정이 가능하다 — 몇 분 뒤 모바일 앱에도 자동으로 반영된다(반영이 안 되면 휴대폰을 흔들어 Reload).</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  12. 애니메이션 추가하기 — LottieFiles 활용법 <span style="color:#999; font-size:14px; font-weight:400;">(21:01~24:09)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s12_animations_lottie.jpg" alt="LottieFiles 애니메이션 추가" style="width:100%; border-radius:8px;"></p>
+<p>앱을 더 프리미엄하게 만들기 위해 영수증 촬영 화면과 삭제 버튼에 애니메이션을 추가한다. <b>LottieFiles</b>에서 원하는 카테고리(예: 삭제 버튼, 로딩 애니메이션)를 검색하면 무료·유료 옵션이 다양하게 나오고, 색상 팔레트와 재생 속도까지 커스터마이징할 수 있다. 원하는 애니메이션을 'Lottie JSON' 형식으로 내려받아 Claude Code에 첨부하고 "영수증을 찍으면 이 애니메이션을 3초 이상 보여주고, 삭제 버튼을 누르면 이 애니메이션이 재생된 뒤 항목이 삭제되게 해달라"고 요청하면 반영된다. JSON 파일은 이미지·영상이 아니라 코드 형태라 Claude Code가 직접 처리할 수 있다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  13. 데이터 저장 확인 — Supabase 테이블 직접 보기 <span style="color:#999; font-size:14px; font-weight:400;">(24:40~25:45)</span>
+</h2>
+<p><img src="/assets/reports/UMjeSU6C4qU/s13_supabase_data.jpg" alt="Supabase 데이터 테이블 확인" style="width:100%; border-radius:8px;"></p>
+<p>마지막으로 데이터가 실제로 어디에 저장되는지 확인한다. Supabase 계정에 로그인해 Table Editor의 receipts 테이블을 열어보면, 앱에서 스캔한 모든 영수증의 총액·분류·카드 정보 등이 사용자별로 저장되어 있는 것을 볼 수 있다 — 이후 인증(회원가입) 기능을 추가하면 사용자마다 고유한 데이터를 갖게 된다. 영상은 후속으로 월 $40,000 이상 버는 7개의 초소형 앱을 다룬 영상을 안내하며 마무리된다.</p>
+
+<hr>
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">한줄 요약 & 체크리스트</h2>
+<p><b>한줄 요약:</b> 월 수만 달러를 버는 영수증 스캔 앱 같은 '작지만 고통스러운 문제를 해결하는 B2B 니치 앱'은 Claude Design으로 프론트엔드를 먼저 완성하고, Claude Code(Opus 4.8+Sonnet 5 멀티에이전트)와 Supabase MCP로 백엔드를 붙이는 순서만 지키면 코드 한 줄 없이도 웹·모바일 앱을 동시에 만들 수 있다.</p>
+<ul>
+<li>☑ 화려하지 않지만 고통스러운 문제를 해결하는 B2B 앱은 데이터가 쌓일수록 이탈하기 어려운 '끈적한' 구독 비즈니스가 된다.</li>
+<li>☑ 빌드를 시작하기 전에 반드시 "계획부터 달라, 바로 만들지 마라"고 요청해 방향을 확인한 뒤 진행하라.</li>
+<li>☑ 프론트엔드(Claude Design) → 백엔드(Claude Code) 순서로 진행하면 디자인을 먼저 확정하고 낭비 없이 개발할 수 있다.</li>
+<li>☑ 무거운 작업은 상위 모델(Opus), 반복 작업은 하위 모델(Sonnet)에 맡기는 멀티에이전트 구조로 토큰을 절약하라.</li>
+<li>☑ Pinterest·Dribbble 레퍼런스 이미지를 첨부하면 무작위 디자인 대신 원하는 스타일을 정확히 반영할 수 있다.</li>
+<li>☑ API 키는 반드시 .env 파일에 저장하고 채팅창에 직접 붙여넣지 마라.</li>
+<li>☑ 버그는 화면을 스크린샷으로 찍어 무엇이 잘못됐는지 표시한 뒤 그대로 전달하면 빠르게 수정된다.</li>
+<li>☑ LottieFiles의 무료 애니메이션(JSON)만으로도 앱을 훨씬 프리미엄하게 보이게 만들 수 있다.</li>
+</ul>
+
+<p style="color:#888; font-size:13px; margin-top:32px;">본 리포트는 유튜브 원본 영상을 요약·정리한 것이며, 이미지 캡처는 학습·비평 목적입니다. 원본 채널: <a href="https://www.youtube.com/@jasonleeme" target="_blank" style="color:#888;">Jason Lee</a></p>
+
+</div>
