@@ -1,0 +1,20 @@
+{%- assign p = include.post -%}
+<div class="post post-card">
+  <a href="{{ p.url }}">
+    <div class="post-row">
+      {% include thumbnail.html post=p %}
+      <div class="post-row-body">
+        <h5 class="post-title">
+          {{ p.title }}
+        </h5>
+        <div class="post-description">
+          {% assign post_cat = p.categories | first %}
+          {% if post_cat %}
+            <span class="post-category post-category--{{ post_cat }}">{% include category_label.html cat=post_cat %}</span>
+          {% endif %}
+          <small class="post-date">{{ p.date | date: "%Y.%m.%d" }}</small>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

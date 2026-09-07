@@ -19,21 +19,7 @@ layout: default
     <p class="category-empty">아직 등록된 글이 없습니다.</p>
   {% else %}
     {% for post in cat_posts %}
-      <a href="{{ post.url }}">
-        <div class="catagory_post">
-          <div class="post-row">
-            {% include thumbnail.html post=post %}
-            <div class="post-row-body">
-              <h4 class="post-title">
-                {{ post.title }}
-              </h4>
-              <div class="post-description">
-                <small><span class="post-date">{{ post.date | date_to_string }}</span></small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
+      {% include post_card.html post=post %}
     {% endfor %}
   {% endif %}
 </div>

@@ -48,7 +48,42 @@ li {
   display: inline-block;
 }
 
-/* post list thumbnails */
+/* post card (list item, used on home feed + category pages) */
+/* uses compound .post.post-card selector so it wins over the plain .post
+   rule (shared with the full article view) regardless of source order */
+.post.post-card {
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.post-card .post-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card .post-description {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
 .post-row {
   display: flex;
   align-items: flex-start;
@@ -57,15 +92,23 @@ li {
 
 .post-thumb {
   flex: 0 0 auto;
+  width: 140px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #eee;
 }
 
 .post-thumb img {
   display: block;
-  width: 120px;
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 6px;
-  background-color: #eee;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover .post-thumb img {
+  transform: scale(1.05);
 }
 
 .post-row-body {
@@ -73,9 +116,32 @@ li {
   min-width: 0;
 }
 
+.post-category {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: #eee;
+  color: #666;
+  white-space: nowrap;
+}
+
+.post-category--finance     { background-color: #e8f0fe; color: #1a56db; }
+.post-category--selfdev     { background-color: #f3e8ff; color: #7c3aed; }
+.post-category--solobiz     { background-color: #e6f7f0; color: #0f9d58; }
+.post-category--health      { background-color: #ffe8e9; color: #e11d48; }
+.post-category--education   { background-color: #e8ecff; color: #4338ca; }
+.post-category--sidehustle  { background-color: #fff4e0; color: #b45309; }
+.post-category--realestate  { background-color: #f1f0ea; color: #6b5b3e; }
+
 @media (max-width: 480px) {
-  .post-thumb img {
-    width: 84px;
+  .post-thumb {
+    width: 92px;
+  }
+
+  .post-card .post-title {
+    font-size: 15px;
   }
 }
 
@@ -198,10 +264,6 @@ li {
   font-weight: 300;
   color: #9c9c9c;
   font-size: 0.83em;
-}
-
-.post-category {
-  padding: 0 3px;
 }
 
 /* To center images */
@@ -386,14 +448,3 @@ pre code {
   border-radius: 5px;
 }
 
-.catagory_post {
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.catagory_post .post-title {
-  font-size: 16px;
-  font-weight: 300;
-}

@@ -1,0 +1,11 @@
+{%- assign c = include.cat -%}
+{%- case c -%}
+  {%- when 'finance' -%}투자
+  {%- when 'selfdev' -%}자기계발
+  {%- when 'solobiz' -%}1인사업
+  {%- when 'health' -%}건강
+  {%- when 'education' -%}교육
+  {%- when 'sidehustle' -%}부업
+  {%- when 'realestate' -%}부동산
+  {%- else -%}{{ c | upcase }}
+{%- endcase -%}
