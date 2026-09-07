@@ -1,0 +1,140 @@
+---
+layout: post
+comments: true
+title: "에이전트가 올린 5만 5천 줄 PR — Notion 엔지니어 '진짜 병목은 리뷰가 아니다'"
+categories: [selfdev]
+date: 2026-08-19 16:31:51 +0900
+source_video: https://www.youtube.com/watch?v=81EIe6h7mnw
+---
+
+<h2>에이전트가 올린 5만 5천 줄 PR — Notion 엔지니어 "진짜 병목은 리뷰가 아니다"</h2>
+
+<p>이 영상은 <strong>AgentOS</strong> 채널이 정리한 15분짜리 발표 요약이다. 발표자는 <strong>Notion</strong>의 디자인 엔지니어 <strong>제프리 리트(Geoffrey Litt)</strong>. MIT HCI 박사 출신으로 Ink & Switch 선임연구원으로도 소프트웨어를 사용자가 직접 주무를 수 있는 <strong>malleable software</strong>를 연구한다. 그가 AI Engineer World's Fair 2026 디자인 엔지니어 트랙에서 발표한 제목은 <strong>"Understanding is the new bottleneck"</strong> — 이해가 새로운 병목이다. 이 리포트는 원본을 보지 않아도 <strong>파일 372개, 5만 5천 줄, 커밋 69개</strong>짜리 에이전트 PR을 마주한 개발자가 지금 무엇을 해야 하는지가 잡히도록 재조립한 것이다.</p>
+
+<blockquote style="border-left:4px solid #4A90E2;padding:12px 18px;background:#F5F9FF;margin:20px 0;">
+<strong>핵심 요지 미리보기</strong><br>
+· 시장은 "에이전트 PR 시대의 병목은 사람이 코드를 읽는 시간"이라고 진단한다. 리트는 <strong>이 진단이 절반만 맞다</strong>고 말한다.<br>
+· 코드 <strong>검증</strong>을 위한 이해는 실제로 줄어드는 게 맞다. 에이전트가 점점 잘하니까.<br>
+· 그러나 <strong>참여(engagement)</strong>를 위한 이해는 오히려 더 중요해진다. "다음 아이디어"를 만드는 근거이기 때문이다.<br>
+· 그가 매일 쓰는 <strong>Explain Diff 스킬</strong>: 커밋 하나를 두고 팀원 1년치 커리큘럼처럼 코드 설명 문서를 생성한다.<br>
+· 문서는 <strong>배경·핵심 직관·상호작용 그림·문해력 기반 diff·5문항 퀴즈</strong> 순서로 구성된다. 퀴즈를 못 풀면 리뷰 요청 금지.<br>
+· 앨런 케이의 <strong>50년 된 비전</strong>(모든 연령을 위한 개인용 컴퓨터)이 지금에 와서야 실현 가능해졌다.
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">1. 5만 5천 줄 PR — 병목은 사람이 되었나</a></li>
+<li><a href="#s2">2. 검증을 위한 이해는 줄어든다 — 시장의 진단</a></li>
+<li><a href="#s3">3. 그러나 진짜 이유는 검증이 아니라 참여다</a></li>
+<li><a href="#s4">4. Explain Diff 스킬 — 1년 커리큘럼이 팀에 배포된다</a></li>
+<li><a href="#s5">5. 배경 · 직관 · 상호작용 그림 순서의 문서 구조</a></li>
+<li><a href="#s6">6. 문해력 기반 코드 비교와 카페에서 읽는 PR</a></li>
+<li><a href="#s7">7. "책은 효과가 없다" — 5문항 퀴즈가 속도 조절기다</a></li>
+<li><a href="#s8">8. 시모어 파퍼트의 수학의 나라와 마이크로월드</a></li>
+<li><a href="#s9">9. Prolog 인터프리터와 프레임워크 이전 사례</a></li>
+<li><a href="#s10">10. 앨런 케이의 50년 된 비전이 지금 실현된다</a></li>
+<li><a href="#takeaways">핵심 요약 (Takeaways)</a></li>
+</ol>
+
+<p><img src="__THUMBNAIL__" alt="5만 5천 줄 PR 발표 오프닝" style="max-width:100%;"></p>
+
+<h3 id="s1">1. 5만 5천 줄 PR — 병목은 사람이 되었나</h3>
+
+<p>발표의 오프닝 이미지는 충격적이다. <strong>파일 372개, 추가된 줄 5만 5천 줄, 커밋 69개.</strong> 에이전트 하나가 올린 PR이다. 이 화면을 두고 요즘 개발자 커뮤니티에서는 <strong>"병목이 사람이 코드를 읽는 시간으로 옮겨갔다"</strong>는 진단이 나온다. 에이전트가 코드를 무제한 만들 수 있으니, 사람이 그것을 이해·리뷰하는 데 걸리는 시간이 파이프라인의 새 병목이 됐다는 이야기다. 리트의 발표는 이 진단을 <strong>절반만 인정한다</strong>는 데서 시작한다.</p>
+
+<h3 id="s2">2. 검증을 위한 이해는 줄어든다 — 시장의 진단</h3>
+
+<p>리트는 상대의 논리를 먼저 흡수한다. 에이전트에게 <strong>정확성 검증(verification)</strong>을 위해 사람이 코드를 읽어야 했던 시대는 실제로 저물고 있다. 에이전트가 스스로 검증 질문을 하고, 시간이 갈수록 잘하게 되기 때문이다. <strong>"저는 그걸 싫어하지 않아요."</strong> 리트는 이렇게 말한다. 내가 원하는 바를 명확히 알고, 에이전트가 잘못된 결과를 가져오는 대신 정확하게 처리해 준다면 오히려 좋다는 것이다. 여기까지는 시장의 담론과 일치한다.</p>
+
+<h3 id="s3">3. 그러나 진짜 이유는 검증이 아니라 참여다</h3>
+
+<p>그의 반전은 이 지점에서 시작된다. 사람들이 놓치는 것은 <strong>"이 일에서 빠져나와, 에이전트에게 반복문을 맡겨라"</strong>라는 진단의 두 번째 층이다. 리트는 반박한다. 이해가 필요한 <strong>더 깊은 이유</strong>가 있다. 바로 <strong>참여(engagement)</strong>다.</p>
+
+<blockquote style="border-left:4px solid #F5A623;padding:12px 18px;background:#FFFAF0;margin:20px 0;">
+<strong>Understanding for engagement</strong><br>
+· 지금 상태를 이해한다는 것은 <strong>단 한 번의 반복이 아니다</strong>. 이해는 다음 아이디어, 그다음 아이디어, 또 그다음 아이디어로 이어지는 <strong>토대</strong>가 된다.<br>
+· 상황을 완전히 이해하는 사람과 몇 단계 떨어져서 이해하는 사람이 만들어 낼 수 있는 아이디어의 차이는 명백하다.<br>
+· 머릿속에 <strong>풍부한 개념 구조</strong>가 있으면, 굳이 누군가에게 어떻게 작동하는지 물어보지 않고도 빠르고 유창하게 재조합할 수 있다.<br>
+· 이해는 <strong>창의적 도약</strong>의 유연성을 만든다. 이것이 이 일의 인간적 면모다.
+</blockquote>
+
+<p>즉 이해는 검증을 위한 게 아니라 <strong>다음 아이디어를 위한 것</strong>이다. 이 프레임이 발표 전체의 축이 된다.</p>
+
+<h3 id="s4">4. Explain Diff 스킬 — 1년 커리큘럼이 팀에 배포된다</h3>
+
+<p>그가 매일 쓰는 도구가 공개된다. <strong>"Explain Diff"</strong>라는 자체 개발 스킬이다. 그의 질문은 이거였다. <strong>"특정 코드 변경 사항 하나를 설명하기 위해, 팀원들을 1년 동안 파견해서 맞춤 커리큘럼을 만들게 한다면 그 결과물은 어떤 모습일까?"</strong> 이 질문이 매우 생산적이었다고 그는 말한다. Explain Diff는 그 답에 가깝게 만든 도구다. Notion 페이지로 산출물이 나오기 때문에 <strong>팀원들이 댓글을 달고 토론</strong>할 수 있다. HTML 파일이나 마크다운으로도 가능하지만, Notion을 그가 좋아하는 이유는 협업 기능이다.</p>
+
+<h3 id="s5">5. 배경 · 직관 · 상호작용 그림 순서의 문서 구조</h3>
+
+<p>Explain Diff가 생성하는 문서의 5단계 구조.</p>
+
+<blockquote style="border-left:4px solid #7ED321;padding:12px 18px;background:#F5FBEE;margin:20px 0;">
+<strong>Explain Diff 문서 5단계</strong>
+<ol>
+<li><strong>배경 설명</strong>. 이번 변화가 무엇이냐로 시작하지 않는다. <strong>이 시스템이 어떻게 작동하는지, 게임 엔진은 어떻게 생겼는지, 좌표계는 어떻게 되어 있는지</strong>부터. 이미 아는 부분은 건너뛸 수 있다.</li>
+<li><strong>세부 사항보다 직관 우선</strong>. 코드를 살펴보기 전에 <strong>"이번 커밋의 목표는 2D 드로잉 기법만 사용해서 정원이 3차원처럼 보이게 하는 것"</strong>이라는 한 줄 목표부터.</li>
+<li><strong>상호작용형 그림</strong>. 정적 이미지가 아니라 만져볼 수 있는 시뮬레이션. 그가 예로 든 것은 정원 게임의 바위 좌표 변환. Notion HTML 블록으로 페이지에 임베드된다.</li>
+<li><strong>문해력 기반 코드 비교</strong>. 파일 리스트를 순서대로 나열하지 않는다. <strong>산문으로 각 파일을 재생하기 전에 무엇을 다룰지 알려주고</strong>, 그다음 diff를 보여 준다.</li>
+<li><strong>퀴즈 5문항</strong>. 문서 맨 아래.</li>
+</ol>
+</blockquote>
+
+<h3 id="s6">6. 문해력 기반 코드 비교와 카페에서 읽는 PR</h3>
+
+<p>그가 이 도구의 부가 효과로 강조하는 대목이 인상적이다. <strong>"AI 덕분에 예전에는 IDE에 완전히 몰두해서 컴퓨터 앞에 앉아 있던 방식에서, 이제는 카페에 가서 마치 교과서를 읽는 것처럼 PR을 읽을 수 있게 됐다."</strong> 그는 실제로 Explain Diff 문서를 출력해 커피숍에 가져간다. 이 아이러니와 아름다움이 발표의 감성적 축이 된다. 코드 리뷰가 <strong>텍스트 독서</strong>로 바뀐다.</p>
+
+<h3 id="s7">7. "책은 효과가 없다" — 5문항 퀴즈가 속도 조절기다</h3>
+
+<p>그러나 리트는 곧바로 자기 자신을 반박한다. <strong>"독서가 어렵다. 사람들은 게으르다."</strong> 그가 겪은 사건. 동료에게 자기가 다 읽고 이해했다고 생각한 보도자료를 보냈는데, 동료가 아주 기본적인 질문을 하자 답을 못 했다. 스스로를 속이고 있었던 것이다.</p>
+
+<p>해법은 연구자 아니마 아난드와 마이클 닐슨의 <strong>"책은 효과가 없다(books don't work)"</strong> 명제에서 왔다. 그들은 에세이 안에 <strong>대화형 간격 반복 퀴즈</strong>를 넣었다. 리트는 이 방식을 그대로 Explain Diff에 적용했다. 문서 맨 아래 <strong>중간 난이도 5문항 퀴즈</strong>. 그의 규칙: <strong>자기가 작성한 코드에 대한 퀴즈를 통과할 수 없으면 팀원들에게 리뷰를 요청하지 않는다.</strong> "우스꽝스럽게 들릴지 몰라도, 놀라울 정도로 자주 내가 이해하지 못하고 있었다는 사실을 깨닫는다."</p>
+
+<p>그의 프레임은 이렇다. AI 관련 모든 도구는 <strong>속도를 높이는 방향</strong>으로 설계된다. 반면 퀴즈는 <strong>속도 조절기(governor)</strong>다. 정확성의 속도만이 아니라 <strong>이해의 속도</strong>를 확보하기 위한 장치다.</p>
+
+<h3 id="s8">8. 시모어 파퍼트의 수학의 나라와 마이크로월드</h3>
+
+<p>발표의 이론적 축이 이 대목에서 등장한다. <strong>시모어 파퍼트(Seymour Papert)</strong>는 교육자로서 이렇게 물었다. <strong>"아이들은 프랑스에서 살면서 프랑스어를 배운다. 그럼 수학은 어디서 배울까? 수학을 직관적으로 배울 수 있는 '수학의 나라'가 있을까?"</strong> 그가 만든 답이 아이들이 프로그래밍해서 여러 가지 일을 시키는 <strong>거북이 로봇</strong>이었다. 핵심은 로봇이 아니었다. 아이들이 프로그래밍하는 동안 <strong>실제로 수학을 배우게 된 것</strong>이 핵심이었다. "변한 건 아이들이다."</p>
+
+<h3 id="s9">9. Prolog 인터프리터와 프레임워크 이전 사례</h3>
+
+<p>리트는 이 아이디어를 자기 작업에 적용한 사례 두 개를 든다.</p>
+
+<p><strong>사례 1: Prolog 인터프리터.</strong> 작년에 Prolog(데이터베이스 쿼리 언어와 비슷한 논리형 언어)의 인터프리터를 직접 구현하려 했다. Wikipedia는 복잡해 보였다. 클로드에게 <strong>"내부 구현을 시각화하는 디버거 임시 UI"</strong>를 만들어 달라고 요청했다. 인터프리터의 단계별 진행을 타임라인으로 보여주고, 각 단계의 상태를 시각화한다. 버그 수정에도 쓰지만, <strong>수정 과정에서 기계에 대한 감을 잡는 것</strong>이 진짜 소득이었다. 만약 단순히 버그를 수정해 주는 에이전트만 있었다면 이 감은 얻을 수 없다.</p>
+
+<p><strong>사례 2: 프레임워크 이전.</strong> 개인 웹사이트를 한 프레임워크에서 다른 프레임워크로 이전할 때, 그는 클로드에게 <strong>"이 작업의 대본을 써 달라"</strong>고 먼저 요청했다. 대본을 읽어보니 모르겠다는 감이 왔다. 그래서 <strong>"내가 직접 포팅 작업을 할 수 있는 비디오 게임을 만들어 달라"</strong>고 요청했다. 왼쪽에 기존 웹사이트, 오른쪽에 새 웹사이트. 다음 버튼을 누르면 각 단계마다 "지금 실행 중인 명령어는 이것이다" "새 웹사이트가 이렇게 완성되어 간다"가 표시된다. 아래에는 파일 트리가 움직이는 것을 볼 수 있다. 결과는 수동 작업과 같지만, 버튼 하나만 누르면 된다. <strong>고통 없는 반복 작업의 이점</strong>을 누리면서 이해도 얻는다.</p>
+
+<p>리트의 결론: <strong>에이전트는 우리를 위해 소프트웨어를 짓는 게 목적이 아니라, 우리가 코드를 이해하는 데 도움이 되는 마이크로월드(microworld)를 짓는다.</strong></p>
+
+<h3 id="s10">10. 앨런 케이의 50년 된 비전이 지금 실현된다</h3>
+
+<p>발표의 마무리는 역사적 시야로 확장된다. <strong>앨런 케이(Alan Kay)</strong>. 개인용 컴퓨터의 선구자이자 현대 GUI의 공동 발명가. 정확히 50년 전 그는 에세이 <strong>"A Personal Computer for Children of All Ages(모든 연령대의 어린이를 위한 개인용 컴퓨터)"</strong>를 썼다. 두 아이가 아이패드처럼 생긴 기기를 들고 있는 그림이 실렸다. 그러나 앨런이 상상한 것은 <strong>아이패드로 유튜브를 보는 아이들이 아니라, 비디오 게임을 하면서 코드를 수정해 물리학을 배우는 아이들</strong>이었다. 컴퓨터의 존재 목적은 인간을 한 단계 발전시키는 것이었다.</p>
+
+<blockquote style="border-left:4px solid #D0021B;padding:12px 18px;background:#FFF5F5;margin:20px 0;">
+<strong>지금이 그 비전을 되살릴 적기</strong><br>
+AI 덕분에 <strong>코드가 공짜</strong>가 됐다. 일시적인 UI를 만들 수 있고, 개념을 이해하기 위한 동적 시뮬레이션도, 디버거와 플레이그라운드도 만들 수 있다. 새 아이디어가 아니라 <strong>처음부터 목표였던 것</strong>이 이제야 가능해진 것이다.
+</blockquote>
+
+<p>리트가 마지막으로 남긴 문장은 이렇다. <strong>"올바른 도구와 사고 방식, 그리고 창의력만 있다면, 우리는 이전보다 훨씬 더 잘 이해할 수 있을 것이다."</strong></p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #D0021B;padding:16px 20px;background:#FFF5F5;margin:20px 0;">
+<strong>이 발표에서 챙겨야 할 실질 인사이트</strong>
+<ol>
+<li><strong>"에이전트 시대의 병목은 리뷰다"라는 진단은 절반만 맞다.</strong> 진짜 병목은 <strong>참여를 위한 이해</strong>다. 검증은 자동화되지만 다음 아이디어의 근거는 여전히 사람이 만든다.</li>
+<li><strong>Explain Diff 같은 코드 이해 도구를 팀에 배포하라.</strong> 배경 → 직관 → 상호작용 그림 → 문해력 기반 diff → 5문항 퀴즈. Notion HTML 블록 등을 활용해 협업까지 얹으면 리뷰 문화가 바뀐다.</li>
+<li><strong>퀴즈는 속도 조절기다.</strong> AI 도구는 다 속도를 높이는 방향으로 설계된다. 이해의 속도를 별도로 확보하는 장치가 필요하다. "내가 못 푸는 퀴즈는 리뷰 요청하지 않는다"가 실전 규칙.</li>
+<li><strong>에이전트에게 마이크로월드를 지어달라고 요청하라.</strong> 코드를 대신 짜 달라가 아니라, 코드를 이해할 수 있는 임시 UI·시뮬레이션·디버거를 지어달라고. 이것이 지금 시점 에이전트 활용의 진짜 알파다.</li>
+<li><strong>"이 작업의 대본을 써줘"부터 시작하라.</strong> 실제 작업 전에 대본을 요청해 읽어 보면, 자신이 이해하지 못하고 있다는 사실을 즉시 알 수 있다. 그다음에 필요한 도구를 요청한다.</li>
+<li><strong>카페에서 코드 리뷰가 가능해졌다.</strong> 산문화된 코드 이해 문서가 있으면 IDE에 붙어 있을 필요가 없다. 개발자의 <strong>작업 장소</strong>가 바뀐다.</li>
+<li><strong>앨런 케이의 50년 비전을 지금 실현할 수 있다.</strong> 코드가 공짜가 됐다. 임시 UI, 동적 시뮬레이션, 마이크로월드가 개인 도구가 됐다. 이것이 이 시대 소프트웨어 엔지니어링의 진짜 변화다.</li>
+</ol>
+</blockquote>
+
+<h3>참조</h3>
+<ul>
+<li>원본 영상: <a href="https://www.youtube.com/watch?v=81EIe6h7mnw" target="_blank" rel="noopener">에이전트가 올린 5만 5천 줄 PR — Notion 엔지니어가 말한 "진짜 병목은 리뷰가 아니다" — AgentOS</a></li>
+<li>발표자: 제프리 리트(Geoffrey Litt) — Notion 디자인 엔지니어, MIT HCI 박사, Ink & Switch 선임연구원</li>
+<li>발표 원제: "Understanding is the new bottleneck" (AI Engineer World's Fair 2026, Design Engineer Track)</li>
+<li>이론적 인용: 시모어 파퍼트(수학의 나라), 아니마 아난드·마이클 닐슨(책은 효과가 없다), 앨런 케이(모든 연령을 위한 개인용 컴퓨터, 1975)</li>
+</ul>

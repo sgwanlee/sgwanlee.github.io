@@ -16,7 +16,33 @@ layout: default
 </div>
  -->
 
-{% assign categories = "biz dev book growth" | split: " " %}
+{% assign categories = "finance selfdev solobiz health education sidehustle realestate" | split: " " %}
+{% assign category_names = "투자 자기계발 1인사업 건강 교육 부업 부동산" | split: " " %}
+{% assign now_ts = site.time | date: '%s' | plus: 0 %}
+{% assign cutoff_ts = now_ts | minus: 604800 %}
+
+<div class="category-dashboard">
+  {% for category in categories %}
+    {% assign idx = forloop.index0 %}
+    {% assign cat_name = category_names[idx] %}
+    {% assign cat_posts = site.categories[category] %}
+    {% assign total = cat_posts | size %}
+    {% assign recent_count = 0 %}
+    {% for post in cat_posts %}
+      {% assign post_ts = post.date | date: '%s' | plus: 0 %}
+      {% if post_ts > cutoff_ts %}
+        {% assign recent_count = recent_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    <a class="category-card" href="/categories/{{ category }}">
+      <div class="category-card-name">{{ cat_name }}</div>
+      <div class="category-card-count">{{ total }}개 글</div>
+      {% if recent_count > 0 %}
+        <div class="category-card-new">NEW {{ recent_count }}</div>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div>
 
 <div id='post-list'>
   <div class="posts post-list">
@@ -27,23 +53,3 @@ layout: default
 </div>
 
 {% include pagination.html %}
-
-{% comment %} {% for category in categories %}
-  <div class="posts post-list">
-    <div class="category">
-      <a href="/categories/{{category}}">{{category | upcase}}</a>
-    </div>
-    {% for post in site.categories[category] limit:5 %}
-      <div class="post">
-        <h5 class="post-title">
-          <a href="{{ post.url }}">
-            {{ post.title }}
-          </a>
-        </h5>
-        <div class="post-description">
-          <small class="post-date">{{ post.date | date: "%b %d, %y" }}</small>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-{% endfor %} {% endcomment %}

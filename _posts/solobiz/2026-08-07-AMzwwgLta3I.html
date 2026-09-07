@@ -1,0 +1,259 @@
+---
+layout: post
+comments: true
+title: "$100 이하로 첫 유료 고객을 잡는 TikTok Ads 앱 설치 캠페인 완전 정리"
+categories: [solobiz]
+date: 2026-08-07 15:49:54 +0900
+source_video: https://www.youtube.com/watch?v=AMzwwgLta3I
+---
+
+<h2>$100 이하로 첫 유료 고객을 잡는 TikTok Ads 앱 설치 캠페인 완전 정리</h2>
+
+<p><strong>Alim Sharania</strong>(Ambitious Labs 창업자 · Prize Picks 전 헤드 모바일 엔지니어)가 자신의 최신 앱 <strong>Closer Academy</strong>를 런칭한 지 72시간 안에 <em>$100 이하</em>의 TikTok Ads 예산으로 첫 유료 고객을 확보한 실측 워크플로우를 공개한다. 이 리포트는 그의 4단계 프레임워크를 정리한다 — <em>Appsflyer MMP + Mixpanel 세팅</em>, <em>Arc Ads로 AI 아바타 광고 제작</em>, <em>Canada 시장에서 CPM $0.55로 스타트</em>, <em>Onboarding Flow가 65%의 결제를 만든다</em>. 대예산 없이 초기 검증하는 인디해커의 정확한 절차.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:16px 0;">
+<strong>이 리포트가 답하는 질문</strong><br>
+- 왜 <strong>Appsflyer(MMP) + Mixpanel</strong>이 광고 시작 전 필수 인프라인가? Apple IDFA deprecation 이후의 어트리뷰션 문제?<br>
+- 광고 알고리즘에게 <em>구매 이벤트</em>를 전달해야 하는 이유 — 그래야 <em>trigger happy 인스톨러</em>가 아닌 <em>구매 성향 유저</em>를 찾음?<br>
+- <strong>Arc Ads</strong>(AI 아바타 광고)로 $10에 UGC 광고 제작하는 방법과 대안(인간 UGC $150~$200)?<br>
+- 왜 Alim은 <em>US $3.59 CPM 대신 Canada $0.55 CPM</em>으로 시작하는가? 저비용 시장에서 검증 후 확장?<br>
+- <strong>Broad vs Niche 캠페인 A/B</strong>: 4개 캠페인(US Broad · US Sales · Canada Broad · Canada Sales) 병렬 테스트?<br>
+- <strong>TikTok 계정 워밍업</strong>(프로필 · 바이오 · 초기 포스트) 원리 - <em>Spark Ads</em>로 오가닉 포스트를 광고로 변환?<br>
+- <strong>Boost 기능 절대 사용 금지</strong>. TikTok Ads Manager로만 세팅해야 하는 이유?<br>
+- <em>65%의 유료 결제가 Onboarding Flow에서 발생</em>한다는 실측과, Closer Academy의 9단계 온보딩 설계?<br>
+- $50 단위로 반복 테스트하며 <em>7% 전환율 → 15~20% 목표</em>로 이터레이션하는 실전 방식?
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">인트로 — $100 이하로 3일 만에 첫 유료 고객</a></li>
+<li><a href="#s2">Step 1a — Appsflyer MMP 세팅 (IDFA 이후의 어트리뷰션)</a></li>
+<li><a href="#s3">Step 1b — Mixpanel 퍼널 리포트 + Optimization Event</a></li>
+<li><a href="#s4">Step 2 — Arc Ads로 AI 아바타 광고 제작 ($10/ad)</a></li>
+<li><a href="#s5">Step 3a — TikTok 계정 워밍업 + Spark Ads</a></li>
+<li><a href="#s6">Step 3b — 4개 캠페인 A/B (US vs Canada, Broad vs Niche)</a></li>
+<li><a href="#s7">Step 3c — Canada $0.55 CPM vs US $3.59 CPM 실측</a></li>
+<li><a href="#s8">Step 3d — TikTok Ads Manager 세팅 (Boost 금지)</a></li>
+<li><a href="#s9">Step 4 — Onboarding Flow가 65% 결제를 만든다</a></li>
+<li><a href="#s10">Step 5 — $50 단위 반복 테스트로 전환율 최적화</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. 인트로 — $100 이하로 3일 만에 첫 유료 고객 <span style="color:#888;font-size:0.85em;">(0:00~2:00)</span></h3>
+
+<p>[[SECTION1_IMG]]</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:12px 16px;background:#fef2f2;margin:14px 0;">
+<strong>Alim의 배경 및 실측</strong><br>
+- <em>Ambitious Labs</em> 창업자 (500+ 창업자 대상 Flutter 앱 액셀러레이터)<br>
+- 전 <em>Prize Picks 헤드 모바일 엔지니어</em> (미국 1위 daily fantasy sports 앱, 200만+ 유저)<br>
+- 최신 앱: <strong>Closer Academy</strong> (AI 세일즈 코치)<br>
+- 광고 예산: <em>$100 이하</em><br>
+- 첫 유료 고객: <strong>런칭 3일차, 이 영상 촬영 당일 오전</strong>
+</blockquote>
+
+<p>영상의 4개 파트: ① 앱 준비 ② 광고 크리에이티브 ③ TikTok 캠페인 셋업 ④ 첫 유료 고객 획득. 각 단계는 <em>72시간 안에 실측된</em> 실전 데이터 기반이다.</p>
+
+<h3 id="s2">2. Step 1a — Appsflyer MMP 세팅 (IDFA 이후의 어트리뷰션) <span style="color:#888;font-size:0.85em;">(2:00~3:20)</span></h3>
+
+<p>[[SECTION2_IMG]]</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:16px 20px;background:#eff6ff;margin:16px 0;">
+<strong>왜 MMP가 필수인가</strong><br>
+- Apple의 <em>IDFA deprecation</em> 이후 광고주가 <em>어떤 광고에서 다운로드가 왔는지</em> 알기 어려워짐<br>
+- Apple 프라이버시 강화의 부작용<br>
+- 해결책: <strong>MMP(Mobile Measurement Partner)</strong> - 대표 도구 <em>Appsflyer</em><br>
+- SDK로 앱에 설치 → TikTok 계정과 연결 → 광고별 다운로드 트래킹
+</blockquote>
+
+<p>Appsflyer SDK는 Flutter/React Native 등 모든 플랫폼에 있다. 그들의 onboarding이 실측적이라 그대로 따라가면 된다.</p>
+
+<h3 id="s3">3. Step 1b — Mixpanel 퍼널 리포트 + Optimization Event <span style="color:#888;font-size:0.85em;">(3:20~8:30)</span></h3>
+
+<p>[[SECTION3_IMG]]</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>Optimization Event의 힘</strong><br>
+- 광고 네트워크에게 <em>"내 목표는 X"</em>라고 알림<br>
+- 옵션: 앱 설치 · 구매 · 카트 추가 등<br>
+- <strong>구매 이벤트를 알리면 광고 네트워크가 <em>구매 성향의 유저</em>를 찾음</strong><br>
+- 설치만 알리면 <em>trigger happy 인스톨러</em>(무료 앱 다 다운로드해보는 사람)에게만 도달<br>
+- 원칙: <em>높은 인텐트일수록 더 비싸다</em>. 하지만 매출로 더 잘 이어짐.
+</blockquote>
+
+<blockquote style="border-left:4px solid #059669;padding:16px 20px;background:#ecfdf5;margin:16px 0;">
+<strong>Mixpanel 퍼널 리포트 필수</strong><br>
+"측정할 수 없으면 관리할 수 없다. 광고비를 태우는데 트래킹이 없으면 <em>맹인 비행</em>이다."<br><br>
+Alim의 실측: 오늘 $50 광고 → Canada에서 14 signups → 1 purchase = <strong>7% conversion rate</strong>
+</blockquote>
+
+<h3 id="s4">4. Step 2 — Arc Ads로 AI 아바타 광고 제작 ($10/ad) <span style="color:#888;font-size:0.85em;">(8:30~13:00)</span></h3>
+
+<p>[[SECTION4_IMG]]</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:16px 0;">
+<strong>Arc Ads의 매력</strong><br>
+- 카메라 앞에 서기 싫은 창업자용<br>
+- AI 아바타가 스크립트를 읽는 UGC 스타일 광고 생성<br>
+- 가격: <strong>$10/광고</strong><br>
+- 대안: 인간 UGC 크리에이터 $150~$200 (품질 제각각)<br>
+- 브랜드 어태치먼트 없이 <em>다양한 얼굴로 A/B 테스트</em> 가능
+</blockquote>
+
+<p>Alim의 실제 스크립트 예시(Closer Academy):</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:16px 20px;background:#eff6ff;margin:16px 0;">
+"If you work in sales, then this app will make you rich. It's called Closer Academy, an AI-powered sales coach that's proven to help you double your close rate. This app gives you daily sales challenges that actually make you better at handling objections, keep people on the phone, and get prospects to say yes. Download Closer Academy and start dominating today."
+</blockquote>
+
+<p>편집 워크플로우: Arc Ads에서 아바타 영상 생성 → 다운로드 → CapCut에서 앱 스크린 녹화와 오버레이 → 완성.</p>
+
+<h3 id="s5">5. Step 3a — TikTok 계정 워밍업 + Spark Ads <span style="color:#888;font-size:0.85em;">(13:00~13:35)</span></h3>
+
+<p>[[SECTION5_IMG]]</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:16px 20px;background:#f1f8f4;margin:16px 0;">
+<strong>TikTok 계정 워밍업 1주일</strong><br>
+- 프로필 사진 · 바이오 · 초기 포스트 세팅<br>
+- 며칠에 걸쳐 밈 몇 개 포스팅해 초기 트랙션 만들기<br>
+- TikTok 알고리즘에게 <em>"진짜 사업체 · 진짜 사람"</em>임을 시그널<br>
+- 광고 크리에이티브를 <em>오가닉 포스트로 먼저 올림</em> (Alim의 경우 61,000 views)
+</blockquote>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>Spark Ads</strong><br>
+- TikTok Ads Manager에서 <em>기존 오가닉 포스트를 광고로 변환</em>하는 기능<br>
+- 오가닉이 이미 유기적 view · engagement가 있어서 알고리즘이 <em>더 신뢰</em><br>
+- 새 광고 크리에이티브보다 CPM이 낮은 경향
+</blockquote>
+
+<h3 id="s6">6. Step 3b — 4개 캠페인 A/B (US vs Canada, Broad vs Niche) <span style="color:#888;font-size:0.85em;">(13:35~15:15)</span></h3>
+
+<p>[[SECTION6_IMG]]</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:16px 20px;background:#fef2f2;margin:16px 0;">
+<strong>Alim의 4개 병렬 캠페인</strong><br>
+① <strong>USA Broad</strong>: TikTok AI에게 완전 위임, "누구든 찾아 봐라"<br>
+② <strong>USA Sales Niche</strong>: #sales · #salesmotivation 등 해시태그 타겟팅<br>
+③ <strong>Canada Broad</strong>: 위와 동일하지만 캐나다<br>
+④ <strong>Canada Sales Niche</strong>: 위와 동일하지만 캐나다
+</blockquote>
+
+<p>원칙: <em>변수를 격리해야 무엇이 통하는지 파악 가능</em>. 국가별로 분리하지 않으면 코스트가 블렌드되어 알 수 없음.</p>
+
+<h3 id="s7">7. Step 3c — Canada $0.55 CPM vs US $3.59 CPM 실측 <span style="color:#888;font-size:0.85em;">(15:15~17:15)</span></h3>
+
+<p>[[SECTION7_IMG]]</p>
+
+<blockquote style="border-left:4px solid #059669;padding:16px 20px;background:#ecfdf5;margin:16px 0;">
+<strong>Tuesday 실측 데이터 (CPM = 1,000회 노출당 비용)</strong><br>
+- <strong>USA Broad</strong>: <em>$3.59 CPM</em><br>
+- <strong>USA Sales Niche</strong>: $3.98 CPM (타겟팅 좁을수록 비쌈)<br>
+- <strong>Canada Broad</strong>: <strong>$0.55 CPM</strong> (미국의 1/8)<br>
+- <strong>Canada Sales Niche</strong>: $1.70 CPM
+</blockquote>
+
+<p>Alim의 결정: <em>즉시 US 캠페인을 끄고 Canada Broad에만 집중</em>. 128 클릭 확보. 이유: <em>지금은 유료 고객이 목표가 아니라 "앱 퍼널이 작동하는지" 검증이 목표</em>. 그 검증에는 저비용 국가가 최적.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:16px 0;">
+<strong>왜 Canada를 추천하는가</strong><br>
+"캐나다인은 매우 프로페셔널하고, 스마트하고, 좋은 직장을 가지고 있다. 이들에게 팔 수 있고 실제로 구매한다. 그리고 훨씬 저렴하다."<br><br>
+확장 옵션: 남미 · 인도 등도 저비용 시장이나 <em>초기 검증에 최적</em>.
+</blockquote>
+
+<h3 id="s8">8. Step 3d — TikTok Ads Manager 세팅 (Boost 금지) <span style="color:#888;font-size:0.85em;">(17:15~20:30)</span></h3>
+
+<p>[[SECTION8_IMG]]</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:16px 20px;background:#fef2f2;margin:16px 0;">
+<strong>절대 사용 금지: Boost 기능</strong><br>
+- TikTok/Meta 앱 안에 있는 "Boost" 버튼<br>
+- <em>초보 광고주 돈 뜯는 기능</em><br>
+- 실제 광고 컨트롤 없음<br>
+- <strong>대신 TikTok Ads Manager 사용</strong>
+</blockquote>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>App Install 캠페인 셋업 순서</strong><br>
+① App Promotion 선택<br>
+② iOS 14 Dedicated Campaign 활성화 (IDFA 이후 별도 설정)<br>
+③ 앱 선택 (Appsflyer 자동 감지)<br>
+④ Ad Group 이름 + 국가 선택<br>
+⑤ Automatic Placement<br>
+⑥ Interest & Behaviors 해시태그 지정 (선택)<br>
+⑦ Budget: <em>$30/일 이상</em>. 더 낮으면 알고리즘이 못 배움<br>
+⑧ Optimization Goal: Install (초기 · 데이터 없음)<br>
+⑨ Spark Ads 활성화 → 기존 오가닉 포스트 선택
+</blockquote>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:14px 0;">
+<strong>중요: 초기 $100은 절대 뽑지 마라</strong><br>
+"$100 예산을 세워두고 그 $100이 다 태워질 때까지 <em>절대 광고를 끄지 마라</em>. 만약 너무 일찍 끄면 TikTok이 당신을 <em>겁먹은 광고주</em>로 인식하고 좋은 도달을 안 준다. TikTok은 당신이 더 많이 태우기를 원한다. 프로페셔널 행동을 보여줘야 리드를 준다."
+</blockquote>
+
+<h3 id="s9">9. Step 4 — Onboarding Flow가 65% 결제를 만든다 <span style="color:#888;font-size:0.85em;">(20:30~24:00)</span></h3>
+
+<p>[[SECTION9_IMG]]</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:16px 20px;background:#f1f8f4;margin:16px 0;">
+<strong>Alim의 명제: 온보딩 = 마법</strong><br>
+"광고 탭 → 앱스토어 리스팅 → 다운로드 → 첫 화면. 이 <em>내러티브 일관성</em>이 결정적이다."<br><br>
+"<strong>65%의 결제가 온보딩 플로우에서 발생한다.</strong>"
+</blockquote>
+
+<blockquote style="border-left:4px solid #2563eb;padding:16px 20px;background:#eff6ff;margin:16px 0;">
+<strong>Closer Academy의 9단계 온보딩</strong><br>
+① <em>사인업 스크린</em> (Google/Apple/Email — 마찰 최소화)<br>
+② <em>이름 입력</em><br>
+③ <em>What best describes your role?</em> — 리드 자격 필터<br>
+④ <em>주 세일즈 유형은?</em> — 세그멘테이션<br>
+⑤ <em>Closer Academy가 도와줄 수 있다는 자신감 스크린</em><br>
+⑥ <em>How do you want to grow your sales?</em> — 유저가 스스로에게 판매<br>
+⑦ <em>What's stopping you from reaching your goals?</em> — 페인 확인<br>
+⑧ <em>1,000+명이 이미 double sales라는 소셜 프루프</em><br>
+⑨ <em>퍼스널라이제이션 시뮬레이션 → Paywall</em>
+</blockquote>
+
+<p>이 9단계가 <em>유저가 자기 자신에게 판매하는 시퀀스</em>다. 마지막 페이월에서 데이터가 이미 다 모여 있어서 결제 확률 극대화.</p>
+
+<h3 id="s10">10. Step 5 — $50 단위 반복 테스트로 전환율 최적화 <span style="color:#888;font-size:0.85em;">(24:00~25:30)</span></h3>
+
+<p>[[SECTION10_IMG]]</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>Alim의 이터레이션 프로토콜</strong><br>
+- 현재 전환율: <em>7%</em> (14 signups → 1 purchase)<br>
+- 목표: <em>15~20%</em><br>
+- 방식: $50 단위 광고 예산으로 반복 테스트<br>
+- 50 signups로 도달 시점에도 개선 안 되면 → <em>캠페인 킬 · 온보딩 수정 · 재테스트</em><br>
+- 테스트 요소: 하드 페이월 · 저가 옵션 · 온보딩 카피 · 스크린 순서
+</blockquote>
+
+<blockquote style="border-left:4px solid #dc2626;padding:16px 20px;background:#fef2f2;margin:16px 0;">
+<strong>Alim의 마무리 원칙</strong><br>
+"작게 시작해서 <em>변수를 하나씩 격리</em>하며 반복 테스트. 어느 하나가 스케일 가능하다는 확신이 서면 그때 광고 예산을 확대. 이게 인디해커의 첫 유료 고객 획득 정확한 게임 플랜이다."
+</blockquote>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:20px 0;">
+<ol>
+<li><strong>$100 이하로 3일 만에 첫 유료 고객이 가능하다</strong>. Alim의 실측 워크플로우 = Appsflyer + Mixpanel + Arc Ads + Canada + Spark Ads + 9단계 온보딩.</li>
+<li><strong>Appsflyer(MMP)가 광고 시작의 필수 인프라</strong>. Apple IDFA deprecation 이후 어트리뷰션이 어려워졌다. 이걸 안 깔면 <em>어떤 광고가 다운로드를 만드는지 모른다</em>.</li>
+<li><strong>구매 이벤트를 광고 네트워크에 전달하라</strong>. 그래야 <em>trigger happy 인스톨러</em>가 아닌 <em>구매 성향 유저</em>에게 노출된다. 초기에는 Install 이벤트로 시작.</li>
+<li><strong>Mixpanel 퍼널 없이 광고 시작 금지</strong>. 측정할 수 없으면 관리할 수 없다. 매출 라인이 있는데 트래킹이 없으면 맹인 비행이다.</li>
+<li><strong>Arc Ads로 $10에 AI 아바타 광고 제작</strong>. 인간 UGC $150~$200보다 저렴하고 A/B 테스트 유리. 브랜드 어태치먼트 없이 얼굴 A/B 가능.</li>
+<li><strong>TikTok 계정을 광고 전에 1주일 워밍업</strong>. 프로필 · 초기 포스트로 알고리즘에게 "진짜 사업체" 시그널. Spark Ads로 오가닉 포스트를 광고화하면 CPM 낮아짐.</li>
+<li><strong>Canada CPM $0.55 vs US $3.59 — 저비용 시장에서 검증하라</strong>. 초기 목표는 유료 고객이 아니라 <em>퍼널이 작동하는지 확인</em>. 그 검증엔 저비용이 최적.</li>
+<li><strong>4개 캠페인 병렬 실행</strong>: US/Canada × Broad/Niche. 변수를 격리하면 어느 조합이 통하는지 명확히 보인다. Alim은 Canada Broad로 좁혔다.</li>
+<li><strong>TikTok Ads Manager만 사용, Boost 절대 금지</strong>. Boost는 초보 광고주 돈 뜯는 기능. Ads Manager가 진짜 컨트롤을 준다.</li>
+<li><strong>$100은 초기 예산으로 절대 뽑지 마라</strong>. 너무 일찍 끄면 TikTok이 <em>겁먹은 광고주</em>로 인식해 리드가 줄어든다. 프로페셔널 행동을 보여야 알고리즘이 응답.</li>
+<li><strong>Ad Group 예산은 최소 $30/일</strong>. 그 이하로는 알고리즘이 학습 못 한다.</li>
+<li><strong>65%의 결제가 온보딩 플로우에서 발생한다</strong>. 광고 크리에이티브 → 앱스토어 리스팅 → 첫 스크린의 <em>내러티브 일관성</em>이 결정적. 9단계 온보딩이 유저가 자기 자신에게 판매하는 시퀀스.</li>
+<li><strong>$50 단위 이터레이션</strong>. 전환율 개선 시점까지 광고 카피 · 온보딩 순서 · 하드 페이월 · 가격 등을 하나씩 격리해 테스트. 스케일 가능 확신이 서면 예산 확대.</li>
+</ol>
+</blockquote>
+
+<p style="color:#666;font-size:0.9em;text-align:center;margin-top:30px;">
+원본 영상: <a href="https://youtu.be/AMzwwgLta3I" target="_blank">PROFITABLE TikTok Ads Strategy for App Installs</a>
+</p>

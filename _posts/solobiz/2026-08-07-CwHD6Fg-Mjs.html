@@ -1,0 +1,296 @@
+---
+layout: post
+comments: true
+title: "23세 Connor가 2주 동안 100% AI로 만든 앱을 월 $20K로 키운 방법 — Payout 풀 플레이북"
+categories: [solobiz]
+date: 2026-08-07 10:18:35 +0900
+source_video: https://www.youtube.com/watch?v=CwHD6Fg-Mjs
+---
+
+<h2>23세 Connor가 2주 동안 100% AI로 만든 앱을 월 $20K로 키운 방법 — Payout 풀 플레이북</h2>
+
+<p><strong>Starter Story</strong>의 Pat Walls가 진행한 이 인터뷰에서 <strong>Connor(23세)</strong>는 자신의 여섯 번째 앱 <em>Payout(Class Action Lawsuit Discovery App)</em>을 2주 만에 100% AI로 만들어 <strong>Revenue Cat Shipathon 2025</strong>(참가자 55,000명 규모의 해커톤)에서 Build & Grow Award 1위를 차지하며 <strong>월 $20,000 매출</strong>까지 스케일업한 과정을 공개한다. 컴퓨터공학 배경도, MacBook도, 자본도 없던 3년 전 유튜브 하나로 앱을 시작한 그의 축적된 방법론이 <em>이 인터뷰 12분에 모두 압축</em>되어 있다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:16px 0;">
+<strong>이 리포트가 답하는 질문</strong><br>
+- 소셜 앱은 실패, 유틸리티/툴은 성공 — Connor가 <em>1인이 스케일할 수 있는 앱 종류</em>를 확정한 논리는?<br>
+- 앱 빌드 시작 전 20개 경쟁 앱을 <strong>Figma 한 줄에 나열</strong>하는 리서치 방법의 실전 활용법?<br>
+- 온보딩이 90% 유저의 유일한 접점이라는 인식 하에 반드시 담아야 할 <strong>4대 원칙</strong>은?<br>
+- 데이터 구조를 <strong>JSON + 텍스트 스펙 문서</strong>로 먼저 정의하는 것이 왜 바이브 코딩 속도를 결정하는가?<br>
+- UGC → 유료 광고 순서의 <strong>2025년 페이스북 알고리즘 대응</strong> 마케팅 플레이북은?<br>
+- $20K/월을 만드는 앱이 "지구를 바꾸는 아이디어"일 필요가 <em>없는</em> 이유는?
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">인트로 — 23세, 앱 6개, 연 매출 $1M+, 해커톤 우승</a></li>
+<li><a href="#s2">배경 — 새벽에 떠오른 아이디어부터 첫 실패까지</a></li>
+<li><a href="#s3">Step 1 — Figma에 경쟁앱 20개 온보딩을 한 줄로 나열</a></li>
+<li><a href="#s4">Step 2 — 온보딩 4대 원칙 (Emotion · Benefit · Personal · Scientific)</a></li>
+<li><a href="#s5">Step 3 — 데이터 구조 스펙 + Claude Code로 즉시 코딩</a></li>
+<li><a href="#s6">검증 — 완전 신규 아이디어와 개선 아이디어의 분리</a></li>
+<li><a href="#s7">마케팅 1 — 인플루언서 + UGC로 초기 다운로드 뽑기</a></li>
+<li><a href="#s8">마케팅 2 — UGC 성과 → 유료 광고, Facebook 알고리즘 대응</a></li>
+<li><a href="#s9">Payout 실제 시연 — 온보딩 · 페이월 · Class Action 리스트</a></li>
+<li><a href="#s10">Tech 스택 & 최종 조언 — "Simple + Great Onboarding"</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. 인트로 — 23세, 앱 6개, 연 매출 $1M+, 해커톤 우승 <span style="color:#888;font-size:0.85em;">(0:00~1:00)</span></h3>
+
+<p>[[SECTION1_IMG]]</p>
+
+<p>Pat Walls의 오프닝은 도발적이다. <em>"23세, 앱들이 연 $1M+ 매출을 낸다. 최신 앱은 2주 안에 100% AI로 지었다. 그리고 그걸 증명하기 위해 55,000명이 참가한 해커톤에서 우승했다."</em> 등장 인물은 세 명이다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+<strong>이 에피소드의 세 개의 실체</strong><br>
+- <strong>Connor</strong>: 23세, 6개 iOS 앱 개발자, 누적 $1M+ 매출<br>
+- <strong>Payout</strong>: Connor의 최신 앱, 2025년 8월 초 출시, 50일 만에 월 $20K 도달<br>
+- <strong>Revenue Cat Shipathon 2025</strong>: 55,000명 참가 해커톤, Build & Grow Award 상금 $65,000
+</blockquote>
+
+<p>Connor가 이 인터뷰에서 공개할 세 가지:</p>
+
+<ol>
+<li>Day 1부터 돈이 나오는 <strong>검증된 아이디어를 찾는 법</strong></li>
+<li>Vibe coding으로 앱을 <strong>빠르게 만드는 정확한 절차</strong></li>
+<li>0에서 $20K/월까지 <strong>스케일업하는 마케팅 플레이북</strong></li>
+</ol>
+
+<h3 id="s2">2. 배경 — 새벽에 떠오른 아이디어부터 첫 실패까지 <span style="color:#888;font-size:0.85em;">(1:00~2:45)</span></h3>
+
+<p>[[SECTION2_IMG]]</p>
+
+<p>Connor의 <strong>기원 서사</strong>는 지극히 평범하다. 3년 전 그는 게임을 너무 많이 하는 평범한 청소년이었다. 컴퓨터공학 배경 없음, MacBook 없음, 자본 없음. 그러나 어느 날 새벽에 잠에서 깨서 앱 아이디어를 노트에 적었고 다음 날 아침부터 유튜브를 보며 iOS 앱을 만들기 시작했다.</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:10px 14px;background:#eff6ff;margin:14px 0;">
+<strong>Connor의 첫 사업 셋업</strong><br>
+- <strong>도구 조달</strong>: 방에 있는 물건을 팔아 중고 MacBook 확보<br>
+- <strong>학습 리소스</strong>: 유튜브 튜토리얼, Stack Overflow — <em>"fancy tools 필요 없다"</em><br>
+- <strong>첫 앱 Hotspot Events</strong>: 소셜 앱, 6~8개월 개발, <em>실패</em><br>
+- <strong>교훈</strong>: "소셜 앱은 1인이 스케일하기 매우 어렵다. 유틸리티/툴로 전환."
+</blockquote>
+
+<p>이 결정 — <em>"소셜 앱 → 유틸리티/툴"</em> 전환 — 이 3년 뒤 그의 $1M+ 매출의 방향을 결정했다. <strong>1인 개발자에게 유틸리티/툴 앱이 우월한 이유</strong>는 인터뷰 전반에 걸쳐 재확인된다.</p>
+
+<ol>
+<li>네트워크 효과가 필요 없어서 <strong>유저 수 규모</strong>에 의존하지 않음</li>
+<li>구독형 결제 모델이 자연스러워 <strong>MRR 예측 가능</strong></li>
+<li>바이럴리티 대신 <strong>페이월 컨버전</strong>이 성공 지표</li>
+</ol>
+
+<h3 id="s3">3. Step 1 — Figma에 경쟁앱 20개 온보딩을 한 줄로 나열 <span style="color:#888;font-size:0.85em;">(2:45~3:45)</span></h3>
+
+<p>[[SECTION3_IMG]]</p>
+
+<p>Connor의 앱 빌드 프로세스는 <strong>디자인 리서치</strong>부터 시작한다. 이 부분이 인터뷰의 첫 번째 실행 가능한 인사이트다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff;margin:14px 0;">
+<strong>Figma 온보딩 벤치마킹 워크플로우</strong><br>
+① 자신이 만들 니치의 앱 <strong>20개</strong> 다운로드<br>
+② 별개로 <em>디자인이 아름다운 앱</em>도 몇 개 추가 (영감 소스)<br>
+③ 각 앱의 <strong>모든 페이지 · 온보딩 전체 화면</strong> 스크린샷<br>
+④ 모든 스크린샷을 <strong>Figma 한 줄에 나란히 배치</strong><br>
+⑤ 온보딩 <em>질문 · 그래프 · 트랜지션</em>까지 시각적으로 비교<br>
+⑥ 마음에 드는 요소 픽 & 조합 → 자신의 테마·미학으로 리디자인
+</blockquote>
+
+<p>이 방법의 힘은 <strong>"20개 앱의 온보딩 UI가 한 시야에 들어온다"</strong>는 점이다. 스크롤 없이 시각적 대비가 가능하기 때문에 <em>어떤 질문이 자주 나오는지, 어떤 순서가 컨버전이 좋은지</em>가 한눈에 파악된다. 그는 이 벤치마크 라이브러리를 자신의 앱 온보딩의 뼈대로 삼는다.</p>
+
+<h3 id="s4">4. Step 2 — 온보딩 4대 원칙 (Emotion · Benefit · Personal · Scientific) <span style="color:#888;font-size:0.85em;">(3:45~4:45)</span></h3>
+
+<p>[[SECTION4_IMG]]</p>
+
+<p>Connor가 인터뷰에서 던진 가장 강한 명제: <em>"현실적으로 유저의 90%는 여러분 앱의 온보딩만 보고 끝난다."</em> 페이월이 있는 앱이라면 더 그렇다. 그래서 그는 앱 기능 개발과 <em>동일한 시간</em>을 온보딩에 투자한다고 말한다. 그의 <strong>온보딩 4대 원칙</strong>:</p>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>① Invoke Emotion (감정을 자극하라)</strong><br>
+"대부분의 소비자 구매는 감정적으로 이루어진다. 논리적이지 않다." — 유저가 온보딩 중 <em>강하게 느끼도록</em> 페이지를 구성.<br><br>
+
+<strong>② Show Strongest Benefits (가장 강력한 이득을 보여라)</strong><br>
+앱이 유저의 삶을 어떻게 개선하는지를 <strong>직관적으로 이해 가능한 형태</strong>로 제시. 구매 결정이 <em>쉽고 명확</em>하게 나오게 만든다.<br><br>
+
+<strong>③ Feel Personalized (개인화된 느낌을 줘라)</strong><br>
+2025년의 앱 시장은 경쟁이 격심하다. 유저는 <em>"내게 맞춘 앱"</em>이라는 느낌을 원한다. Generic 앱은 팔리지 않는다.<br><br>
+
+<strong>④ Add Charts & Graphs (차트/그래프로 과학적 신뢰를 부여하라)</strong><br>
+사람들은 <em>"검증된, 다른 사람들이 성공적으로 사용한"</em> 앱을 원한다. 그래프·차트가 있으면 앱이 <strong>legitimate(정당)</strong>하게 보인다.
+</blockquote>
+
+<p>이 4대 원칙 뒤에는 하나의 관점이 관통한다. <em>"온보딩은 앱의 기능이 아니라 <strong>구매 결정 프로세스</strong>다."</em> 페이월이 있는 유틸리티 앱에서 이 관점이 유효한 이유는 유저가 앱을 실행하고 처음 30초 안에 <em>결제할지 이탈할지</em>를 결정하기 때문이다.</p>
+
+<h3 id="s5">5. Step 3 — 데이터 구조 스펙 + Claude Code로 즉시 코딩 <span style="color:#888;font-size:0.85em;">(4:45~6:00)</span></h3>
+
+<p>[[SECTION5_IMG]]</p>
+
+<p>Connor가 바이브 코딩 속도를 결정하는 요소로 강조한 것은 <strong>사전 데이터 구조 정의</strong>다. 이 부분이 그가 <em>"2주 안에 앱 하나"</em>를 반복적으로 만들어내는 진짜 비밀에 가깝다.</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:12px 16px;background:#f1f8f4;margin:14px 0;">
+<strong>데이터 구조 사전 정의 프로토콜</strong><br>
+① <strong>텍스트 문서</strong> 하나 작성: 앱의 데이터가 어떤 모양(shape)이고 어떻게 흘러가는지 설명<br>
+② <strong>JSON 예시 데이터</strong> 삽입: 각 필드에 실제 예시 값<br>
+③ 각 필드의 <strong>속성 설명</strong> 추가: 왜 이 필드가 필요한지, 어떤 값이 들어가는지<br>
+④ 이 문서를 <strong>Claude Code / Cursor</strong>에게 첫 프롬프트로 전달<br>
+⑤ AI가 <em>추측 없이</em> 정확히 무엇을 만드는지 알게 되어 코딩 속도 폭증
+</blockquote>
+
+<p>Connor의 관찰: <em>"AI에게 이 문서를 미리 주면, 이 앱을 매우 빠르게 코딩할 수 있다."</em> 이후 그의 실제 개발 흐름은 다음과 같다.</p>
+
+<ol>
+<li>온보딩은 나중 — <strong>코어 기능부터</strong> 코딩</li>
+<li>Figma에서 벤치마킹한 <strong>스크린샷을 그대로 Claude/Cursor에 드롭</strong> — AI가 이미지를 읽고 화면 전체 코드를 생성</li>
+<li>AI가 완벽하지 않을 때는 <strong>대화형 수정</strong>. <em>"너무 까다롭게 굴지 마라"</em> — <em>완벽한 앱</em>보다 <em>빠른 버전 출시</em>가 훨씬 중요</li>
+<li>도구 스택은 <strong>Claude 하나만</strong> 사용 — 다른 AI는 안 씀</li>
+</ol>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+<strong>Pat Walls의 삽입 코멘트 (5:55~7:00)</strong><br>
+"많은 사람이 vibe coding에 뛰어들어 한 방에 만들려다가 길을 잃고 배포도 못하고 포기한다. AI 툴을 <em>효과적으로 쓸 줄 알아야</em> 한다. 무엇을 만들지, 어떻게 빠르게 배송할지, 실제로 작동하는 걸 어떻게 만들지." — 이 말이 왜 Connor의 데이터 구조 스펙 문서가 필요한지에 대한 배경이 된다.
+</blockquote>
+
+<h3 id="s6">6. 검증 — 완전 신규 아이디어와 개선 아이디어의 분리 <span style="color:#888;font-size:0.85em;">(7:00~8:15)</span></h3>
+
+<p>[[SECTION6_IMG]]</p>
+
+<p>Connor의 검증 프레임워크는 매우 심플하다. <strong>앱 아이디어를 두 종류로만 나눈다.</strong></p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:12px 16px;background:#eff6ff;margin:14px 0;">
+<strong>Type A — 기존 아이디어의 수정 버전</strong><br>
+"이미 다른 사람들이 검증한 아이디어라 축하한다. 몇 가지 수정만 하고 자신만의 것처럼 만들면 된다."<br>
+→ 검증 필요 없음, 바로 빌드 시작<br><br>
+
+<strong>Type B — 완전 신규 아이디어</strong><br>
+검증 방법 순서:<br>
+① TikTok · Instagram 검색으로 <em>같은 문제를 이야기하는 사람들</em>이 있는지 확인<br>
+② 댓글 스크롤 — <em>"이거 어떻게 해결하지?"</em>라는 질문이 있는지 관찰<br>
+③ 있다면 <strong>마케팅 진입 경로가 열린 것</strong> — 그 채널을 통해 앱을 홍보 가능
+</blockquote>
+
+<p>주목할 점은 Connor가 <em>"현재의 앱 빌드 속도라면 대기(waitlist) 단계는 스킵하고 그냥 만든다"</em>고 말한 부분이다. 그의 근거:</p>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>"어떤 앱이든 요즘 수천 달러는 만든다"</strong><br>
+"당신의 아이디어가 사회를 바꾸는 거대한 것일 필요는 없다. 미국에만 수억 명이 있다. 그 모래알 하나만 잡아도 자립하기에 충분한 매출이 나온다." — <em>규모의 겸손함이 만드는 실행 속도</em>가 이 방법론의 핵심.
+</blockquote>
+
+<h3 id="s7">7. 마케팅 1 — 인플루언서 + UGC로 초기 다운로드 뽑기 <span style="color:#888;font-size:0.85em;">(8:15~9:30)</span></h3>
+
+<p>[[SECTION7_IMG]]</p>
+
+<p>Pat이 지적한 대로 <em>"만드는 것만으로는 부족하다. Distribution이 있어야 한다."</em> Connor의 Payout 앱 0 → $20K/50일 스케일업의 마케팅 전략은 <strong>순차적 3단계</strong>다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff;margin:14px 0;">
+<strong>Stage 1 — 인플루언서 캠페인</strong><br>
+- 앱 니치에 이미 있는 <strong>content creator</strong>와 파트너십<br>
+- 인플루언서의 기존 청중은 <em>그 사람에 대한 신뢰</em>가 이미 형성됨 → 추천 전환율 상승<br>
+- Connor의 Payout 케이스: 니치 인플루언서 영상들이 <strong>수천 다운로드</strong>를 직접 유입<br><br>
+
+<strong>Stage 2 — UGC 캠페인 확대</strong><br>
+- 잘 나온 인플루언서 영상 포맷을 <strong>다른 크리에이터들에게 반복 요청</strong><br>
+- 목표: <em>자연스럽고 가공되지 않은 relatable · viral 콘텐츠</em><br>
+- 부산물: 향후 유료 광고에 쓸 <strong>광고 소재 라이브러리 구축</strong>
+</blockquote>
+
+<p>UGC의 진짜 가치는 <em>광고 소재</em>가 무료로 축적된다는 데 있다. 오가닉으로 성과가 좋은 영상은 <strong>유료 배포로 확장했을 때의 성과가 이미 예측 가능</strong>하다. 이것이 다음 단계인 유료 광고로 자연 이행하는 다리다.</p>
+
+<h3 id="s8">8. 마케팅 2 — UGC 성과 → 유료 광고, Facebook 알고리즘 대응 <span style="color:#888;font-size:0.85em;">(9:30~10:00)</span></h3>
+
+<p>[[SECTION8_IMG]]</p>
+
+<p>Connor의 목표는 <em>항상 유료 광고를 돌릴 수 있는 상태로 앱을 도달시키는 것</em>이다. <strong>유료 광고가 앱 매출 성장의 가장 일관된 채널</strong>이라는 게 그의 판단이다. 문제는 2025년 Facebook 광고 알고리즘의 균형점이다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:12px 16px;background:#fef2f2;margin:14px 0;">
+<strong>Facebook 광고 알고리즘의 두 축</strong><br>
+- <strong>축 1</strong>: 광고주가 <em>결과에 만족</em>하게 만드는 것 (컨버전 최적화)<br>
+- <strong>축 2</strong>: 사용자가 <em>플랫폼에 머물게</em> 하는 것 (엔터테인먼트 유지)<br><br>
+
+<strong>결과적 최적화 전략</strong><br>
+→ 광고 영상이 <strong>엔터테이닝할수록 CPM이 낮아진다</strong> (플랫폼이 유저 유지에 도움된다고 판단)<br>
+→ 그러나 <strong>컨버전을 밀지 않으면 매출 안 나옴</strong><br>
+→ <em>엔터테인먼트 + 프로덕트 푸시의 균형</em>이 광고 크리에이티브의 핵심
+</blockquote>
+
+<p>이 관점은 UGC 캠페인이 왜 유료 광고보다 먼저 와야 하는지 재확인한다. UGC에서 오가닉으로 사람들에게 재미있다고 반응이 좋았던 영상은 이미 <em>엔터테인먼트 축의 검증</em>이 끝난 것이고, 여기에 프로덕트 컨버전 후크만 추가하면 유료 광고 크리에이티브가 완성된다.</p>
+
+<h3 id="s9">9. Payout 실제 시연 — 온보딩 · 페이월 · Class Action 리스트 <span style="color:#888;font-size:0.85em;">(10:00~11:20)</span></h3>
+
+<p>[[SECTION9_IMG]]</p>
+
+<p>Connor의 <strong>Payout 앱은 Class Action Lawsuit Discovery(집단소송 발견)</strong> 앱이다. 유저가 기업의 잘못으로 인해 <em>자동으로 자격을 갖게 된 집단소송</em>을 찾아서 신청할 수 있게 도와준다.</p>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>Payout 유저 여정</strong><br>
+① 활동 알림 권한 요청<br>
+② <strong>소셜 프루프</strong> 화면 (온보딩 4대 원칙 중 ③④ 담당)<br>
+③ <strong>페이월</strong>: 주간 / 연간 두 옵션. 연간이 LTV 최대여서 우선 노출<br>
+④ <strong>메인 화면</strong>: 참여 가능한 Class Action Lawsuit 리스트<br>
+&nbsp;&nbsp;&nbsp;&nbsp;예시: <em>NBA Top Shot의 Meta Pixel 관련 프라이버시 소송</em> — 자격 조건 표시<br>
+⑤ Get Started → <strong>양식 자동 작성</strong> → 우편 접수용 PDF 생성<br>
+⑥ Wallet 탭 — 신청 중인 소송 추적<br>
+⑦ Forms 탭 — 이미 작성한 양식 아카이브
+</blockquote>
+
+<p>이 앱이 0 → $20K/50일이라는 속도를 낼 수 있었던 <strong>가치 제안의 명확성</strong>에 대해 Connor는 이렇게 답한다:</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+<strong>"인간의 핵심 욕망을 건드리는 앱을 만들어라"</strong><br>
+"사람들이 원하는 게 있다. 더 건강해지고 싶다. 더 많은 돈을 벌고 싶다. 더 매력적으로 보이고 싶다. 이런 <em>core human desires</em>를 건드리는 앱을 만들라. Payout은 <strong>"돈을 벌고 싶다"</strong>는 욕망을 건드린다. 그래서 사람들이 <em>돈을 내는 데 저항이 없다</em> — 결국 그 돈으로 더 큰 돈을 벌 것을 알기 때문."
+</blockquote>
+
+<p>이 관점은 왜 그가 <strong>Class Action이라는 특이한 니치</strong>를 선택했는지 설명한다. 지루한 법률 도메인이지만 <em>돈</em>과 직결되기 때문에 페이월 컨버전이 극도로 높다.</p>
+
+<h3 id="s10">10. Tech 스택 & 최종 조언 — "Simple + Great Onboarding" <span style="color:#888;font-size:0.85em;">(11:20~13:00)</span></h3>
+
+<p>[[SECTION10_IMG]]</p>
+
+<p>Connor가 Payout을 굴리는 <strong>실제 도구 스택</strong>은 놀랍도록 심플하다.</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:12px 16px;background:#eff6ff;margin:14px 0;">
+<strong>Payout 운영 스택 전체</strong><br>
+- <strong>UI 디자인 · App Store 스크린샷 · 앱 아이콘</strong>: Figma<br>
+- <strong>Analytics</strong>: Mixpanel<br>
+- <strong>Vibe Coding</strong>: Claude Code<br>
+- <strong>Website · Backend</strong>: Next.js + TypeScript<br>
+- <strong>Hosting</strong>: Vercel<br>
+- <strong>Version Control</strong>: GitHub<br>
+- <strong>Cross-platform Build</strong>: Expo<br>
+- <strong>Subscription Analytics + Pricing Test</strong>: RevenueCat
+</blockquote>
+
+<p>Pat의 마지막 질문에 대한 Connor의 답이 인터뷰의 결론이다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>"단순한 앱을 만들되 온보딩을 훌륭하게 하라"</strong><br>
+"간단한 앱도 큰 돈을 만든다. 정말로 필요한 건 <em>1~3개의 좋은 기능</em>이면 충분하다. 온보딩이 나머지 무게의 대부분을 감당해줄 것이다."
+</blockquote>
+
+<p>이 조언이 왜 이 인터뷰 전체를 요약하는지 짚어보면 이렇다. Connor의 <strong>1~3개 기능 + 훌륭한 온보딩</strong> 접근법은 세 가지 함의를 낳는다.</p>
+
+<ol>
+<li><strong>기능이 적어야 온보딩에 시간을 더 쓸 수 있다</strong> — 페이월 컨버전이 앱의 유일한 매출 채널이기 때문</li>
+<li><strong>기능이 적어야 Claude Code로 2주 안에 끝난다</strong> — 15개 화면이 아니라 3~5개 화면이면 AI가 하루에 다 짜준다</li>
+<li><strong>기능이 적어야 마케팅 메시지가 단순해진다</strong> — UGC 크리에이터에게 설명 없이 즉시 이해되는 앱</li>
+</ol>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:20px 0;">
+<ol>
+<li><strong>소셜 앱 대신 유틸리티/툴 앱을 만들어라</strong>. 1인 개발자에게 네트워크 효과 의존 없이 스케일 가능한 유일한 카테고리다. Connor는 첫 소셜 앱 실패 후 이 방향을 확정했고, 이후 3년간 $1M+ 매출을 축적했다.</li>
+<li><strong>Figma에 경쟁앱 20개 온보딩을 한 줄로 나열하는 것부터 시작해라</strong>. 스크롤 없이 시각적 비교가 가능하기 때문에 어떤 질문·순서·차트가 컨버전에 유효한지 한눈에 파악된다. 이 벤치마크 라이브러리가 자신 앱 온보딩의 뼈대가 된다.</li>
+<li><strong>온보딩에 앱 기능 개발과 동일한 시간을 투자하라</strong>. 유저의 90%는 페이월 이후를 보지 않는다. 4대 원칙: Emotion · Benefit · Personal · Scientific(차트/그래프). 이 프레임은 "온보딩 = 구매 결정 프로세스"라는 관점에서 나온다.</li>
+<li><strong>바이브 코딩 전에 데이터 구조를 문서로 먼저 정의하라</strong>. 텍스트 설명 + JSON 예시 데이터 + 필드별 속성 설명. 이 문서를 첫 프롬프트로 넣으면 Claude/Cursor의 코딩 속도가 폭증한다. AI가 추측하지 않기 때문.</li>
+<li><strong>Figma 스크린샷을 그대로 AI에 드롭하라</strong>. AI가 이미지를 읽고 화면 전체 코드를 생성한다. 완벽하지 않아도 대화형 수정으로 진행하고, <em>완벽한 앱보다 빠른 버전 출시가 훨씬 중요</em>하다.</li>
+<li><strong>검증은 두 가지로만 나눠라</strong>. 기존 아이디어 수정판 = 이미 검증됨(바로 빌드). 완전 신규 = TikTok/Instagram 댓글에서 같은 문제를 논의하는 사람이 있는지만 확인.</li>
+<li><strong>거대한 시장 아이디어가 없어도 된다</strong>. 미국에만 수억 명이 있고, 그중 <em>모래알 하나</em>만 잡아도 $20K/월은 나온다. 아이디어의 규모가 아니라 실행 속도가 병목.</li>
+<li><strong>마케팅은 인플루언서 → UGC → 유료 광고 순서로 확장하라</strong>. UGC는 유료 광고의 크리에이티브 라이브러리를 무료로 축적해준다. 오가닉에서 반응 좋은 영상 = 유료 광고 확장의 성공 예측.</li>
+<li><strong>2025년 페이스북 광고는 "엔터테인먼트 + 컨버전"의 균형이다</strong>. 재미있는 영상일수록 CPM이 낮고, 컨버전 후크가 있어야 매출로 이어진다. UGC에서 재미가 검증된 영상에 프로덕트 후크만 추가하는 방식이 최적.</li>
+<li><strong>Core human desire를 건드리는 앱이 페이월 컨버전이 높다</strong>. 건강 · 돈 · 매력 같은 근본 욕망을 직접 겨냥. Payout의 성공 = "돈을 내면 더 큰 돈이 돌아온다"는 명확한 가치 제안.</li>
+<li><strong>Tech 스택은 심플하게: Figma + Claude Code + Expo + Next.js + Vercel + RevenueCat + Mixpanel</strong>. 이 조합이 1인 iOS 앱 개발 · 배포 · 수익화의 표준 세팅에 가깝다.</li>
+<li><strong>1~3개의 기능만으로 앱을 만들어라</strong>. 기능이 적을수록 온보딩에 시간을 쓸 수 있고, Claude Code로 2주 안에 끝나고, 마케팅 메시지가 단순해진다. Connor가 "Simple + Great Onboarding"이라는 한 문장으로 요약한 이유.</li>
+</ol>
+</blockquote>
+
+<p style="color:#666;font-size:0.9em;text-align:center;margin-top:30px;">
+원본 영상: <a href="https://youtu.be/CwHD6Fg-Mjs" target="_blank">I vibe coded a $20K/month mobile app in 14 days</a> — Starter Story
+</p>

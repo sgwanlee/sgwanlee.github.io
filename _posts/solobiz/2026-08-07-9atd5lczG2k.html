@@ -1,0 +1,269 @@
+---
+layout: post
+comments: true
+title: "월 $800,000 앱을 코드 한 줄 없이 클론하는 법 — Claude Code로 만든 Recipe 앱 풀 워크플로우"
+categories: [solobiz]
+date: 2026-08-07 14:48:07 +0900
+source_video: https://www.youtube.com/watch?v=9atd5lczG2k
+---
+
+<h2>월 $800,000 앱을 코드 한 줄 없이 클론하는 법 — Claude Code로 만든 Recipe 앱 풀 워크플로우</h2>
+
+<p>이 강의의 화자는 <em>월 $800,000 매출의 실제 앱(ResuMe — 웹/YouTube 레시피 스크래핑 + AI 정리 앱)</em>을 <strong>코드 한 줄도 안 쓰고 Claude Code + Claude Design + React Native + Expo Go 조합으로 완전히 클론</strong>한다. 이 리포트는 그 워크플로우 전체와, 이런 앱을 지어도 <em>돈을 벌 수 없는</em> 진짜 이유인 <strong>마케팅 · UGC 스케일</strong> 원리를 정리한다. 곱씹을 만한 이 강의의 진짜 통찰은: 앱 빌드가 아니라 <em>UGC 콘텐츠 스케일업이 새 인디해커의 진짜 승부처</em>라는 것.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:16px 0;">
+<strong>이 리포트가 답하는 질문</strong><br>
+- <strong>ResuMe</strong>가 월 $800K를 버는 원리 — <em>스티키니스 · 사용자 데이터 락인</em>?<br>
+- 앱 하나로 <em>$9.6M+ 엑싯</em>이 가능한 SaaS 인수 배수(2~4x annual profit)의 실측?<br>
+- 왜 <strong>Cookpad 일본 특화 앱</strong>이 월 $900K(오히려 ResuMe보다 많이)를 버는가? 니치 특화의 힘?<br>
+- <strong>Claude Design + Claude Code + React Native + Expo Go</strong> 조합의 실전 셋업?<br>
+- 어떻게 30분 만에 <em>이미지 스캔 · YouTube 링크 파싱 · Make Healthier</em> AI 기능을 구현하는가?<br>
+- <strong>Supabase + RevenueCat + Apple Developer Account $99/년</strong>의 프로덕션 스택?<br>
+- UGC 콘텐츠 3가지 전략: <em>자체 계정 · 인간 UGC 크리에이터 · AI UGC(Arcads · HeyGen)</em>?<br>
+- <strong>Vibe coded 앱이 App Store에서 거부되는 이유</strong>와 18개 체크리스트?
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">인트로 — $800K/월 앱을 클론한다는 도발</a></li>
+<li><a href="#s2">이 앱이 매력적인 이유 — 스티키니스와 엑싯 잠재력</a></li>
+<li><a href="#s3">Cookpad 케이스 — 일본 특화로 월 $900K</a></li>
+<li><a href="#s4">기술 스택 — Claude Design · Code · React Native · Expo Go</a></li>
+<li><a href="#s5">Claude Code 셋업과 프로젝트 폴더 구조</a></li>
+<li><a href="#s6">UI 디자인 — Claude Design으로 스크린 생성</a></li>
+<li><a href="#s7">백엔드 로직 — Claude Code로 기능 연결</a></li>
+<li><a href="#s8">OpenAI API 연동 + Expo Go 실기기 테스트</a></li>
+<li><a href="#s9">실제 기능 테스트 — 사진 스캔 · YouTube 링크 · Make Healthier</a></li>
+<li><a href="#s10">마케팅과 App Store 체크리스트 — 진짜 승부처</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. 인트로 — $800K/월 앱을 클론한다는 도발 <span style="color:#888;font-size:0.85em;">(0:00~2:00)</span></h3>
+
+<p>[[SECTION1_IMG]]</p>
+
+<p>화자의 오프닝은 강한 명제다. <em>"월 $800,000을 버는 앱을 발견했고, 이 앱 전체를 코드 한 줄도 안 쓰고 만들었다."</em></p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:12px 16px;background:#fef2f2;margin:14px 0;">
+<strong>ResuMe (원본 앱)</strong><br>
+- 기능: 웹사이트나 YouTube 영상에서 <em>레시피 링크만 붙여넣으면</em> AI가 정보 추출 → 깨끗한 레시피 카드로 저장<br>
+- 물리적 종이 레시피도 <em>사진 촬영으로 인식</em><br>
+- <strong>AI 칼로리 계산</strong> 자동<br>
+- 매출: <strong>월 $800,000</strong>
+</blockquote>
+
+<p>화자의 강조: <em>이 강의의 목적은 이 앱을 복제해서 $800K를 벌라는 게 아니다</em>. 그 대신:</p>
+
+<ol>
+<li>2026년에 <em>모바일 앱을 만드는 게 얼마나 가능한지</em> 보여주기</li>
+<li>이런 앱을 만드는 <em>정확한 워크플로우</em></li>
+<li><em>마케팅 방법</em></li>
+</ol>
+
+<h3 id="s2">2. 이 앱이 매력적인 이유 — 스티키니스와 엑싯 잠재력 <span style="color:#888;font-size:0.85em;">(2:00~3:00)</span></h3>
+
+<p>[[SECTION2_IMG]]</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:16px 20px;background:#eff6ff;margin:16px 0;">
+<strong>이 앱이 매력적인 2가지 이유</strong><br>
+① <strong>Recurring Revenue</strong>: 월 $800K가 매달 자동 반복<br>
+② <strong>Stickiness</strong>: 유저가 20~30개 레시피를 쌓아두면 취소 못 함 → 저처 방지
+</blockquote>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>엑싯 잠재력 계산</strong><br>
+- SaaS 앱 인수 배수: <em>연간 이익의 2~4배</em> (acquire.com · Flippa · Trust MRR 참조)<br>
+- 50% 마진 가정: 월 이익 $400K × 12 = 연 <strong>$4.8M 이익</strong><br>
+- 최저 배수 2x → 최소 <strong>$9.6M 엑싯</strong> 가능
+</blockquote>
+
+<p>이 계산이 <em>왜 이런 앱을 만들 가치가 있는가</em>의 근거다. 매출 $800K/월도 대단하지만, <strong>$10M 엑싯 가능성</strong>이 인디해커의 진짜 목표점이 된다.</p>
+
+<h3 id="s3">3. Cookpad 케이스 — 일본 특화로 월 $900K <span style="color:#888;font-size:0.85em;">(3:00~3:50)</span></h3>
+
+<p>[[SECTION3_IMG]]</p>
+
+<p>이미 시장에 다른 플레이어가 있지만 이것은 <em>수요가 강하다는 시그널</em>이다. 그리고 니치 특화가 오히려 더 큰 매출을 만들 수 있다는 케이스가 <strong>Cookpad</strong>.</p>
+
+<blockquote style="border-left:4px solid #059669;padding:16px 20px;background:#ecfdf5;margin:16px 0;">
+<strong>Cookpad (일본 특화 레시피 앱)</strong><br>
+- 시장: <em>일본만</em><br>
+- 매출: <strong>월 $900,000</strong> (원본 ResuMe보다 많음!)<br>
+- 원리: 문화별로 요리 · 재료 · 조리법에 대한 <em>가치와 선호가 다름</em>. 그걸 반영한 앱이 훨씬 개인화된 느낌.
+</blockquote>
+
+<p>이 케이스가 이 리포트에서 뽑아낼 가장 중요한 원칙 중 하나다. <strong>니치화 = 매출 축소가 아니다</strong>. 오히려 특정 문화 · 특정 데모그래픽에 완전히 맞추면 <em>범용 앱보다 더 많이 벌 수 있다</em>.</p>
+
+<h3 id="s4">4. 기술 스택 — Claude Design · Code · React Native · Expo Go <span style="color:#888;font-size:0.85em;">(3:50~5:10)</span></h3>
+
+<p>[[SECTION4_IMG]]</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:16px 20px;background:#f1f8f4;margin:16px 0;">
+<strong>Vibe Coded App 표준 스택 (2026)</strong><br>
+- <strong>UI 디자인</strong>: <em>Claude Design</em> (버튼 · 색상 · 스크린)<br>
+- <strong>백엔드 로직</strong>: <em>Claude Code</em> (기능 코드)<br>
+- <strong>프레임워크</strong>: <em>React Native</em> — iOS + Android 단일 코드베이스<br>
+- <strong>기기 테스트</strong>: <em>Expo Go</em> (App Store 배포 전 실기기 프리뷰)<br>
+- 대안: <em>ChatGPT Codex desktop app</em>도 동일하게 작동
+</blockquote>
+
+<p>Claude Code는 <em>최소 $20 구독</em>이 필요하다. 화자의 팁: Chat · Cowork · Code 세 탭 중 <strong>Code를 추천</strong>. 더 능력이 좋고 데스크톱 앱이 유저 친화적이라 <em>버튼만 클릭하면 되고 터미널 작업 없음</em>.</p>
+
+<h3 id="s5">5. Claude Code 셋업과 프로젝트 폴더 구조 <span style="color:#888;font-size:0.85em;">(5:10~6:30)</span></h3>
+
+<p>[[SECTION5_IMG]]</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:16px 0;">
+<strong>Claude Code 셋업 체크리스트</strong><br>
+① Claude 데스크톱 앱 다운로드<br>
+② $20 구독 활성화<br>
+③ 프로젝트별 폴더 준비 (예: <em>Recipe Snap</em>)<br>
+④ Claude Code UI에서 그 폴더 선택 → 프로젝트 컨텍스트 설정<br>
+⑤ <em>영어 자연어 프롬프트</em>로 작업 시작
+</blockquote>
+
+<p>폴더 조직화가 중요한 이유: 여러 앱을 동시에 짓게 되면 각 프로젝트의 컨텍스트가 분리돼야 Claude가 정확한 코드 파일을 수정한다.</p>
+
+<h3 id="s6">6. UI 디자인 — Claude Design으로 스크린 생성 <span style="color:#888;font-size:0.85em;">(6:30~15:00)</span></h3>
+
+<p>[[SECTION6_IMG]]</p>
+
+<p>Claude Design을 사용해 앱의 UI를 생성한다. 이 도구는 <em>디자인 시안을 만들어주고, 그것을 그대로 코드로 변환</em>할 수 있게 해준다. 화자의 워크플로우:</p>
+
+<ol>
+<li>Claude Design에 앱 컨셉 프롬프트 → 스크린 여러 개 생성</li>
+<li>홈 · 레시피 저장 · 라이브러리 · 쇼핑 리스트 · 설정 등 <em>주요 스크린 5~7개</em></li>
+<li>디자인이 마음에 들면 → Claude Code로 이동해 React Native 코드로 구현 지시</li>
+<li>디자인 마이너 조정(색상 · 버튼)은 <em>영어 프롬프트로</em> 반복</li>
+</ol>
+
+<blockquote style="border-left:4px solid #2563eb;padding:12px 16px;background:#eff6ff;margin:14px 0;">
+<strong>UI 반복의 실전 팁</strong><br>
+"녹색 진행 바로 바꿔줘" · "홈 카드 여백을 늘려줘" · "라이브러리 뷰에서 카테고리 태그를 컬러풀하게 해줘" — 자연어 지시만으로 UI 조정 가능.
+</blockquote>
+
+<h3 id="s7">7. 백엔드 로직 — Claude Code로 기능 연결 <span style="color:#888;font-size:0.85em;">(15:00~22:00)</span></h3>
+
+<p>[[SECTION7_IMG]]</p>
+
+<p>UI가 완성되면 Claude Code로 <em>기능(functionality)</em>을 붙인다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>이 앱의 핵심 기능들 (구현 순서)</strong><br>
+① 레시피 저장 · 로컬 스토리지 (임시로 Mock 데이터)<br>
+② 라이브러리 · 카테고리별 필터<br>
+③ Cook Mode (조리 중 화면)<br>
+④ Shopping List 자동 생성<br>
+⑤ <em>OpenAI API 연동</em> (이미지 인식 · 텍스트 추출)<br>
+⑥ YouTube 링크 파싱 (설명 · 이미지 · 원본 URL 자동 추출)<br>
+⑦ <em>Make it Healthier</em> AI 기능 (재료 대체 · 조리법 재작성)
+</blockquote>
+
+<p>각 기능은 <strong>Claude Code에 한 줄씩 프롬프트</strong>로 지시하면 자동 구현. 예: <em>"레시피 저장 기능을 추가해줘. 로컬 스토리지에 저장하고 라이브러리 뷰에서 필터링 가능하게."</em></p>
+
+<h3 id="s8">8. OpenAI API 연동 + Expo Go 실기기 테스트 <span style="color:#888;font-size:0.85em;">(22:00~27:30)</span></h3>
+
+<p>[[SECTION8_IMG]]</p>
+
+<blockquote style="border-left:4px solid #059669;padding:16px 20px;background:#ecfdf5;margin:16px 0;">
+<strong>API 키 셋업</strong><br>
+① Claude Code에 <em>".env 파일을 만들어서 OpenAI API 키를 저장할 수 있게 해줘"</em> 프롬프트<br>
+② 생성된 .env 파일에 API 키 붙여넣기<br>
+③ 백엔드 자동 재로드 → 키 로딩 확인
+</blockquote>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:16px 20px;background:#f1f8f4;margin:16px 0;">
+<strong>Expo Go 실기기 프리뷰</strong><br>
+① 폰에 <em>Expo Go</em> 앱 다운로드 (App Store 무료)<br>
+② Claude Code에 <em>"QR 코드를 생성해줘"</em> 프롬프트<br>
+③ 폰 카메라로 QR 스캔 → 앱이 폰에 자동 로드<br>
+→ 개발자 없이도 <em>실기기 테스트가 몇 초 만에</em> 가능
+</blockquote>
+
+<h3 id="s9">9. 실제 기능 테스트 — 사진 스캔 · YouTube 링크 · Make Healthier <span style="color:#888;font-size:0.85em;">(27:30~30:00)</span></h3>
+
+<p>[[SECTION9_IMG]]</p>
+
+<p>화자가 완성된 앱을 실기기에서 테스트한다. 이 파트가 <strong>강의의 정점</strong>이다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:16px 0;">
+<strong>Test 1 — 물리적 레시피 사진 스캔</strong><br>
+- 손으로 쓴 지저분한 메모 레시피 사진 촬영<br>
+- AI가 재료 · 조리법 자동 추출 → <em>깨끗한 레시피 카드</em> 생성<br>
+- 저장 클릭 → 라이브러리에 즉시 추가<br><br>
+
+<strong>Test 2 — YouTube 링크 파싱</strong><br>
+- Smash Burger 레시피 YouTube 링크 복사 → 앱에 붙여넣기<br>
+- Extract 클릭 → <em>재료 · 조리법 자동 추출</em><br>
+- 흥미로운 부분: YouTube 설명에서 <em>certifiedangusbeef.com</em>이라는 원본 URL을 감지 → 그 웹사이트에서 이미지까지 자동 가져옴<br>
+- 저장 → 완벽한 레시피 카드<br><br>
+
+<strong>Test 3 — Make it Healthier AI 기능</strong><br>
+- 버거 레시피 열기 → Make it Healthier 버튼<br>
+- OpenAI API가 <em>재료 대체 · 조리법 재작성</em> 자동 생성<br>
+- 예: 소고기 → 칠면조 고기, 화이트 번 → 홀그레인 등
+</blockquote>
+
+<p>화자의 감상: <em>"약 10~15분 만에 vibe coded 앱치고 정말 훌륭하다."</em> 이후 프로덕션 배포를 위한 스택:</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:16px 20px;background:#eff6ff;margin:16px 0;">
+<strong>프로덕션 스택</strong><br>
+- <strong>Database</strong>: <em>Supabase</em> (Claude Code가 연결 자동화)<br>
+- <strong>Payment/Subscription</strong>: <em>RevenueCat</em> (Apple 승인 · 인디해커 표준)<br>
+- <strong>Apple Developer Account</strong>: <em>$99/년</em> (앱 무한 배포)
+</blockquote>
+
+<h3 id="s10">10. 마케팅과 App Store 체크리스트 — 진짜 승부처 <span style="color:#888;font-size:0.85em;">(30:00~33:00)</span></h3>
+
+<p>[[SECTION10_IMG]]</p>
+
+<p>화자의 핵심 명제: <em>"앱 빌드보다 마케팅이 더 중요하다. 이제 누구나 vibe coding할 수 있으니 유저를 어떻게 얻는가가 승부처."</em></p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:16px 20px;background:#f5f3ff;margin:16px 0;">
+<strong>ResuMe의 실제 마케팅 — TikTok UGC</strong><br>
+- 자체 TikTok 계정 운영<br>
+- UGC 크리에이터 고용<br>
+- 그들의 영상을 자체 계정에 리포스트<br>
+- 포맷: <em>"I wish I knew this sooner"</em> 스타일 — 문제 → 앱 솔루션 → 10초
+</blockquote>
+
+<blockquote style="border-left:4px solid #059669;padding:16px 20px;background:#ecfdf5;margin:16px 0;">
+<strong>3가지 UGC 전략 옵션</strong><br>
+① <strong>자체 계정 운영</strong>: 시간 많이 걸림, 꾸준함 필수, 하나 바이럴 뜨면 무료 유저 홍수<br>
+② <strong>인간 UGC 크리에이터 고용</strong>: 고정 비용 · 영상 하나가 오래 유저 유입<br>
+③ <strong>AI UGC (Arcads · HeyGen)</strong>: AI 아바타 여러 명 · TikTok 계정 여러 개 · 고볼륨 콘텐츠 → 바이럴 영상 찾아서 <em>유료 광고로 스케일</em>
+</blockquote>
+
+<p>화자의 마케팅 전략 요약: <em>"콘텐츠를 많이 만들어라. 무엇이 통하는지 찾아라. 그리고 돈으로 스케일업."</em></p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:16px 20px;background:#fef2f2;margin:16px 0;">
+<strong>App Store 배포 전 체크리스트 (18개 항목)</strong><br>
+- 최근 <em>vibe coded 앱들이 대량 거부</em>되고 있음<br>
+- 이유: 보안 레이어 부족 · 신뢰성 부족<br>
+- 화자가 정리한 18개 항목을 Claude Code에 통째로 복사 → 앱이 다 커버하는지 자동 검증
+</blockquote>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:20px 0;">
+<ol>
+<li><strong>월 $800K 앱을 코드 한 줄 없이 클론할 수 있다</strong>. Claude Design + Code + React Native + Expo Go 조합만으로 30분 완성. 2026년은 앱 개발 진입 장벽이 사실상 0에 가까워진 시기.</li>
+<li><strong>이 시대의 승부처는 앱 빌드가 아니라 마케팅이다</strong>. 누구나 vibe coding 할 수 있으므로 <em>유저를 어떻게 얻느냐</em>가 결정적. 화자가 마케팅에 챕터 하나를 통째로 할당하는 이유.</li>
+<li><strong>Stickiness + Recurring Revenue가 앱 밸류의 핵심</strong>. 유저가 데이터를 쌓아둘수록 이탈 못하고, 매달 자동 매출. 이 둘의 조합이 $10M+ 엑싯의 근거.</li>
+<li><strong>SaaS 앱 인수 배수는 연간 이익의 2~4배</strong>. 50% 마진 앱이 월 $800K를 벌면 최소 <em>$9.6M 엑싯</em>이 실측 가능. acquire.com · Flippa · Trust MRR에서 실 거래 데이터 확인.</li>
+<li><strong>니치 특화가 오히려 매출을 늘린다</strong>. Cookpad(일본 전용)가 ResuMe(글로벌)보다 월 매출이 크다. 문화별 요리 · 재료 · 조리법 차이를 반영하면 개인화된 느낌.</li>
+<li><strong>표준 스택: Claude Design + Claude Code + React Native + Expo Go</strong>. UI는 Claude Design, 기능은 Claude Code, 프레임워크는 iOS/Android 통합 React Native, 실기기 테스트는 Expo Go (App Store 무료).</li>
+<li><strong>Claude Code는 최소 $20 구독</strong>. Chat · Cowork · Code 중 Code 추천 (더 강력, 데스크톱 유저 프렌들리). 터미널 작업 없이 자연어 프롬프트만.</li>
+<li><strong>API 연동은 .env 파일 프롬프트 하나로</strong>. <em>".env 파일 만들어서 OpenAI API 키 저장"</em> 지시 → 파일 생성 → 키 붙여넣기 → 자동 재로드.</li>
+<li><strong>Expo Go로 실기기 프리뷰가 몇 초 만에</strong>. QR 코드 스캔만으로 iPhone/Android에서 앱 실행. 개발자 없이도 실기기 UX 검증 가능.</li>
+<li><strong>ResuMe의 3가지 AI 기능이 vibe coded로 30분 안에 완성</strong>: (a) 손 필기 레시피 사진 → 텍스트 추출, (b) YouTube 링크 → 재료/조리법 자동 파싱 + 원본 웹사이트 이미지 자동 스크래핑, (c) Make it Healthier — 재료 대체.</li>
+<li><strong>프로덕션 스택: Supabase(DB) + RevenueCat(구독) + Apple Developer $99/년</strong>. 인디해커 표준. Claude Code가 세 연동을 자동화.</li>
+<li><strong>마케팅 3가지 UGC 전략</strong>: 자체 TikTok 계정 (무료 · 시간 소요) · 인간 UGC 크리에이터 (고정비용 · 지속 유입) · AI UGC(Arcads · HeyGen — 고볼륨 → 바이럴 → 유료 광고 스케일).</li>
+<li><strong>포맷 표준: "I wish I knew this sooner" 10초 UGC</strong>. 문제 제시 → 앱 솔루션 → 클릭 유도. 이게 컨슈머 앱 UGC의 지배적 포맷.</li>
+<li><strong>App Store 거부 방지 18개 체크리스트</strong>. Apple은 vibe coded 앱을 대량 거부 중. 이유는 보안 · 신뢰성. Claude Code에 체크리스트 통째로 붙여 자동 검증 가능.</li>
+</ol>
+</blockquote>
+
+<p style="color:#666;font-size:0.9em;text-align:center;margin-top:30px;">
+원본 영상: <a href="https://youtu.be/9atd5lczG2k" target="_blank">How I Vibe Coded a Recipe App using Claude Code (Full Build + Marketing)</a>
+</p>

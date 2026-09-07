@@ -1,0 +1,321 @@
+---
+layout: post
+comments: true
+title: "노코드로 24시간 만에 만들어 5,000달러에 팔릴 뻔한 마이크로 앱 — 아이디어 · 검증 · 빌드 · 세일즈 풀 스토리"
+categories: [solobiz]
+date: 2026-08-07 09:43:07 +0900
+source_video: https://www.youtube.com/watch?v=s7YuZkpPXYs
+---
+
+<h2>노코드로 24시간 만에 만들어 5,000달러에 팔릴 뻔한 마이크로 앱 — 아이디어 · 검증 · 빌드 · 세일즈 풀 스토리</h2>
+
+<p><strong>Christian Peverelli</strong>(We Are No Code · Outbound 창업자)가 자신의 유튜브 채널에서 진행한 24시간 챌린지 기록이다. <em>코드 한 줄 없이</em>, 문제 발견부터 아이디어 검증, 앱 개발, 콜드 아웃리치, 실제 5,000달러 오퍼 수락 직전까지의 전 과정을 그대로 공개한다. <strong>Make · Lovable · Superbase</strong> 세 개의 노코드 스택으로 어떻게 완성된 SaaS 프로토타입이 만들어지는지, 그리고 왜 그가 최종적으로 <em>팔지 않기로</em> 결정했는지가 이 리포트의 두 축이다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:16px 0;">
+<strong>이 리포트가 답하는 질문</strong><br>
+- 왜 "지난 30일간 내가 겪은 문제" 목록이 아이디어 발굴의 가장 효율적인 방법인가?<br>
+- <strong>Make · Lovable · Superbase</strong> 스택이 실제로 어떻게 결합되는가? 웹훅 하나로 이어지는 데이터 흐름은?<br>
+- 왜 그는 실행 계획 초기부터 "가장 어려운 부분을 먼저 만든다"라고 결정했는가?<br>
+- 24시간이라는 극단적 제약이 만드는 "네트워크가 곧 순자산"이라는 세일즈 전술의 실전 적용법?<br>
+- 5,000달러 오퍼를 받은 뒤 COO와 나눈 <em>"팔지 마라, 리드 마그넷으로 써라"</em>는 판단의 근거는?
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">"24시간 안에 아무런 코드도 없이 앱을 만들어 판다" — 챌린지 셋업</a></li>
+<li><a href="#s2">아이디어 발굴: 지난 30일간 내가 겪은 문제 리스트</a></li>
+<li><a href="#s3">세 개의 후보 → 하나의 결정: 커피와 함께 내리는 판단</a></li>
+<li><a href="#s4">가장 어려운 것부터 먼저: Make.com으로 리포트 엔진 구축</a></li>
+<li><a href="#s5">Lovable + Superbase — 로그인부터 음성 채팅까지 노코드로</a></li>
+<li><a href="#s6">지옥의 2시간: 웹훅 통합 · UI 개선 · 시간 압박</a></li>
+<li><a href="#s7">Outbound — 자기가 만든 아웃리치 툴로 직접 세일즈 시작</a></li>
+<li><a href="#s8">플랫폼 시연: 랜딩부터 리포트 생성까지의 유저 여정</a></li>
+<li><a href="#s9">5K 오퍼 → 카운터 오퍼 10K → 최종 5K 확정</a></li>
+<li><a href="#s10">COO와의 통화: "팔지 마, 이건 리드 마그넷이야"</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. "24시간 안에 아무런 코드도 없이 앱을 만들어 판다" — 챌린지 셋업 <span style="color:#888;font-size:0.85em;">(0:00~0:38)</span></h3>
+
+<p>[[SECTION1_IMG]]</p>
+
+<p>Christian의 오프닝은 도발적이다. <em>"코드 한 줄 없이 며칠 만에 스크래치부터 앱을 만들어 팔 수 있다면?"</em> 이어서 그가 스스로에게 부여한 규칙:</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+<strong>24시간 챌린지의 4단계</strong><br>
+- <strong>아이디어 발굴</strong>: 무엇을 만들지 결정<br>
+- <strong>검증</strong>: 실제 사람들이 원하는지 확인<br>
+- <strong>빌드</strong>: 노코드 툴로 프로토타입 완성<br>
+- <strong>세일즈</strong>: 신용카드를 흔들며 대기 중인 구매자에게 판매
+</blockquote>
+
+<p>솔직한 자기 인정도 붙는다. <em>"내가 실제로 이걸 해낼 수 있을지는 나도 모른다. 하지만 최선을 다할 것이다."</em> 이 정직함이 24시간 챌린지 전체의 톤을 결정한다. 그는 실패 가능성을 감춘 성공담이 아니라 <strong>실시간 실행 로그</strong>를 만들기로 한다. 그리고 <em>"기술 스킬이 없는 사람도 그대로 복제할 수 있게 단계마다 실행 가능한 형태로 쪼갠다"</em>는 방침을 선언한다.</p>
+
+<h3 id="s2">2. 아이디어 발굴: 지난 30일간 내가 겪은 문제 리스트 <span style="color:#888;font-size:0.85em;">(0:38~2:00)</span></h3>
+
+<p>[[SECTION2_IMG]]</p>
+
+<p>가장 어려운 첫 단계 — <em>"뭘 만들어야 할지 모르겠다"</em>는 고전적 문제 — 를 그가 푸는 방법은 <strong>문제 기반 접근법(Problem-Based Approach)</strong>이다. 세부 룰:</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:10px 14px;background:#eff6ff;margin:14px 0;">
+<strong>Problem-Based Approach 규칙</strong><br>
+- <strong>지난 30일간 내가 실제로 겪은 문제</strong>만 종이에 쓴다<br>
+- 세상의 문제가 아니라 <em>내게 발생한 문제</em>여야 한다<br>
+- 브레인스토밍이므로 아이디어가 안 나올 가능성도 인정한다<br>
+- 백지가 무서우면 ChatGPT나 Claude에게 문제 목록을 만들어달라고 해도 좋다
+</blockquote>
+
+<p>그의 논리: <em>"내가 겪은 문제라면 다른 사람도 겪었을 확률이 높다."</em> 이 한 문장이 문제 기반 접근법의 존재 이유다. 그가 실제로 종이에 적은 후보들:</p>
+
+<ol>
+<li>한 살짜리 아이가 매일 새벽 5시에 깨는 문제 → 해결 불가, 스킵</li>
+<li>YouTube 영상 촬영이 시간과 노력을 잡아먹는 문제 → 해결할 예정이지만 이번 앱은 아님</li>
+<li><strong>비즈니스 오너들이 AI를 이해하지 못하는 문제</strong> → 자신의 AI 자동화 에이전시(We Are No Code)에서 매번 부딪히는 문제. 후보 A.</li>
+<li><strong>AI 솔루션 아키텍트 채용의 어려움</strong> → 이력서 검증 · 실무 테스트 셋업 → 후보 B.</li>
+<li><strong>온라인 상품이 광고 이미지와 다르게 도착해서 환불이 발생하는 문제</strong> → 나무로 된 제품이 예상보다 광택이 심했던 개인 경험 → 후보 C.</li>
+</ol>
+
+<p>세 개의 실제 시장 가치가 있는 문제 후보가 나왔다. 이제 결정만 남았다.</p>
+
+<h3 id="s3">3. 세 개의 후보 → 하나의 결정: 커피와 함께 내리는 판단 <span style="color:#888;font-size:0.85em;">(2:00~3:00)</span></h3>
+
+<p>[[SECTION3_IMG]]</p>
+
+<p>"Good old coffee. It works every time." Christian이 커피를 마시며 내린 결정은 <strong>후보 A — 비즈니스 오너의 AI 이해 부족 문제</strong>다. 그의 선택 논리:</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:10px 14px;background:#f1f8f4;margin:14px 0;">
+<strong>왜 이 아이디어를 골랐는가</strong><br>
+- <strong>자신의 사업 문제와 동일</strong>: We Are No Code 고객이 계속 물어보는 것 = "무엇을 자동화해야 하나요?"<br>
+- <strong>자기 사업 온보딩도 개선됨</strong>: 앱이 대답해주면 온보딩 시간도 절약<br>
+- <strong>PDF 리포트가 자연스러운 아웃풋</strong>: 유저가 채팅으로 상황을 설명하면 → AI가 어떤 AI 에이전트/자동화를 만들어야 할지 우선순위 리스트를 PDF로 생성<br>
+- <strong>"이걸 우리가 대신 만들어드리면 됩니다"</strong> 라는 자연스러운 서비스 연결
+</blockquote>
+
+<p>Christian이 이 시점에서 명시적으로 세운 <strong>아웃풋 사양</strong>은 세 개다. ① 비즈니스 오너가 <em>AI와 대화</em>하는 인터페이스, ② AI가 그 대화를 기반으로 <em>실행 가능한 AI 에이전트/자동화 목록을 결정</em>, ③ 결과가 <em>PDF 리포트</em>로 나오는 것. 이 세 요구사항이 이후 스택 선택을 지배한다.</p>
+
+<h3 id="s4">4. 가장 어려운 것부터 먼저: Make.com으로 리포트 엔진 구축 <span style="color:#888;font-size:0.85em;">(3:00~8:14)</span></h3>
+
+<p>[[SECTION4_IMG]]</p>
+
+<p>Christian이 취한 실행 순서 원칙은 명확하다. <em>"항상 빌드에서 가장 어려운 부분을 먼저 공략한다."</em> 이 앱에서 가장 어려운 부분은 UI가 아니라 <strong>리포트 생성 엔진 — 유저 대화 → 여러 AI 분석 → PDF 리포트</strong>의 백엔드 워크플로우다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:10px 14px;background:#f5f3ff;margin:14px 0;">
+<strong>Make.com을 고른 이유</strong><br>
+- <strong>Zapier보다 유연하고 n8n보다 학습곡선이 낮은</strong> 중간지대<br>
+- 트리거 → 액션 형태의 <em>if-this-then-that</em> 로직으로 시각적 스크립팅<br>
+- 웹훅 · OpenAI · Perplexity · Slack 등 <strong>수백 개 커넥터</strong>가 이미 준비됨<br>
+- 회사 규모가 커져도 Grids(모니터링)로 확장 가능
+</blockquote>
+
+<p>그가 실제로 만든 Make 시나리오는 다음 순서로 흐른다.</p>
+
+<ol>
+<li><strong>Webhook</strong>: Lovable 앱이 유저 대화 정보를 이 URL로 POST</li>
+<li><strong>Metric Calculation</strong>: 채점 시스템 — 유저 답변을 정량화</li>
+<li><strong>Executive Summary Generator (OpenAI)</strong>: 개요 문단 생성</li>
+<li><strong>Readiness Scorecard w/ Commentary (OpenAI)</strong>: 준비도 점수 + 해설</li>
+<li><strong>Process Analysis (OpenAI)</strong>: 프로세스 분석</li>
+<li><strong>Tool & Agent Recommendations (Perplexity)</strong>: 회사 실황에 맞는 툴/에이전트 검색 및 추천</li>
+<li><strong>Parse Data</strong>: 위 데이터 통합 정리</li>
+<li><strong>Roadmap Generator</strong>: 30일 · 60일 · 90일 실행 로드맵</li>
+<li><strong>CTA Composer (Action Plan)</strong>: 마지막 액션 플랜</li>
+<li><strong>Wrap + Webhook Response</strong>: PDF 형태로 랩핑해 앱에 재전송</li>
+</ol>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>왜 하나의 큰 프롬프트가 아니라 여러 모듈로 쪼갰는가</strong><br>
+"ChatGPT 하나에 리포트 전체를 뽑아내라고 하는 것보다, 각 섹션을 독립 모듈로 만들고 <em>각각의 프롬프트</em>를 붙여야 아웃풋 품질이 확실히 좋다." — Christian의 관찰
+</blockquote>
+
+<p>이렇게 하면 <strong>Lovable 안에서 직접 이 복잡한 로직을 코딩할 필요가 없다</strong>. Lovable은 프론트엔드와 유저 인터랙션만, 무거운 AI 파이프라인은 Make가 담당. 관심사 분리 원칙이 노코드 스택에도 그대로 적용된다.</p>
+
+<h3 id="s5">5. Lovable + Superbase — 로그인부터 음성 채팅까지 노코드로 <span style="color:#888;font-size:0.85em;">(8:14~11:15)</span></h3>
+
+<p>[[SECTION5_IMG]]</p>
+
+<p>Lovable은 <em>"만들고 싶은 것을 텍스트로 설명하면 앱을 대신 코딩해주는 AI 코딩 플랫폼"</em>이다. Christian이 Lovable을 다루는 <strong>3단계 프롬프트 전략</strong>은 이 파트의 핵심 인사이트다.</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:10px 14px;background:#eff6ff;margin:14px 0;">
+<strong>Lovable 프롬프트 전략 — ChatGPT를 프롬프트 프로듀서로 쓰기</strong><br>
+- <strong>Step 1</strong>: ChatGPT에게 <em>"Lovable을 위한 프롬프트를 만들어달라"</em>고 요청<br>
+- <strong>Step 2</strong>: 이때 <strong>PRD(Product Requirements Document)</strong>를 프롬프트에 포함하라고 명시 → AI가 앱 목적 · 유저 여정 · 필수 기능을 명확히 이해<br>
+- <strong>Step 3</strong>: 마지막에 <em>"내가 놓친 걸 찾아낼 수 있게 질문을 해달라"</em>고 지시 → ChatGPT가 클래리피케이션 질문을 던져 프롬프트 완성도 상승
+</blockquote>
+
+<p>이 프롬프트 프로듀서 방식으로 Lovable에 첫 요청을 넣자마자 앱 스켈레톤이 <strong>"Stop AI Overwhelm, Start Smart"</strong>라는 헤드라인과 함께 등장한다.</p>
+
+<p>다음 단계는 <strong>Superbase 연결</strong>이다. Christian의 표현: <em>"로그인, 로그아웃, 비밀번호 잊음 이런 모든 fancy stuff를 담당하는 백엔드."</em> 절차는 극도로 단순하다.</p>
+
+<ol>
+<li>Lovable 채팅창에 <em>"Now let's build in auth and database with Superbase"</em> 라고 입력</li>
+<li>우측 상단 Superbase 아이콘 클릭 → 새 프로젝트 생성</li>
+<li>프로젝트 이름 입력 → 자동으로 Lovable 계정과 연결</li>
+<li>인증 테스트 → 정상 작동 확인</li>
+</ol>
+
+<p>이 시점에서 Christian이 마주친 <strong>진짜 어려운 부분</strong>은 <em>음성 인터랙션</em>이었다. 처음 Lovable이 만든 UI는 "녹음 버튼을 누르면 유저 문제를 녹음하라"는 형태로, 그가 원한 <strong>실시간 음성 채팅 UX</strong>가 아니었다. 그의 재프롬프트:</p>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+"오디오 버튼을 클릭하면 <strong>내 음성이 실시간으로 채팅창에 텍스트로 전사</strong>되도록 만들어줘. 오디오 버튼을 다시 클릭하면 그 텍스트가 챗봇으로 <strong>전송</strong>되게 해줘."
+</blockquote>
+
+<p>이 재프롬프트로 원하는 UX가 완성됐다. 여기서 얻는 교훈: <strong>노코드 툴에서도 프롬프트 정밀도가 결과 품질을 결정</strong>한다. "음성이 필요해요"로는 부족하고 "클릭 → 실시간 전사 → 다시 클릭 → 챗봇 전송"이라는 <em>인터랙션 시퀀스</em>를 명시해야 한다.</p>
+
+<h3 id="s6">6. 지옥의 2시간: 웹훅 통합 · UI 개선 · 시간 압박 <span style="color:#888;font-size:0.85em;">(11:15~12:00)</span></h3>
+
+<p>[[SECTION6_IMG]]</p>
+
+<p>여기가 24시간 챌린지의 <strong>진짜 병목</strong>이다. Christian의 자기 고백:</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+"방금 지옥을 다녀왔다. 최근 2시간을 그냥 <em>모든 것을 알아내려 애쓴 시간</em>으로 태워버렸다. 다행히 해결은 했지만, 완전히 지쳤다. 아웃리치는 아직 시작도 못 했다."
+</blockquote>
+
+<p>구체적으로 어떤 문제였는지는 영상에서 상세히 다루지 않지만, 맥락상 다음 세 개가 겹쳤을 것으로 보인다.</p>
+
+<ol>
+<li><strong>Make 웹훅 응답 처리</strong>: 리포트가 몇 초~수십 초 걸리는데, 그동안 유저에게 "처리 중"을 보여주는 UI가 필요</li>
+<li><strong>Lovable 내 로딩 상태 관리</strong>: 프로세싱 상태를 화면에 반영하는 컴포넌트 튜닝</li>
+<li><strong>리포트 결과의 렌더링</strong>: PDF/HTML 형태로 사용자에게 보여주는 처리</li>
+</ol>
+
+<p>Christian의 문제 접근법도 흥미롭다. <em>"먼저 실제로 처리가 완료되고 리포트가 도착하는지부터 검증하고, 그다음에 UI를 손본다."</em> — 즉 <strong>파이프라인의 엔드투엔드 성공을 먼저 확인</strong>한 뒤 UX를 다듬는 순서. 이 순서를 뒤집으면 UI를 예쁘게 만들었는데 백엔드가 안 될 수도 있으니 시간 낭비가 커진다.</p>
+
+<h3 id="s7">7. Outbound — 자기가 만든 아웃리치 툴로 직접 세일즈 시작 <span style="color:#888;font-size:0.85em;">(12:00~13:12)</span></h3>
+
+<p>[[SECTION7_IMG]]</p>
+
+<p>이제 시간은 이미 대부분 소진됐다. Christian이 꺼내드는 카드는 그가 <strong>스텔스로 만들고 있던 자체 아웃리치 툴 "Outbound"</strong>다. 이 툴의 3단계 워크플로우:</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:10px 14px;background:#f5f3ff;margin:14px 0;">
+<strong>Outbound의 personalized outreach 3단계</strong><br>
+① <strong>List Building</strong>: 조건(ex. 미국 내 AI 자동화 에이전시 오너들) 입력 → AI가 LinkedIn 프로필 스캔하여 리스트 자동 생성<br>
+② <strong>Enrichment</strong>: 각 인물별 데이터 보강 + 좋은 구매자일 확률을 시사하는 <em>시그널</em> 탐지<br>
+③ <strong>Personalized Outreach</strong>: 개인화된 메시지 생성 + 인박스에 도달할 인프라(이메일 워밍업 · LinkedIn 자동화 등) 셋업
+</blockquote>
+
+<p>여기서 Christian이 인정하는 <strong>"조금 치팅하는 부분"</strong>이 등장한다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+<strong>Your network is your net worth</strong><br>
+"콜드 아웃리치는 답변까지 24~48시간이 걸린다. 그리고 현실적으로 대부분의 사람은 자동으로는 구매하지 않는다. 그래서 <em>내 네트워크를 병행 활용</em>한다. Your network is your net worth. 누군가 어디선가 그렇게 말했다. 지금 이 시점에서는 <strong>기존 관계를 즉시 활용</strong>하는 게 가장 현실적인 승률이다."
+</blockquote>
+
+<p>이 발언은 24시간 챌린지의 세일즈 방법론에서 가장 중요한 인사이트다. <em>"완벽하게 낯선 사람에게 콜드 아웃리치 → 답변 → 데모 → 계약"</em> 전 과정이 24시간 안에 끝나는 확률은 극히 낮다. 그래서 그는 <strong>이메일 콜드 캠페인(광범위) + 개인 네트워크(고확률)</strong>를 병렬로 돌린다.</p>
+
+<p>결과는 다음과 같다:</p>
+
+<ul>
+<li>이메일 아웃리치 4명 → 모두 "No"</li>
+<li>이메일 아웃리치 1명 → "그 기능이 있나요?"라는 질문 (실제로 없는 기능이라 그가 밤새 추가)</li>
+<li>이메일 아웃리치 1명 → "추가 질문"</li>
+<li>친구 A → "Nah, bro" (거절)</li>
+<li><strong>친구 B → "관심 있어 할 사람을 아는데 소개해줄까?"</strong> (미팅 셋업 요청)</li>
+</ul>
+
+<p>이 친구 B 소개가 결국 5,000달러 오퍼로 이어진다. 이메일 콜드가 아니라 <strong>네트워크의 2-홉(2-hop)</strong>에서 세일즈가 발생한다는 점이 이 챌린지의 핵심 발견 중 하나다.</p>
+
+<h3 id="s8">8. 플랫폼 시연: 랜딩부터 리포트 생성까지의 유저 여정 <span style="color:#888;font-size:0.85em;">(13:12~15:35)</span></h3>
+
+<p>[[SECTION8_IMG]]</p>
+
+<p>Christian이 실제 완성된 플랫폼을 시연하는 파트다. 유저 여정은 다음과 같이 짜여 있다.</p>
+
+<ol>
+<li><strong>랜딩 페이지</strong>: 헤드라인 <em>"Stop AI Overwhelm, Start Smart"</em>. CTA 두 개 — "Get Your Recommendation" / "Try the Interactive Demo"</li>
+<li>페이지 하단에 <strong>인터랙티브 데모</strong> 임베드(로그인 없이 체험)</li>
+<li>"Start Assessment" 클릭 → 로그인 요청 → Superbase 인증</li>
+<li><strong>Alex</strong>라는 AI 컨설턴트 캐릭터가 사용자에게 인사 후 브라우저 마이크 권한 요청</li>
+<li>Q1: "어떤 사업을 하시나요? 일상 업무는 어떻게 진행되나요?" → 유저 음성 답변 → 실시간 전사 → 다음 질문</li>
+<li>Q2: "매일/매주 시간이 가장 많이 드는 업무 2~3개는 무엇인가요?" → 유저 답변</li>
+<li>Q3: "가장 답답한 병목은 무엇인가요?" → 유저 답변</li>
+<li>Q4: "현재 도와주는 팀원이나 프리랜서가 있나요?" → 유저 답변</li>
+<li>"Generating your AI report" 상태 → Make 시나리오 백그라운드 실행</li>
+<li>완성된 리포트 반환 → 유저가 다운로드 가능</li>
+</ol>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>Christian이 시연에서 실제로 답한 문제들</strong><br>
+- 새 고객 <strong>온보딩에 시간이 너무 오래 걸린다</strong><br>
+- <strong>풀타임 비서가 있으면 좋겠지만 아직 감당 못한다</strong><br>
+- <strong>YouTube 영상 제작이 너무 길다</strong><br>
+- <strong>많은 리드가 들어오지만 팔로우업할 시간이 없어 잃는다</strong><br>
+- YouTube 스트래티지스트, 마케팅 인력 2명이 있지만 모두 오버로드 상태<br>
+→ 이 정도의 정보만 있어도 "당신이 만들어야 할 AI 에이전트 목록"이 도출 가능
+</blockquote>
+
+<p>이 UX의 중요한 특성은 <strong>"입력이 대화 · 출력이 리포트"</strong>라는 <em>비대칭 인터페이스</em>다. 유저는 3~5분 대화로 30~90일 실행 로드맵을 받는다. 이 시간 비대칭성이 곧 <em>"돈을 내고 살 만한 가치"</em>가 된다.</p>
+
+<h3 id="s9">9. 5K 오퍼 → 카운터 오퍼 10K → 최종 5K 확정 <span style="color:#888;font-size:0.85em;">(15:35~17:57)</span></h3>
+
+<p>[[SECTION9_IMG]]</p>
+
+<p>친구 B의 소개로 시작된 대화가 5,000달러 오퍼로 이어진다. Christian이 실제로 취한 <strong>거래 협상 프로토콜</strong>은 세일즈 자체보다도 흥미롭다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+<strong>협상 시퀀스</strong><br>
+1. <strong>Loom 데모</strong>를 보냄 (실제 제품이 돌아가는 것을 녹화)<br>
+2. 상대 답변: <em>"I'll pay 3K."</em><br>
+3. Christian의 판단: <em>"3K를 부른다면 뒤에 더 있다. 5K 아니면 10K까지 갈 수 있다."</em> → 거절<br>
+4. Christian의 <strong>카운터 오퍼: 10K</strong><br>
+5. 상대의 최종 오퍼: <em>"5K final offer. Take it or leave it."</em><br>
+6. Christian이 수락 신호를 보내고 <strong>소프트웨어 이전 계약서(Software Transfer Agreement)</strong> 작성 요청
+</blockquote>
+
+<p>여기서 학습할 세 가지 세일즈 원칙:</p>
+
+<ol>
+<li><strong>Loom 데모는 랜딩 페이지보다 강력하다</strong>. 실제로 제품이 돌아가는 화면을 1~3분짜리 녹화로 보여주는 것이 이 딜의 결정타.</li>
+<li><strong>첫 오퍼는 거의 항상 저평가</strong>다. "3K"라는 첫 오퍼는 상대의 최대 지불 의사와 다르다. Christian은 이걸 알고 카운터를 걸었다.</li>
+<li><strong>Take it or leave it이 나오면 그것이 진짜 상한선</strong>이다. "5K final offer"는 협상 여지가 없다는 강한 신호. 이때 더 밀면 거래 자체가 무너진다.</li>
+</ol>
+
+<p>Christian은 "소프트웨어 이전 계약서를 써달라"고 요청한다. 이는 <strong>제품(코드 + 자산 + 도메인) 전체를 통째로 이전</strong>하는 형태의 딜을 의미한다. 즉 라이선스가 아니라 <em>업사이드 없는 원샷 매각</em>. 5,000달러가 확정되는 순간이다.</p>
+
+<h3 id="s10">10. COO와의 통화: "팔지 마, 이건 리드 마그넷이야" <span style="color:#888;font-size:0.85em;">(17:57~19:22)</span></h3>
+
+<p>[[SECTION10_IMG]]</p>
+
+<p>5,000달러 확정 직후 Christian은 COO Chad에게 전화를 건다. 두 사람의 대화가 이 리포트의 <strong>가장 중요한 판단 포인트</strong>다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:10px 14px;background:#f5f3ff;margin:14px 0;">
+<strong>Christian → Chad</strong>: "5K는 큰 돈이지만 <em>이걸로 더 잘할 수 있을 것 같은데</em>. 리드 마그넷으로 쓰면 훨씬 더 많은 걸 할 수 있지 않을까?"<br>
+<strong>Chad</strong>: "야, 나도 방금 그 생각했다. 파는 거 반대야. 아예 팔지 마."<br>
+<strong>Christian</strong>: "우린 그 돈이 필요하지도 않잖아. 더 벌 수 있다고 봐?"<br>
+<strong>Chad</strong>: "훨씬 더 벌 수 있어. Long-term, my friend."
+</blockquote>
+
+<p>이 판단의 논리를 풀어보면 다음과 같다.</p>
+
+<ol>
+<li><strong>5K는 원샷</strong>: 매각하면 그걸로 끝. 재구매도 없고 확장도 없다.</li>
+<li><strong>리드 마그넷으로 쓰면</strong>: 유저가 리포트를 받기 위해 이메일과 사업 정보를 넘긴다 → 그 정보로 We Are No Code의 <em>다음 서비스 계약</em>이 자연 발생 (컨설팅, 실제 AI 에이전트 구축 등)</li>
+<li><strong>LTV vs. 원샷 매각</strong>: AI 자동화 에이전시 고객 한 명의 LTV가 5K를 초과할 확률이 매우 높음</li>
+<li><strong>규모의 잠재력</strong>: 리드 마그넷은 무한히 배포 가능. 5K 매각은 딱 한 번</li>
+</ol>
+
+<blockquote style="border-left:4px solid #059669;padding:12px 16px;background:#ecfdf5;margin:14px 0;">
+<strong>결론</strong>: Christian은 5,000달러 오퍼를 <strong>거절</strong>한다. "COO가 팔지 못하게 했다"는 게 나쁜 뉴스, 그러나 <em>"이걸로 훨씬 더 벌 수 있다"</em>는 게 좋은 뉴스. 그는 대신 이 플랫폼을 <strong>공개 무료로 오픈</strong>하고 유입되는 비즈니스 오너들을 We Are No Code의 리드 풀로 편입시키기로 결정한다.
+</blockquote>
+
+<p>즉 24시간 챌린지의 <strong>공식적 실패</strong>(매각 성사 안 됨)가 사업적으로는 <strong>더 큰 승리</strong>가 된다. 이 결정은 <em>"단기 5K vs. 장기 LTV"</em>의 클래식한 트레이드오프인데, Christian이 그 자리에서 후자를 선택할 수 있었던 이유는 명확하다 — <strong>그의 본업이 이미 AI 자동화 에이전시</strong>이고, 이 앱이 그 본업의 인바운드 채널이 되기 때문이다.</p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #d97706;padding:16px 20px;background:#fff8e6;margin:20px 0;">
+<ol>
+<li><strong>아이디어는 "지난 30일간 내가 겪은 문제"에서 찾아라</strong>. 자신이 실제로 마주한 페인은 시장 가치 검증이 끝난 것과 같다. Christian이 실제로 종이에 쓴 5개 문제 중 3개가 실행 가능한 후보였다.</li>
+<li><strong>가장 어려운 것부터 먼저 만들어라</strong>. UI가 아니라 백엔드 파이프라인 — 웹훅 · LLM 프롬프트 · PDF 생성 — 이 실패 위험이 가장 큰 부분. 이걸 먼저 검증하고 UI로 옮겨야 시간 낭비가 최소.</li>
+<li><strong>노코드 스택은 관심사 분리 원칙을 그대로 지켜라</strong>. Make = 백엔드 자동화, Lovable = 프론트/유저 인터랙션, Superbase = 인증/DB. 한 툴에 다 몰아넣으려 하지 말 것.</li>
+<li><strong>Lovable 프롬프트는 ChatGPT로 먼저 프로듀싱</strong>: PRD를 포함시키고, 마지막에 "내가 놓친 것을 질문으로 물어봐줘"라고 지시. 이 3단계가 노코드 앱 스켈레톤의 품질을 결정.</li>
+<li><strong>재프롬프트할 때는 인터랙션 시퀀스를 명시</strong>: "음성이 필요해요"가 아니라 "클릭 → 실시간 전사 → 다시 클릭 → 챗봇 전송". 이 정밀도가 결과 품질과 재작업량을 결정.</li>
+<li><strong>세일즈는 콜드 아웃리치 + 개인 네트워크를 병렬로</strong>. 콜드는 규모, 네트워크는 확률. 24시간 안에 성사되는 딜은 거의 항상 네트워크의 2-홉에서 나온다.</li>
+<li><strong>Loom 데모가 랜딩 페이지보다 강하다</strong>. 특히 첫 오퍼에서 확실히 강력하다. 실제 제품이 돌아가는 1~3분짜리 화면 녹화 하나가 계약을 만든다.</li>
+<li><strong>첫 오퍼는 카운터를 걸어라. 단, "Final offer"가 나오면 멈춰라</strong>. 3K → 10K 카운터 → 5K 확정의 프로토콜이 실제 데이터 포인트로 유효했다.</li>
+<li><strong>단기 매각 vs. 장기 LTV — 본업이 있는 사람은 후자</strong>. AI 에이전시가 본업인 Christian에게 이 앱의 리드 마그넷 가치가 5K 원샷 매각보다 훨씬 컸다. 자신의 사업 컨텍스트에서 이 결정이 나올 수 있는지 항상 점검하라.</li>
+</ol>
+</blockquote>
+
+<p style="color:#666;font-size:0.9em;text-align:center;margin-top:30px;">
+원본 영상: <a href="https://youtu.be/s7YuZkpPXYs" target="_blank">I Built and Sold a Micro App for $5,000 (here's how)</a>
+</p>

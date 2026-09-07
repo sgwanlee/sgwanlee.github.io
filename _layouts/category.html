@@ -2,24 +2,27 @@
 layout: default
 ---
 
-{% include get_sub_category.html %}
-{% assign size = sub_categories | size %}
-
-{% if size == 0 %}
-  empty ;)
+{% assign cat_posts = site.categories[page.category] %}
+{% if cat_posts %}
+  {% assign cat_posts = cat_posts | sort: 'date' | reverse %}
 {% else %}
+  {% assign cat_posts = "" | split: "" %}
+{% endif %}
 
-  <div class="posts post-list">
-  {% for category in sub_categories %}
-    <div class="category">
-      <a href="#{{category}}">{{category | upcase}} ({{ site.categories[category] | size }})</a>
-    </div>
-    {% for post in site.categories[category] %}
+<div class="posts post-list">
+  <div class="category-heading">
+    {% if page.category_name %}{{ page.category_name }}{% else %}{{ page.category | upcase }}{% endif %}
+    <span class="category-heading-count">{{ cat_posts.size }}개 글</span>
+  </div>
+
+  {% if cat_posts.size == 0 %}
+    <p class="category-empty">아직 등록된 글이 없습니다.</p>
+  {% else %}
+    {% for post in cat_posts %}
       <a href="{{ post.url }}">
         <div class="catagory_post">
           <h4 class="post-title">
-            
-              {{ post.title }}
+            {{ post.title }}
           </h4>
           <div class="post-description">
             <small><span class="post-date">{{ post.date | date_to_string }}</span></small>
@@ -27,27 +30,6 @@ layout: default
         </div>
       </a>
     {% endfor %}
-  {% endfor %}
-  </div>
+  {% endif %}
+</div>
 
-
-
-
-
-<!--   <div class="category-posts-container">
-    {% for category in sub_categories %}
-    <div class="category-posts">
-      <h2 id="{{ category }}">{{ category }}</h2>
-      <ul>
-        {% for post in site.categories[category] %}
-          <a href="{{ post.url }}" class="category-post">
-            <li>
-              {{ post.title }}
-              <small>{{post.date | date_to_string }}</small>
-            </li></a>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endfor %}
-  </div> -->
-{% endif %}

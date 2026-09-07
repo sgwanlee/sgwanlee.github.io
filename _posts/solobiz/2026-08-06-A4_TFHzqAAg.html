@@ -1,0 +1,220 @@
+---
+layout: post
+comments: true
+title: "Fireship가 정리한 1인 소프트웨어 개발자 부자 되기 6단계 — 마인드셋·아이디어·마케팅·기술 스택·데이터베이스·결제까지"
+categories: [solobiz]
+date: 2026-08-06 14:50:17 +0900
+source_video: https://www.youtube.com/watch?v=A4_TFHzqAAg
+---
+
+<h2>Fireship가 정리한 1인 소프트웨어 개발자 부자 되기 6단계 — 마인드셋·아이디어·마케팅·기술 스택·데이터베이스·결제까지</h2>
+
+<p><strong>Fireship</strong> 채널이 압축한 8분 51초짜리 이 영상은 <em>소프트웨어 엔지니어링 스킬을 부의 자산으로 전환하는 정통 가이드</em>다. 그는 자신이 실제로 <strong>2일 만에 프로그래밍</strong>해 배포한 AI SaaS 앱 <code>vocalize.cloud</code>(자기 목소리 + 유명인 보이스 클로닝 서비스)를 사례로 삼는다. 크롬 플러그인 하나로 <strong>연 $20M</strong>을 버는 1인 사업자, AI 헤드샷 서비스 <strong>headshot Pro</strong>로 <strong>12,000 고객</strong>을 확보한 Danny Postma, <strong>PHP만으로 연 $3M+</strong>을 버는 Peter Levels 같은 실증 사례들을 근거로, 그는 마인드셋 → 아이디어 → 마케팅 → 기술 스택 → 데이터베이스 → 결제까지 <strong>6단계 실전 프레임워크</strong>를 제시한다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:16px 0;">
+<strong>이 리포트가 답하는 질문</strong><br>
+- 왜 Danny Postma의 "운"이 실은 <strong>스킬·문제 인식·타이밍의 준비</strong>인가?<br>
+- 2년 비밀리에 만들지 말고 <strong>사용자 피드백을 조기에 받아야 하는</strong> 이유?<br>
+- 기술 스택(SvelteKit · Firebase)이 왜 트렌드가 아니라 <em>생산성 기준</em>으로 선택되어야 하는가?<br>
+- 11 Labs가 1,000 캐릭터당 $0.18일 때 어떻게 <strong>$0.69로 가격을 설정</strong>하는가?
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">1인 개발자가 만드는 "돈 찍는 기계" 세 가지 사례</a></li>
+<li><a href="#s2">Step 1 — 사이드 허슬러의 마인드셋: Fail Forward</a></li>
+<li><a href="#s3">Step 2 — 아이디어 찾기와 vocalize.cloud 탄생기</a></li>
+<li><a href="#s4">Step 3 — 아이디어 검증: 2년 비밀 개발의 함정</a></li>
+<li><a href="#s5">Step 4 — 마케팅 우선, 코드는 그다음</a></li>
+<li><a href="#s6">Step 5 — 최적의 기술 스택 선택 (SvelteKit + Firebase)</a></li>
+<li><a href="#s7">Firebase 리얼타임 파이프라인의 코드 단순화 마법</a></li>
+<li><a href="#s8">Step 6 — 데이터베이스 · 결제 · Vercel 가격 전략</a></li>
+<li><a href="#s9">"이 영상 자체가 사이드 허슬 마케팅의 예시"</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. 1인 개발자가 만드는 "돈 찍는 기계" 세 가지 사례 <span style="color:#888;font-size:0.85em;">(0:00~0:31)</span></h3>
+
+<p><img src="__SECTION1_IMG__" alt="Fireship가 solo dev 부자 사례를 소개하는 오프닝" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship의 오프닝은 강렬하다. 화면에 등장하는 인물은 <strong>크롬 플러그인 개발로 연 $20M을 버는 1인 사업자</strong>다. NFL 쿼터백 평균 연봉의 <em>4배</em>다. 그의 정의에 따르면 코딩을 배운다는 것은 <strong>일반인이 만들 수 없는 돈 찍는 기계를 만들 수 있는 능력</strong>을 얻는 것이다.</p>
+
+<p>그가 말하는 <strong>진짜 궁극의 자유</strong>는 이렇다.</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:10px 14px;background:#f1f8f4;margin:14px 0;">
+<em>"오토파일럿으로 돌아가는 사업을 가진 솔로프리너 — 데드라인도, 상사도, 부가티도 없이 그저 순수한 자유."</em>
+</blockquote>
+
+<p>Fireship은 자신도 수많은 사이드 프로젝트가 <strong>대부분 참혹하게 실패</strong>했지만, 몇 개가 <em>중간 정도의 성공</em>을 거두어 어머니 지하실에서 이사 나올 수 있었다고 고백한다. 이 겸손한 자기 개시가 이 영상의 신뢰성을 만든다. <strong>부업 = 4-Hour Work Week 같은 게 아니라 대부분 실패하는 힘든 작업</strong>이라는 것이 그의 전제다.</p>
+
+<h3 id="s2">2. Step 1 — 사이드 허슬러의 마인드셋: Fail Forward <span style="color:#888;font-size:0.85em;">(0:31~1:49)</span></h3>
+
+<p><img src="__SECTION2_IMG__" alt="Danny Postma의 headshot Pro 사례와 Tarantino 비유 설명" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship이 인용하는 첫 번째 실제 사례는 <strong>Danny Postma</strong>의 <em>headshot Pro</em>. AI로 프로필 사진을 생성해주는 서비스로 <strong>12,000+ 고객</strong>을 확보했다. 사람들은 그가 "AI 하이프에 올라타서 운이 좋았다"고 말한다. Fireship의 반박은 이렇다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff;margin:14px 0;">
+<em>"He made his own luck. 그는 먼저 <strong>스킬</strong>을 개발했고, 다음에 <strong>기업 사진 촬영이 돈 낭비라는 문제</strong>를 인식했고, 그리고 AI가 사진사를 대체할 수 있을 만큼 좋아지자 <strong>그 순간을 낚아챈</strong> 것이다."</em>
+</blockquote>
+
+<p>그리고 Tarantino의 유명한 일화도 인용한다. 그는 셀마 헤이엑이 다리로 데킬라를 붓고, 남자가 발가락에서 그것을 마시는 시나리오를 썼다. 그 <em>남자 역할에 자신을 캐스팅했다</em>. 이것이 "자기 운을 만든다"는 뜻이다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+<strong>Fail Forward 원칙</strong>: 일찍 실패하고, 자주 실패하되, <em>항상 앞으로</em> 실패하라. 실패 여부를 판정할 수 있는 유일한 사람은 <strong>고객</strong>이다. 즉 실제 사용자 피드백을 <strong>최대한 빨리</strong> 받아야 한다.
+</blockquote>
+
+<h3 id="s3">3. Step 2 — 아이디어 찾기와 vocalize.cloud 탄생기 <span style="color:#888;font-size:0.85em;">(1:49~3:03)</span></h3>
+
+<p><img src="__SECTION3_IMG__" alt="Fireship이 자신의 목소리가 불법 클론된 유튜브 채널을 발견한 이야기" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship이 vocalize.cloud 아이디어를 얻은 계기는 흥미롭다. 어느 날 그는 <strong>"기가차드 라이프스타일"을 가르치는 마노스피어 채널</strong>을 발견했다. 그런데 이상하게도 <strong>자신의 목소리가 그 채널에서 나오고 있었다</strong>. 즉 누군가가 그의 음성을 <em>불법으로 클론해서 사용</em>하고 있었던 것.</p>
+
+<p>그의 반응은 예상 밖이었다. "FBI에 신고할 수도 있지만, 사실 사람들이 내 목소리를 대량 배포에 쓰는 게 마음에 든다." 그래서 그는 이 문제를 <em>합법적 서비스로 전환</em>했다.</p>
+
+<blockquote style="border-left:4px solid #2563eb;padding:10px 14px;background:#eff6ff;margin:14px 0;">
+<strong>vocalize.cloud</strong>: Fireship의 목소리를 <strong>합법적으로 사용</strong>할 수 있는 플랫폼. 그의 목소리뿐 아니라 Morgan Freeman, Tom Cruise, Scarlett Johansson, Michael Jackson 등 유명인 보이스도 제공(예정). Dax Flame(21 Jump Street 배우)에게서는 이미 그린라이트 확보.
+</blockquote>
+
+<p>이 사례가 시사하는 것은 아이디어 발굴의 원칙이다. <strong>당신이 이미 겪고 있는 문제나 발견한 이상현상</strong>이 가장 강력한 아이디어 시드다. Fireship은 자신의 목소리 도용이라는 <em>실존 문제</em>를 <strong>서비스</strong>로 재구성했다.</p>
+
+<h3 id="s4">4. Step 3 — 아이디어 검증: 2년 비밀 개발의 함정 <span style="color:#888;font-size:0.85em;">(3:03~3:35)</span></h3>
+
+<p><img src="__SECTION4_IMG__" alt="아이디어 검증의 중요성을 강조하는 장면" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship이 짚는 <strong>가장 흔한 실패 경로</strong>는 이것이다. <em>"2년 동안 비밀리에 프로젝트를 만들다가 출시했더니 아무도 원하지 않는 것을 발견하는 것."</em> 그의 아이디어(vocalize.cloud)도 검증이 필요했다. 다만 그에게는 유리한 조건이 있다.</p>
+
+<blockquote style="border-left:4px solid #059669;padding:10px 14px;background:#ecfdf5;margin:14px 0;">
+<strong>Fireship의 검증 방법</strong>: YouTube 채널에서 이 서비스를 홍보 → <strong>24시간 안에</strong> 이것이 10억 달러짜리 아이디어인지, 아니면 뒷마당에서 처분해야 할 앱인지 판가름 낼 수 있다.
+</blockquote>
+
+<p>일반 개발자에게 이 채널 유무는 큰 격차다. 그러나 원칙은 동일하다. <strong>가능한 가장 빠른 방법으로 실제 사용자 반응을 얻어라</strong>. 반응이 없다면 아이디어를 <em>즉시 폐기</em>하고 다음으로 넘어가라. 감정 이입해서 아이디어를 붙잡지 마라.</p>
+
+<h3 id="s5">5. Step 4 — 마케팅 우선, 코드는 그다음 <span style="color:#888;font-size:0.85em;">(3:35~4:01)</span></h3>
+
+<p><img src="__SECTION5_IMG__" alt="마케팅 전략을 설명하는 낚시 비유 장면" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship이 <strong>강조 표시</strong>하는 원칙은 이것이다. <em>"아이디어는 싸다. 실행이 전부다."</em> 하지만 그가 말하는 "실행"은 기술이 아니다. <strong>비즈니스 모델과 마케팅 계획</strong>이다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+"당신은 세상에서 가장 놀라운 앱을 만들 수 있다. 그러나 <strong>좋은 마케팅 플랜이 없다면 아무도 쓰지 않는다.</strong>"
+</blockquote>
+
+<p>부자라면 광고나 인플루언서 마케팅을 살 수 있다. 그러나 대부분의 개발자는 <strong>유기적 마케팅</strong>을 해야 한다. Twitter · YouTube · TikTok 같은 소셜 미디어. Fireship의 <em>낚시 비유</em>:</p>
+
+<ol>
+<li>먼저 <strong>물고기가 어디 있는지</strong> 파악하라 (타깃 오디언스 위치)</li>
+<li><strong>미끼</strong>를 던져라 (광고 · CTA)</li>
+<li>사용자가 가입하면 <strong>몽둥이로 죽이고 저녁으로 구워라</strong> — 즉 <em>기꺼이 돈을 낼 만한 훌륭한 서비스</em>를 제공하라</li>
+</ol>
+
+<p>이 순서가 뒤집혔을 때 발생하는 대부분의 실패가 <strong>"만들었는데 아무도 안 왔다"</strong>이다. 즉 <em>코드 → 마케팅</em> 순서가 아니라 <strong>마케팅 계획 → 코드</strong> 순서여야 한다.</p>
+
+<h3 id="s6">6. Step 5 — 최적의 기술 스택 선택 (SvelteKit + Firebase) <span style="color:#888;font-size:0.85em;">(4:01~5:06)</span></h3>
+
+<p><img src="__SECTION6_IMG__" alt="Peter Levels의 PHP 사례와 SvelteKit 소개" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship의 두 번째 실증 사례는 <strong>Peter Levels</strong>. 다양한 사이드 프로젝트로 <strong>연 최소 $3M</strong>을 버는 그는 여전히 <em>구식 PHP</em>를 사용하며 트렌디한 개발자 상품들을 무시한다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:12px 16px;background:#fef2f2;margin:14px 0;">
+<strong>기술 스택 선택 원칙</strong>: WordPress · React · Angular · Kubernetes 그 무엇이든 <strong>Twitter의 테크 브로들 외에는 아무도 신경 쓰지 않는다</strong>. 유일한 기준은 <em>동작하는가</em>와 <em>당신의 생산성이 최대화되는가</em>다.
+</blockquote>
+
+<p>Fireship의 개인 선택:</p>
+
+<table border="1" cellpadding="8" style="border-collapse:collapse;margin:16px 0;background:#fafafa;">
+<tr style="background:#f0f9ff;"><th>레이어</th><th>선택</th><th>이유</th></tr>
+<tr><td>프론트엔드</td><td><strong>SvelteKit</strong></td><td>React보다 그가 <em>쓰기 더 좋아함</em>. "싫어하는 도구로 일하는 것은 극도로 사기 저하"</td></tr>
+<tr><td>백엔드/데이터베이스</td><td><strong>Firebase</strong></td><td>실시간 동기화 · 인증 · 스토리지 통합. 벤더 락인 리스크 있음</td></tr>
+<tr><td>UI</td><td>IBM Carbon Design System (또는 Tailwind)</td><td>빠른 UI 구축</td></tr>
+</table>
+
+<p>또한 그는 <strong>svelte-fire</strong>라는 자기 라이브러리를 만들어서 <em>단순히 참조 앞에 <code>$</code>를 붙이는 것만으로 Firebase 데이터를 읽을 수 있게</em> 했다. 이 정도의 개인화가 <strong>1인 개발자의 생산성 프리미엄</strong>을 만든다.</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:10px 14px;background:#f1f8f4;margin:14px 0;">
+<strong>디자인 원칙</strong>: <em>기능적 · 아름다운 · 유니크</em> 순서. 첫 인상 랜딩 페이지가 <em>왜 돈을 내야 하는지</em>를 즉시 설명해야 한다. 영감은 <a href="https://mobbin.com" target="_blank">mobbin.com</a>에서 얻어라.
+</blockquote>
+
+<h3 id="s7">7. Firebase 리얼타임 파이프라인의 코드 단순화 마법 <span style="color:#888;font-size:0.85em;">(5:06~7:22)</span></h3>
+
+<p><img src="__SECTION7_IMG__" alt="Firebase 백엔드 파이프라인 아키텍처 설명" style="max-width:100%;height:auto;"></p>
+
+<p>Fireship이 자세히 설명하는 것은 <strong>vocalize.cloud의 실제 백엔드 흐름</strong>이다. 사용자가 폼을 제출하면 Firestore에 문서가 저장되고, 그 뒤에 다음 복잡한 백엔드 로직이 자동으로 발생한다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff;margin:14px 0;">
+<strong>백엔드 파이프라인</strong><br>
+1. Firestore 문서 저장 → <strong>백그라운드 함수 트리거</strong><br>
+2. <strong>11 Labs API</strong>에 요청 → 보이스 클로닝 실행<br>
+3. 생성된 오디오 파일을 <strong>스토리지 버킷</strong>에 저장<br>
+4. 해당 사용자만 접근 가능한 <strong>보안 다운로드 URL</strong> 생성<br>
+5. Firebase SDK가 프론트엔드에 <strong>실시간 상태 동기화</strong>(processing → complete)
+</blockquote>
+
+<p>이 흐름의 마법은 <em>프론트엔드에 HTTP 엔드포인트를 노출할 필요가 없다</em>는 점이다. 그리고 SvelteKit 코드에서는 실시간 스토어로 <code>if</code>문 하나로 상태에 따라 UI를 분기할 수 있다. 인증 사용자의 데이터 접근 제어도 <strong>보안 규칙 한 줄</strong>로 처리 가능. 이것이 <strong>1인 개발자가 엔터프라이즈급 아키텍처를 저비용으로 구현하는 방법</strong>이다.</p>
+
+<p>데이터베이스 선택의 트레이드오프도 언급한다.</p>
+<ul>
+<li><strong>Firestore</strong>(document DB): 빠르고 쉬움. 복잡한 데이터 관계에는 적합하지 않음. vocalize의 users → many audio clips 같은 <em>단순 관계</em>에 최적.</li>
+<li><strong>MySQL/PostgreSQL</strong>(관계형): 대부분의 애플리케이션에 <em>가장 안전한 베팅</em>. Prisma + Planet Scale 사용 시 스케일 한계 사례도 존재.</li>
+</ul>
+
+<h3 id="s8">8. Step 6 — 데이터베이스 · 결제 · Vercel 가격 전략 <span style="color:#888;font-size:0.85em;">(7:22~8:35)</span></h3>
+
+<p><img src="__SECTION8_IMG__" alt="Stripe 결제 파이프라인과 Vercel 전략 설명" style="max-width:100%;height:auto;"></p>
+
+<p>결제 처리는 <strong>Stripe</strong>. Fireship이 항상 사용해온 옵션이다.</p>
+
+<blockquote style="border-left:4px solid #059669;padding:10px 14px;background:#ecfdf5;margin:14px 0;">
+<strong>결제 파이프라인</strong><br>
+1. 신규 사용자: <strong>100 무료 토큰</strong> 제공 (프리 트라이얼)<br>
+2. 사용자가 토큰 소진 → Firebase 함수가 <strong>Stripe 체크아웃 세션</strong> 생성<br>
+3. Stripe 호스팅 체크아웃 페이지로 리다이렉트 (UI 코드 필요 없음)<br>
+4. 결제 완료 시 Stripe가 웹훅 발송<br>
+5. Firebase Cloud Function이 웹훅 수신 → Firestore에 토큰 업데이트<br>
+6. <strong>SendGrid</strong>로 주문 확인 이메일 자동 발송
+</blockquote>
+
+<p>가장 흥미로운 것은 <strong>가격 전략</strong>이다. Fireship은 이를 <em>"비즈니스 스쿨에서 가르치는 Vercel 전략"</em>이라고 농담한다.</p>
+
+<table border="1" cellpadding="8" style="border-collapse:collapse;margin:16px 0;background:#fafafa;">
+<tr style="background:#f0f9ff;"><th>항목</th><th>가격 (1,000 캐릭터당)</th></tr>
+<tr><td>11 Labs 원가</td><td><strong>$0.18</strong></td></tr>
+<tr><td>vocalize.cloud 판매가</td><td><strong>$0.69</strong></td></tr>
+<tr><td>마진</td><td><strong>~283% 마크업</strong></td></tr>
+</table>
+
+<p>이것이 그의 표현대로 <strong>"돈 찍는 기계"를 만드는 원리</strong>다. API 원가 위에 <em>합리적으로 큰 마진</em>을 얹고, 브랜딩·UX·마케팅으로 그 가격 정당화한다. 이 마크업이 사업의 실질적 수익성을 결정한다.</p>
+
+<h3 id="s9">9. "이 영상 자체가 사이드 허슬 마케팅의 예시" <span style="color:#888;font-size:0.85em;">(8:35~8:51)</span></h3>
+
+<p><img src="__SECTION9_IMG__" alt="Fireship이 자신의 프로 멤버십을 홍보하며 마무리" style="max-width:100%;height:auto;"></p>
+
+<p>영상 말미에서 Fireship은 자신이 만들고 있는 <strong>SvelteKit + Firebase 코스</strong>를 프로 멤버십에서 제공할 예정이라고 알린다. 그리고 그가 던지는 마지막 한 마디가 이 영상 전체의 <em>메타 레벨 통찰</em>이다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:12px 16px;background:#fff8e6;margin:14px 0;">
+<em>"And that my friends is how you market a side hustle within a video about side hustles."</em><br>
+"이것이 사이드 허슬에 관한 영상 안에서 <strong>사이드 허슬을 마케팅하는 방법</strong>이다."
+</blockquote>
+
+<p>즉 이 영상 자체가 <strong>vocalize.cloud와 Fireship Pro를 마케팅하는 사이드 허슬 채널</strong>이라는 것을 그가 스스로 폭로한다. 이 자기 참조적 마무리가 이 영상의 <em>완결성</em>을 만든다. Step 4에서 강조한 "마케팅 우선"의 원칙을 그 자신이 이 영상으로 실행하고 있는 셈.</p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<div style="border:2px solid #2b8a3e;border-radius:8px;padding:16px;background:#f1f8f4;margin:20px 0;">
+<ol style="margin:0;padding-left:20px;">
+<li><strong>운은 준비된 자에게만 온다</strong>. Danny Postma의 headshot Pro는 스킬 → 문제 인식 → 타이밍 3박자가 맞은 결과. AI 하이프에 그냥 올라탄 게 아니다.</li>
+<li><strong>Fail Forward가 핵심 원칙</strong>. 2년 비밀 개발은 최악의 실패 경로. 실제 사용자 반응을 <strong>가능한 가장 빠르게</strong> 수집하라.</li>
+<li><strong>아이디어 시드는 당신이 이미 겪는 문제·이상현상</strong>이다. Fireship이 자기 목소리 도용을 vocalize.cloud로 전환한 것처럼.</li>
+<li><strong>아이디어는 싸다, 실행이 전부다</strong>. 여기서 실행은 <em>기술</em>이 아니라 <em>비즈니스 모델과 마케팅 계획</em>이다.</li>
+<li><strong>마케팅 계획 → 코드 순서</strong>. 어디서 물고기를 잡을지 정하고 미끼를 뿌린 뒤에 코드를 짜라. 반대 순서는 대부분 실패.</li>
+<li><strong>기술 스택은 트렌드가 아니라 개인 생산성 기준으로 선택</strong>. Peter Levels가 PHP로 $3M+ 버는 이유. 싫어하는 도구는 사기 저하.</li>
+<li><strong>Firebase + SvelteKit 조합은 1인 개발자의 엔터프라이즈급 아키텍처를 저비용으로 구현</strong>한다. Firestore 트리거 → 서드파티 API → 실시간 상태 동기화 파이프라인.</li>
+<li><strong>Stripe + Firebase Cloud Function 조합이 결제 파이프라인의 표준</strong>. UI 코드 최소화 + 웹훅 자동 처리 + SendGrid 이메일까지 자동화.</li>
+<li><strong>API 원가 위에 3배 마크업</strong>이 SaaS 수익성의 실질 공식. Fireship의 <em>Vercel 전략</em> 농담이지만 사실.</li>
+<li><strong>사이드 허슬을 위한 최고의 마케팅 채널은 자기 콘텐츠</strong>다. Fireship이 이 영상 자체를 vocalize.cloud와 Pro 멤버십 마케팅에 사용하듯이.</li>
+</ol>
+</div>
+
+<p style="margin-top:24px;">
+<strong>원본 영상</strong>: <a href="https://www.youtube.com/watch?v=A4_TFHzqAAg" target="_blank">How to get rich as a solo software developer - The Ultimate Guide — Fireship</a><br>
+<strong>Fireship 제품</strong>: <a href="https://vocalize.cloud" target="_blank">vocalize.cloud</a> · <a href="https://fireship.io/pro" target="_blank">fireship.io/pro</a>
+</p>

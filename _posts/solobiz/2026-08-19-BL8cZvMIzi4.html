@@ -1,0 +1,157 @@
+---
+layout: post
+comments: true
+title: "YC가 공개한 AI 디자인 워크플로우 그대로 따라 하기 — Pinterest 무드보드부터 6라운드 랭킹까지"
+categories: [solobiz]
+date: 2026-08-19 16:41:22 +0900
+source_video: https://www.youtube.com/watch?v=BL8cZvMIzi4
+---
+
+<h2>YC가 공개한 AI 디자인 워크플로우 그대로 따라 하기 — Pinterest 무드보드부터 6라운드 랭킹까지</h2>
+
+<p>이 영상은 <strong>sudoremove</strong> 채널의 25분짜리 대담이다. Y Combinator 디자인 총괄이 공개한 <strong>AI로 디자인하는 실전 워크플로우</strong>를 발표자가 그대로 따라 한 후기가 축이다. Pinterest 무드보드로 무드를 잡고, paper.design으로 셰이더·디더링 효과를 고르고, 회의 녹음에서 뽑아낸 <strong>soul.md</strong>로 디자인 철학을 주입한 뒤, 시안을 N개 생성해 랭킹을 매기는 과정을 <strong>6라운드 반복</strong>한 실전 후기이다. GPT-5.6 Sol · Claude Fable 5 · Kimi K3로 만든 시안을 블라인드로 비교하며 "AI 냄새"가 무엇인지도 짚어낸다. 이 리포트는 원본을 보지 않아도 이 워크플로우를 오늘부터 재현 가능하도록 재조립한 것이다.</p>
+
+<blockquote style="border-left:4px solid #4A90E2;padding:12px 18px;background:#F5F9FF;margin:20px 0;">
+<strong>핵심 요지 미리보기</strong><br>
+· YC의 <strong>Paxel · Sodazine · Startup School 티켓</strong>이 모두 AI로 디자인됐다. 그런데 "AI 냄새"가 나지 않는다.<br>
+· 워크플로우 재료 4종: <strong>Pinterest 무드보드 · paper.design 효과 · 회의 녹음 → soul.md · N-way 랭킹 시스템</strong>.<br>
+· 발표자는 이걸 그대로 <strong>이틀 · 6라운드</strong> 돌려서 자기 영상 편집 앱의 시안을 완성했다. 철학은 <strong>테슬라(미니멀) ↔ 비행기 조종석(전문가)의 항공기 모드 토글</strong>.<br>
+· <strong>인터랙티브 시안</strong>이 결정적 변화. 피그마 목업이 아니라 실제로 클릭·호버·전환이 되는 시안을 6라운드나 돌린다는 게 LLM 전 시대에는 불가능했다.<br>
+· 결국 <strong>"좋은 디자인을 잘 고르는 눈"</strong>이 남는 능력이다. 이 <strong>evaluation 문제</strong>는 지금 시점 RLVR로 풀리지 않는다.
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">1. YC 디자인 총괄이 공개한 AI 디자인 방법론</a></li>
+<li><a href="#s2">2. Paxel · Sodazine · Startup School 티켓 — 셋 다 AI로 만든 것</a></li>
+<li><a href="#s3">3. "AI 냄새"의 정체 — 로고만 주고 만들면 나오는 것</a></li>
+<li><a href="#s4">4. 재료 1: Pinterest 무드보드</a></li>
+<li><a href="#s5">5. 재료 2: paper.design 셰이더·디더링</a></li>
+<li><a href="#s6">6. 재료 3: 회의 녹음 → soul.md</a></li>
+<li><a href="#s7">7. 재료 4: N-way 시안 생성 + 랭킹 시스템</a></li>
+<li><a href="#s8">8. 실전: 영상 편집 앱을 6라운드 돌리기 — 테슬라 vs 조종석</a></li>
+<li><a href="#s9">9. 3-way 블라인드 테스트: GPT-5.6 Sol · Fable 5 · Kimi K3</a></li>
+<li><a href="#s10">10. 결국 남는 능력: "좋은 것을 고르는 눈"과 RLVR의 한계</a></li>
+<li><a href="#takeaways">핵심 요약 (Takeaways)</a></li>
+</ol>
+
+<p><img src="__SHOT_00_00_30__" alt="YC AI 디자인 소개" style="max-width:100%;"></p>
+
+<h3 id="s1">1. YC 디자인 총괄이 공개한 AI 디자인 방법론</h3>
+
+<p>대담은 반쯤 도발적인 질문으로 시작한다. <strong>"좋은 디자인이란 뭘까?"</strong> "취향이잖아요"라는 반문이 나오고, "유저가 만족하면 좋은 디자인"이라는 절충안이 제시된다. 그런데 지금 발표의 주제는 취향론이 아니다. <strong>Y Combinator의 디자인 총괄이 공개한 콘텐츠</strong>를 발표자가 그대로 따라 한 후기다. 영상 왼쪽 위에 등장하는 YC 디자인 총괄이 "우리는 이렇게 디자인합니다"라고 설명하는 원본 콘텐츠가 있고, 발표자는 그 방법론을 자기 제품 디자인에 이식했다.</p>
+
+<h3 id="s2">2. Paxel · Sodazine · Startup School 티켓 — 셋 다 AI로 만든 것</h3>
+
+<p>YC가 예시로 든 세 프로덕트가 나온다.</p>
+
+<ul>
+<li><strong>Paxel</strong>: 사용자의 AI 코딩 세션을 분석해 주는 제품. Codex·Claude Code·Cursor의 로컬 세션을 스캔해 <strong>"52시간 across 157 sessions"</strong> 같은 통계와 <strong>카드 스타일</strong>의 개인화 리포트를 만든다. YC 지원서에 옵셔널로 첨부하도록 만들어진 것.</li>
+<li><strong>Sodazine</strong>: 샌프란시스코 지역·장소의 경험을 공유하는 제품.</li>
+<li><strong>Startup School 티켓</strong>: YC의 Startup School 행사 입장권. 포켓몬 카드나 NFT 같은 <strong>연사 소개 카드</strong> 스타일.</li>
+</ul>
+
+<p>이 셋 모두 AI로 디자인됐지만, 발표자와 대담자 모두 "AI 냄새가 안 난다"고 판정한다.</p>
+
+<p><img src="__SHOT_00_02_00__" alt="Paxel 카드 스타일 예시" style="max-width:100%;"></p>
+
+<h3 id="s3">3. "AI 냄새"의 정체 — 로고만 주고 만들면 나오는 것</h3>
+
+<p>대비가 이 대목에서 명확해진다. 발표자가 자기 채널 로고만 주고 Claude Code에게 디자인해 달라고 한 결과물이 화면에 뜬다. <strong>"보라색·핸들·그레이디언트"</strong>. 처음에는 예뻐 보였는데 지금 보니 명백한 AI 냄새. 반면 YC 프로덕트들은 그렇지 않다. 무엇이 차이인가? <strong>디자인 철학이 있느냐 없느냐</strong>이다. 그리고 그 철학을 어떻게 AI에 주입하는지가 이 발표 전체의 핵심이 된다.</p>
+
+<p><img src="__SHOT_00_04_00__" alt="AI 냄새 비교" style="max-width:100%;"></p>
+
+<h3 id="s4">4. 재료 1: Pinterest 무드보드</h3>
+
+<p>워크플로우의 첫 재료. YC 디자인 총괄이 가장 먼저 하는 것은 <strong>Pinterest에 가서 무드보드를 만드는 것</strong>이다. 원하는 느낌·팔레트·구성의 이미지들을 픽픽픽 모아둔다. 발표자는 "원래 디자이너들이 많이 하는 방식"이라고 확인한다. LLM 전 시대의 디자인 리서치가 그대로 재사용된다. 다만 지금은 이 무드보드가 <strong>AI에게 넘겨 줄 훈련 데이터의 시각적 앵커</strong>가 된다.</p>
+
+<h3 id="s5">5. 재료 2: paper.design 셰이더·디더링</h3>
+
+<p>두 번째 재료는 <strong>paper.design</strong>이다. 이 사이트는 셰이더(shader)·디더링(dithering) 같은 <strong>시각 효과 프리셋</strong>을 제공한다. 디자인이 정지 이미지에서 끝나지 않도록, 어떤 동적 효과를 얹을 것인지 미리 골라두는 도구다. 무드보드가 <strong>"어떤 느낌"</strong>을 정한다면 paper.design은 <strong>"어떻게 살아 움직일지"</strong>를 정한다.</p>
+
+<p><img src="__SHOT_00_06_00__" alt="Pinterest + paper.design" style="max-width:100%;"></p>
+
+<h3 id="s6">6. 재료 3: 회의 녹음 → soul.md</h3>
+
+<p>세 번째가 가장 핵심적이다. 팀원들이 제품에 대해 이야기하는 <strong>회의를 통째로 녹음</strong>한다. 유저는 누구인지, 어떤 느낌을 주고 싶은지, 어떤 경험을 원하는지 등. 이 녹음을 그대로 AI에게 던져서 <strong>soul.md</strong>라는 파일을 생성하게 한다. 제품의 "영혼(soul)"을 마크다운으로 정리한 것이다.</p>
+
+<blockquote style="border-left:4px solid #F5A623;padding:12px 18px;background:#FFFAF0;margin:20px 0;">
+<strong>soul.md가 결정적인 이유</strong><br>
+그냥 프롬프트로 "예쁘게 디자인해 줘"라고 하면 AI 냄새가 나는 결과물이 나온다. 소울(철학·정체성·의도)이 없기 때문. soul.md는 이 <strong>정체성을 텍스트로 고정</strong>하고, 이후 모든 시안 생성에 컨텍스트로 주입된다. AI가 매번 다른 감으로 흔들리지 않는다.
+</blockquote>
+
+<h3 id="s7">7. 재료 4: N-way 시안 생성 + 랭킹 시스템</h3>
+
+<p>네 번째 재료. 이 시점에는 (1)무드보드, (2)paper.design 효과, (3)soul.md, (4)제품이 모두 준비되어 있다. 이 모든 것을 <strong>Claude Code에 던지고 "시안을 N개 만들어 줘"</strong>라고 요청한다. 시안이 여러 개 나오면, 그 시안들에 <strong>별점을 매기고 의견을 다는 랭킹 시스템</strong>까지 클로드에게 만들어 달라고 한다. 발표자는 이 랭킹 시스템을 실제로 만들어 다음 라운드로 정보를 넘긴다.</p>
+
+<p><img src="__SHOT_00_09_00__" alt="N-way 시안 + 랭킹" style="max-width:100%;"></p>
+
+<h3 id="s8">8. 실전: 영상 편집 앱을 6라운드 돌리기 — 테슬라 vs 조종석</h3>
+
+<p>발표자는 이 워크플로우로 자기 채널의 영상 편집 자동화 제품을 디자인했다. 그의 <strong>디자인 철학(soul)</strong>은 명확하다.</p>
+
+<blockquote style="border-left:4px solid #7ED321;padding:12px 18px;background:#F5FBEE;margin:20px 0;">
+<strong>테슬라 vs 비행기 조종석 은유</strong><br>
+· <strong>테슬라 대시보드</strong>: 화면 하나, 버튼 없음. 미니멀 UX. 초심자에게 완벽함.<br>
+· <strong>비행기 조종석</strong>: 버튼 수백 개. 전문가에게 완벽함.<br>
+· 영상 편집은 <strong>기본은 미니멀, 필요할 때 조종석 모드</strong>가 정답.<br>
+· 그의 시안: 색상 대부분 흑백, <strong>제일 중요한 "내보내기" 버튼 하나만 컬러</strong>. 옆에 <strong>"항공기 모드 전환"</strong> 버튼. 켜면 조종석 UI가 등장.
+</blockquote>
+
+<p>이 철학을 soul.md에 담고, 6라운드를 돌렸다. 결과는 <strong>Bauhaus 스타일 미니멀</strong>. "Less is more"가 그의 정체성으로 자리 잡았다. 이틀 걸렸다.</p>
+
+<p><img src="__SHOT_00_12_00__" alt="테슬라 vs 조종석" style="max-width:100%;"></p>
+
+<h3 id="s9">9. 3-way 블라인드 테스트: GPT-5.6 Sol · Fable 5 · Kimi K3</h3>
+
+<p>후반부에서 발표자는 흥미로운 실험 하나를 추가한다. 같은 프롬프트를 <strong>세 모델</strong>에 던져서 <strong>A/B/C 블라인드 비교</strong>. GPT-5.6 Sol, Claude Fable 5, Kimi K3가 만든 시안 세 개를 나란히 두고 어느 게 더 좋은지 골라본다. 이 실험이 흥미로운 이유는 발표자가 <strong>"AI 냄새가 안 나는 페이지"</strong>를 실제로 확인했기 때문이다. 예전에는 AI 같아라고 하면 "개쩌는 거"라고 생각했을 수도 있는데, 지금은 대체로 부정적 판정어다. 시간이 지나면 이 기준도 바뀔 것.</p>
+
+<p><img src="__SHOT_00_14_00__" alt="3-way 블라인드 테스트" style="max-width:100%;"></p>
+
+<h3 id="s10">10. 결국 남는 능력: "좋은 것을 고르는 눈"과 RLVR의 한계</h3>
+
+<p>대담 후반부의 진짜 통찰이 이 대목에서 나온다. 발표자가 대담자에게 묻는다. <strong>"디자인을 잘하려면 그럼 뭘 잘해야 하는 건가요?"</strong> 대담자(빌더 조쉬, 디자이너 출신)의 답은 명확했다. <strong>"많이 보고 선별을 잘해야 된다."</strong> 자기 취향을 만드는 게 아니라 <strong>보는 눈을 기르는 것</strong>. 좋은 디자인을 많이 봐야 좋은 디자인을 알아본다. LLM 전 시대에도 같은 답이었다.</p>
+
+<blockquote style="border-left:4px solid #D0021B;padding:12px 18px;background:#FFF5F5;margin:20px 0;">
+<strong>디자인이 RLVR로 풀리지 않는 이유</strong><br>
+· 코딩·수학은 <strong>정답이 있다</strong>. GitHub·수학 문제집이 자동 채점 환경을 만든다. RLVR(Reward-Learned Verifiable Rewards)이 성립한다.<br>
+· 디자인은 <strong>정답이 없다</strong>. 좋은 디자인의 척도가 취향·철학·맥락에 좌우된다. 자동 채점이 불가능.<br>
+· 그래서 지금 시점에는 <strong>Human-in-the-loop</strong>가 필수. 사람이 랭킹을 매기고 선별한다.<br>
+· 그나마 데이터가 쌓이는 곳: <strong>프론트엔드 아레나(A/B 투표)</strong>. 그러나 여기서도 사람이 투표해야 한다.<br>
+· "개그를 AI가 이밸류에이션할 수 있을까?"라는 질문과 정확히 같은 층위의 문제.
+</blockquote>
+
+<p>결론적으로 <strong>"내 취향과 철학을 시안에 묻히는 이밸류에이션 능력"</strong>이 지금 시점 디자이너의 진짜 알파다. AI 도구가 아무리 좋아져도 <strong>선별의 눈</strong>은 사람이 갖고 있어야 한다.</p>
+
+<p><img src="__SHOT_00_18_00__" alt="RLVR과 디자인" style="max-width:100%;"></p>
+
+<p><img src="__SHOT_00_21_00__" alt="라운드 반복 개선" style="max-width:100%;"></p>
+
+<h3>보너스 통찰: 인터랙티브 시안의 혁명</h3>
+
+<p>발표자가 마지막에 강조하는 부수적 통찰이 있다. LLM 전에는 디자인 시안이 <strong>피그마 목업</strong>이었다. 호버 애니메이션·페이지 전환·인터랙션이 담기지 않은 정적 이미지. 지금은 시안 자체가 <strong>인터랙티브한 실제 페이지</strong>가 된다. 클릭하면 진짜로 반응하고, 호버하면 애니메이션이 돈다. 이 시안을 <strong>6라운드나 돌리는 것</strong>은 LLM 전 시대에 불가능했다. 이것이 이 워크플로우의 진짜 혁명이라고 발표자는 진단한다.</p>
+
+<p><img src="__SHOT_00_24_00__" alt="크로스 도메인 워크플로우" style="max-width:100%;"></p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #D0021B;padding:16px 20px;background:#FFF5F5;margin:20px 0;">
+<strong>이 대담에서 챙겨야 할 실질 인사이트</strong>
+<ol>
+<li><strong>"디자인 철학 없이 AI에게 예쁘게 만들어 줘"라고 하지 마라.</strong> 그 결과물이 바로 "AI 냄새"의 정체다. Pinterest 무드보드·paper.design·soul.md 세 재료가 그 냄새를 지운다.</li>
+<li><strong>회의를 녹음해서 soul.md로 뽑아내라.</strong> 제품 정체성을 텍스트로 고정하는 것이 AI 디자인의 진짜 시작점이다.</li>
+<li><strong>시안은 N-way로 생성하고, 랭킹 시스템까지 클로드에게 만들어 달라고 요청하라.</strong> 6라운드가 표준. 라운드마다 후진 게 사라진다.</li>
+<li><strong>인터랙티브 시안을 만들 수 있다는 사실이 이 워크플로우의 진짜 혁명이다.</strong> 정적 목업이 아니라 실제로 반응하는 페이지를 시안 단계에서 6번 돌릴 수 있게 됐다.</li>
+<li><strong>모델 A/B/C 블라인드 테스트를 습관화하라.</strong> GPT·Claude·Kimi를 나란히 놓고 비교하면 각 모델의 편향이 보인다. 하나만 쓰지 마라.</li>
+<li><strong>"좋은 디자인 많이 보기"는 여전히 유효한 훈련이다.</strong> Pinterest, Dribbble에서 보는 눈을 길러야 랭킹을 잘 매길 수 있다. LLM이 이 노동을 대신해 주지 못한다.</li>
+<li><strong>이 워크플로우는 디자인이 아니어도 유니버설하다.</strong> LinkedIn 글쓰기·팟캐스트 주제 준비·리포트 작성 모두 동일한 <strong>N-way 생성 → 랭킹 → 반복 개선</strong> 루틴이 통한다.</li>
+</ol>
+</blockquote>
+
+<h3>참조</h3>
+<ul>
+<li>원본 영상: <a href="https://www.youtube.com/watch?v=BL8cZvMIzi4" target="_blank" rel="noopener">YC가 알려주는 AI로 디자인하는 법 — sudoremove</a></li>
+<li>YC 프로덕트 예시: Paxel (AI 코딩 세션 분석), Sodazine (지역 경험 공유), Startup School 티켓</li>
+<li>사용 도구: Pinterest 무드보드, paper.design (셰이더·디더링), Claude Code, GPT-5.6 Sol, Claude Fable 5, Kimi K3</li>
+<li>이론적 프레임: soul.md 개념, 6라운드 랭킹 시스템, Bauhaus "Less is more", 테슬라/조종석 UX 은유, RLVR 한계</li>
+</ul>

@@ -1,0 +1,251 @@
+---
+layout: post
+comments: true
+title: "23일 만에 만든 AI 앱으로 MRR $1,400 달성한 솔로 개발자의 2026년 플레이북"
+categories: [solobiz]
+date: 2026-08-05 12:08:34 +0900
+source_video: https://www.youtube.com/watch?v=KKWS0bSiCT4
+---
+
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.75; color: #222; max-width: 820px; margin: 0 auto;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#888; margin-bottom:8px;">ERIK CUPSA · YOUTUBE 영상 정리 리포트</p>
+
+<h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px; line-height: 1.3;">23일 만에 만든 AI 앱으로 MRR $1,400 달성한 솔로 개발자의 2026년 플레이북</h1>
+
+<p style="color:#555; font-size:15px; margin: 0 0 16px;">영상을 보지 않아도 논리·사례·수치를 모두 이해할 수 있도록 재구성한 리포트</p>
+
+<p style="color:#666; font-size:14px; margin: 0 0 4px;"><b>원본 영상:</b> <a href="https://www.youtube.com/watch?v=KKWS0bSiCT4" target="_blank" style="color:#666;">How I Build Apps SOLO That ACTUALLY Make Money in 2026</a></p>
+<p style="color:#666; font-size:14px; margin: 0 0 24px;"><b>채널:</b> Erik Cupsa (전 Amazon 엔지니어, 22세 솔로 창업자) &nbsp;·&nbsp; <b>러닝타임:</b> 8분 51초</p>
+
+<blockquote style="border-left: 4px solid #7ac142; background: #f6faf1; padding: 18px 22px; margin: 0 0 32px; border-radius: 4px; font-size:15px;">
+Erik Cupsa는 <b>23일 만에 만든 AI 이력서 생성기·리뷰 앱</b>으로 4개월 만에 <b>Lifetime $16,500, MRR $1,400</b>을 달성했다. 그리고 11월 이후 코드베이스와 마케팅 모두 손대지 않았는데도 앱은 여전히 성장 중이다. 이 리포트는 그가 8분 안에 압축한 <b>2026년 솔로 개발자 플레이북</b>을 순서대로 풀어낸다 — 아이디어 검증(originality is dead), 스킬 스택(JavaScript 하나), 기술 스택(Next.js + Supabase + Stripe), AI 도구(Warp + Claude Code), 보안·스케일링 체크리스트, 그리고 진짜 moat인 <b>UGC 분배 전략</b>까지.
+</blockquote>
+
+<h3 style="font-size: 18px; margin: 32px 0 12px; color:#333;">목차</h3>
+<div style="background:#fafafa; border:1px solid #eee; border-radius:6px; padding:16px 22px; margin-bottom:36px;">
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">01</span> INTRO · 23일 앱 - Lifetime $16.5K, MRR $1.4K</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">02</span> POINT 1 · 아이디어 - originality is dead</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">03</span> POINT 2 · 스킬 - JavaScript 하나에 집중</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">04</span> POINT 3 · 기술 스택 - Next.js / React Native + Supabase</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">05</span> POINT 4 · AI 도구 - Warp + Claude Code</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">06</span> POINT 5 · 보안·스케일링 체크리스트</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">07</span> POINT 6 · Distribution - UGC가 진짜 moat</p>
+<p style="margin:6px 0; font-size:14px;"><span style="display:inline-block; width:32px; color:#7ac142; font-weight:700;">08</span> OUTRO · 핵심 정리와 실행 체크리스트</p>
+</div>
+
+<hr style="border:none; border-top:1px solid #eee; margin:32px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">INTRO · 00:00 – 01:07</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">23일 앱 - Lifetime $16.5K, MRR $1.4K</h2>
+
+<p>Erik Cupsa는 인사도 없이 곧장 숫자를 던지며 영상을 시작한다. "2026년 라이브 코딩(AI 협업 코딩)은 인생에서 가장 중독성 있는 일이다. 며칠 만에 아이디어 하나를 실제 앱으로 만들 수 있기 때문이다. 나는 4개월 전에 딱 <b>23일 만에</b> 내 앱을 만들었고, 오늘 기준 <b>lifetime $16,500, MRR $1,400</b>을 만들고 있다. 그런데 <b>11월 이후 코드를 건드리지 않았고 마케팅도 하지 않았다</b>. 앱은 여전히 성장 중이고 새로운 매출이 계속 들어온다."</p>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s01_intro.jpg" alt="Erik Cupsa 앱 실적 인트로" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 00:15 장면 - Erik이 오늘 매출 대시보드를 보여주며 시작한다</p>
+
+<p>Erik의 앱은 <b>AI 이력서 생성 및 리뷰 도구</b>다. 사용자는 앱에서 자신의 이력서를 생성할 수 있는데, 이는 Erik 본인과 수천 명이 실제로 빅테크 취업에 사용한 포맷을 기반으로 한다. 그리고 앱의 핵심 기능은 <b>AI 리뷰 기능</b>이다. 이 기능은 이력서를 bullet point 단위로 분해해서 "yes pile(합격 후보)"로 갈 수 있으려면 각 문장을 구체적으로 어떻게 수정해야 하는지를 지적해 준다.</p>
+
+<div style="background:#f2f7ff; border:1px solid #d5e3f8; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>Erik의 앱 실적 (4개월차 기준)</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; 개발 기간: <b>23일</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; Lifetime 매출: <b>$16,500</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; MRR: <b>$1,400</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; 오늘 매출: <b>$123</b> (원격 자동 성장 중)</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; 코드베이스 방치 기간: <b>4개월</b></p>
+</div>
+
+<p>Erik이 이 영상에서 약속하는 것은 이렇다. "다음 5~10분 안에 나를 카피하기 위해 필요한 모든 것을 가르쳐 주겠다. 2026년에 이건 단연코 최고의 기회다."</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 1 · 01:07 – 02:50</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">아이디어 - Originality is dead</h2>
+
+<p>Erik의 첫 번째 강한 주장은 아이디어에 관한 것이다. 그는 시청자들이 이미 "백만 달러짜리 스타트업 아이디어"를 가지고 있다고 착각한다는 점을 정면으로 부인한다.</p>
+
+<blockquote style="border-left: 4px solid #d0a95e; background: #fdf9ef; padding: 18px 22px; margin: 20px 0; border-radius: 4px; font-size:15px;">
+"이 시대에, 특히 AI가 있는 지금, 아이디어는 <b>기본적으로 아무 가치가 없다</b>. 지금 이용할 수 있는 AI 툴, 자동화 등을 감안하면 뭔가를 만들고 배포하는 것이 이렇게 쉬웠던 적이 없다. 그러니 <b>빠른 배포(shipping fast)</b>가 최우선이 되어야 한다."
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, 아이디어 vs 실행에 대해</p>
+</blockquote>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s02_idea.jpg" alt="아이디어 소싱 슬라이드" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 01:45 장면 - Erik이 두 개의 아이디어 소싱 리소스를 소개한다</p>
+
+<p>그가 다시 시작한다면 "최고의 아이디어를 찾으려 앉아서 고민하는 대신, 이미 성공한 사람들이 만든 것을 보여주는 리소스를 활용해서 복제하겠다"고 말한다. 그가 추천하는 두 리소스는 다음과 같다.</p>
+
+<div style="background:#fafafa; border:1px solid #eee; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>1. YC Request for Startups.</b> Y Combinator가 창업자들에게 "이런 문제를 풀어달라"고 공식적으로 요청하는 리스트. 아이디어 검증이 이미 되어 있다.</p>
+<p style="margin:4px 0; font-size:14px;"><b>2. TrustMRR.</b> Erik이 실제로 자기 앱을 만들 때 사용한 리소스. 기존 앱들의 목록과 각 앱이 벌어들이는 매출을 볼 수 있다. 관심 가는 앱을 선택해 <b>매출이 검증된 아이디어를 복제</b>할 수 있다.</p>
+</div>
+
+<p>많은 시청자가 이런 반문을 할 것이다. "하지만 그 아이디어는 이미 존재하잖아, 특별하지 않아." Erik의 답은 단호하다.</p>
+
+<blockquote style="border-left: 3px solid #ddd; padding: 8px 16px; color: #555; margin: 20px 0; font-size:14px;">
+"Originality is dead(독창성은 죽었다). Zoom이 있어도 Google Meet가 생겼다. ChatGPT가 있어도 수천 개의 AI 래퍼가 생겼다. Pizza Pizza가 있어도 Domino's가 성공했다. 특히 솔로 개발자라면 <b>시장 전체를 소유할 필요가 없다</b>. 이미 존재하는 파이의 <b>작은 조각만 잡아도</b> 상당히 성공한다."
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, 카피 앱 전략에 대해</p>
+</blockquote>
+
+<p>아이디어 선택에 있어 그가 강조하는 한 가지 원칙은 <b>real human pain point(실제 사람의 고통 지점)</b>다. CalAI 같은 칼로리 트래킹, 자신의 이력서 앱처럼 취업 문제 등이 예시다. 실제 페인포인트에 묶여 있다면 사람들이 자기 돈과 시간을 쓸 준비가 되어 있다는 신호가 이미 검증된 셈이다.</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 2 · 02:50 – 04:00</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">스킬 - JavaScript 하나에 집중</h2>
+
+<p>Erik은 no-code 도구(Level Up, Replit)의 존재를 인정하면서도, "확장 가능한 앱을 만들려면 최소한 코딩의 기본 개념은 이해해야 한다"고 못박는다. 그가 추천하는 언어는 딱 하나다.</p>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s03_javascript.jpg" alt="JavaScript 학습 추천" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 03:00 장면 - Erik이 JavaScript 하나에 집중하라고 강조한다</p>
+
+<blockquote style="border-left: 3px solid #ddd; padding: 8px 16px; color: #555; margin: 20px 0; font-size:14px;">
+"처음부터 다시 시작한다면 나는 어떤 언어보다도 <b>JavaScript</b>에 집중할 것이다. 개인적으로 JavaScript를 배운 것이 인생 최고의 결정 중 하나였다. Amazon 재직 시절 가장 많이 쓴 언어였고, 지금 22살의 나의 스타트업의 <b>전체 기초</b>가 된 언어다."
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, JavaScript에 집중해야 하는 이유</p>
+</blockquote>
+
+<p>Erik이 강조하는 JavaScript의 장점은 <b>end-to-end 커버리지</b>다. 사용자가 보는 프론트엔드, 서버 로직·API·DB 통합을 처리하는 백엔드까지 하나의 언어로 만들 수 있다. 즉 다른 언어를 배우는 학습 부담이 없다.</p>
+
+<p>학습 로드맵은 두 단계다.</p>
+
+<div style="background:#fafafa; border:1px solid #eee; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>1. 기초 - freeCodeCamp의 Full JavaScript Crash Course (YouTube)</b>. 문법·이론·기본기를 모두 훑어준다.</p>
+<p style="margin:4px 0; font-size:14px;"><b>2. 실전 - Full Stack Open (fullstackopen.com)</b>. <b>project-based learning</b>이 핵심. 누군가가 만드는 걸 보는 게 아니라 스스로 처음부터 만들어야 한다. Erik은 특히 <b>React JS, Node JS, React Native</b> 트랙을 추천한다.</p>
+</div>
+
+<p>Erik의 비유는 명료하다. "체육관에 가서 남이 운동하는 걸 본다고 근육이 붙지 않는다. 직접 웨이트를 들고 던져야 실력이 는다. 코딩도 마찬가지다."</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 3 · 05:00 – 05:50</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">기술 스택 - Next.js / React Native + Supabase</h2>
+
+<p>다음으로 그가 다루는 것은 어떤 앱 형태를 만들 것인가와 그 스택이다. 두 갈래 길이 있다.</p>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s04_stack.jpg" alt="기술 스택 슬라이드" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 05:15 장면 - Erik이 웹앱 vs 모바일앱의 표준 스택을 정리한다</p>
+
+<div style="background:#f2f7ff; border:1px solid #d5e3f8; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>웹앱을 만들 경우</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Next.js</b> - 풀스택 앱, API 라우트, SEO 개선, 배포 편의성 모두 커버</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Vercel</b> - 앱이 준비되면 여기에 호스팅</p>
+<p style="margin:12px 0 4px; font-size:14px;"><b>모바일 앱을 만들 경우</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>React Native + Expo Go</b> - Apple 앱의 gold standard</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Android는 신경 쓰지 마라</b>. 구매력이 너무 작아 사실상 무의미하다는 것이 Erik의 관점</p>
+<p style="margin:12px 0 4px; font-size:14px;"><b>공통 요소</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Supabase</b> - 데이터베이스. 무료 티어가 매우 관대함</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Clerk 또는 Firebase</b> - 인증(authentication)</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Stripe</b> - 결제</p>
+</div>
+
+<p>이 스택 선택은 매우 현실적이다. 각 툴이 무료 티어가 넉넉하거나 초기 스타트업 요금이 저렴하다. 또한 서로 통합이 잘 되어 있어 <b>솔로 개발자가 하루 만에 인프라를 세팅</b>할 수 있다.</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 4 · 05:50 – 06:11</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">AI 도구 - Warp + Claude Code</h2>
+
+<p>Erik은 "가장 중요한 부분"이라며 AI 도구 조합을 강조한다. 그의 표현은 극단적이다.</p>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s05_ai_tools.jpg" alt="AI 도구 - Warp + Claude Code" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 05:55 장면 - Erik이 자신의 AI 개발 워크플로우를 공개한다</p>
+
+<blockquote style="border-left: 4px solid #4285f4; background: #f2f7ff; padding: 18px 22px; margin: 20px 0; border-radius: 4px; font-size:15px;">
+"2026년 워크플로우에 AI를 쓰지 않는다면 당신은 심각하게 뒤처져 있다. 개발 생태계는 앞으로도 <b>지수함수적으로 성장</b>할 것이다. 지금 이 파도에 타지 않으면 너무 늦다."
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, AI 도구 필수화에 대해</p>
+</blockquote>
+
+<p>Erik이 카피하라고 권하는 그의 실제 워크플로우 조합은 다음과 같다.</p>
+
+<div style="background:#fdf9ef; border:1px solid #efe1c0; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>1. Warp</b> - AI 터미널. 명령어 자동 생성·문제 해결·환경 설정 안내를 AI가 실시간으로 해준다</p>
+<p style="margin:4px 0; font-size:14px;"><b>2. Claude Code</b> - 실제 개발 작업의 <b>거의 전부</b>를 처리. 코드 작성, 리팩토링, 버그 수정, 테스트까지</p>
+</div>
+
+<p>이 두 도구의 조합은 지금 이 리포트를 작성하는 채널(Anthropic Claude Code)에서도 활용되고 있다. 솔로 개발자에게 이런 AI 페어링은 <b>사실상 팀원 한 명이 추가된 것과 같은 효과</b>를 낸다.</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 5 · 06:11 – 07:00</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">보안·스케일링 체크리스트</h2>
+
+<p>Erik이 강조하는 다음 부분은 "앱을 만들었다"에서 끝나면 안 된다는 것이다. 사람들이 실제로 사용하기 시작하면 <b>abuse(악용)</b>와 <b>붕괴</b>를 막아야 한다.</p>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s06_security.jpg" alt="보안 및 스케일링 체크리스트" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 06:30 장면 - Erik이 보안 체크리스트를 정리한다</p>
+
+<div style="background:#fafafa; border:1px solid #eee; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>1. Rate limit 추가.</b> 로그인·회원가입·AI endpoint를 스팸 공격에서 보호</p>
+<p style="margin:4px 0; font-size:14px;"><b>2. 진짜 인증 프로바이더 사용.</b> Clerk 또는 Firebase가 표준</p>
+<p style="margin:4px 0; font-size:14px;"><b>3. Row-level security로 DB 잠금.</b> 사용자는 자기 데이터만 볼 수 있어야 함</p>
+<p style="margin:4px 0; font-size:14px;">4. <b>API key·비밀 값을 프론트엔드에 절대 노출하지 마라.</b> 서버 사이드 env 파일에 저장</p>
+<p style="margin:12px 0 4px; font-size:14px;"><b>스케일 단계에서 추가로:</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>Redis로 반복 요청 캐시</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>비동기 작업으로 이관</b>: 이메일 전송, AI 요청, PDF 파싱 등 무거운 작업</p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; <b>런칭 전 로드 테스트</b>. 앱이 실사용자에게서 무너지지 않는지 확인</p>
+</div>
+
+<p>Erik의 한마디로 요약: "앱을 배포하는 것도 하나의 일이지만, <b>사용자가 실제로 사용할 때 앱이 무너지지 않게 하는 것이 더 중요한 일</b>이다."</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">POINT 6 · 07:00 – 08:30</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">Distribution - UGC가 진짜 moat</h2>
+
+<p>Erik이 강조하는 마지막이자 가장 중요한 부분은 <b>분배(distribution)</b>다. 그의 표현은 매우 강력하다.</p>
+
+<blockquote style="border-left: 4px solid #d0a95e; background: #fdf9ef; padding: 18px 22px; margin: 20px 0; border-radius: 4px; font-size:15px;">
+"자, 이제 앱이 생겼다. 이제 뭐? 이 지점에서 <b>99%가 실패한다</b>. 왜냐하면 2026년에 앱을 만드는 것은 어렵지 않다. <b>Distribution이 진짜 moat다.</b>"
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, distribution 중요성에 대해</p>
+</blockquote>
+
+<p><img src="/assets/reports/KKWS0bSiCT4/s07_distribution.jpg" alt="UGC 마케팅 - 1000 users 전략" style="width:100%; border-radius:8px;"></p>
+<p style="text-align:center; color:#999; font-size:13px; margin:-4px 0 20px;">영상 07:20 장면 - Erik이 첫 1,000 유저를 만드는 UGC 전략을 공개한다</p>
+
+<p>Erik이 지난 1년 반 동안 시도하고 조사한 결과를 압축하면 <b>"UGC is king"</b>이다. UGC(User-Generated Content) 스타일 콘텐츠는 자신의 소셜 미디어 페이지에 다양한 짧은 영상을 올리는 전략이다.</p>
+
+<p>어디서 아이디어를 찾을까? Erik의 답은 명확하다. "특히 마케팅에 서툰 사람들이 originality를 유지하기는 어렵다. 그러니 <b>TikTok에 가서 니치를 찾고, 그 안의 viral 영상 아이디어를 전부 카피하라</b>. 자기만의 twist를 살짝 더하고, call to action을 자기 앱을 향하도록 바꾸면 된다."</p>
+
+<div style="background:#f2f7ff; border:1px solid #d5e3f8; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>Erik의 실제 결과:</b></p>
+<p style="margin:4px 0; font-size:14px;">·&nbsp; 경쟁사 영상을 카피한 한 영상 → <b>117,000 뷰, 900 sign-up</b></p>
+</div>
+
+<p>얼굴을 카메라에 내밀기 싫다면 두 가지 대안이 있다.</p>
+
+<div style="background:#fafafa; border:1px solid #eee; border-radius:8px; padding:16px 22px; margin:20px 0;">
+<p style="margin:4px 0; font-size:14px;"><b>1. 마이크로 인플루언서 활용.</b> 팔로워 1,000~10,000명 사이 니치 인플루언서에게 <b>$30~$50</b> 지불하고 자기가 지정한 유형의 숏폼 영상을 만들어달라고 요청</p>
+<p style="margin:4px 0; font-size:14px;"><b>2. 얼굴 없는 슬라이드쇼.</b> 앱이 실제 상황에서 사용되는 모습을 담은 슬라이드쇼 콘텐츠</p>
+</div>
+
+<p>Erik의 부스팅 전략은 매우 구체적이다. 승리 아이디어를 찾으면 <b>TikTok Ads와 Meta Ads</b>에서 다시 $30~$50를 써서 그 영상을 10,000명에게 부스팅. 그리고 매출이 들어오는 것을 지켜본다.</p>
+
+<blockquote style="border-left: 3px solid #ddd; padding: 8px 16px; color: #555; margin: 20px 0; font-size:14px;">
+"내가 방금 보여준 그 영상은 <b>$50 지출당 $130 매출</b>을 만들어냈다. 그래서 나는 수익이 멈출 때까지 계속 부스팅한다. 결국 마케팅은 숫자 게임이다. 고개 숙이고 계속 일해야 한다."
+<p style="text-align:right; margin:12px 0 0; color:#555; font-size:13px;">— Erik Cupsa, 광고 부스팅 ROAS에 대해</p>
+</blockquote>
+
+<p><b>$50 → $130 = ROAS 2.6배.</b> 이 정도 수치가 유지되는 한 광고를 계속 태우면 매출이 선형에 가까운 속도로 늘어난다.</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin:40px 0 24px;">
+
+<p style="letter-spacing:1px; font-size:12px; color:#7ac142; font-weight:600; margin-bottom:4px;">OUTRO · 08:30 – 08:51</p>
+<h2 style="font-size: 22px; font-weight:700; margin: 0 0 20px;">핵심 정리와 실행 체크리스트</h2>
+
+<p>Erik의 마무리는 낙관적이다. "이게 나를 카피하고, 지금까지 꿈꿔온 <b>월 $5,000 목표</b>를 이룰 수 있게 만드는 전체 플레이북이다. 정말 그렇게 단순하다. 한두 달 열심히 일하면, 인생을 바꿀 수 있는 앱을 손에 넣을 수 있다."</p>
+
+<h3 style="font-size: 20px; margin: 40px 0 16px; color:#333;">핵심 요약</h3>
+
+<ul style="font-size:14px; line-height:1.9;">
+<li><b>Originality is dead.</b> YC Request for Startups + TrustMRR에서 매출 검증된 앱을 골라 카피. 시장 전체를 소유할 필요 없이 <b>파이의 작은 조각</b>만 잡아라.</li>
+<li><b>JavaScript 하나에 집중.</b> freeCodeCamp Crash Course → Full Stack Open 순서. 프로젝트 기반 학습이 핵심.</li>
+<li><b>표준 스택: Next.js(웹) 또는 React Native+Expo Go(iOS), Supabase, Clerk/Firebase, Stripe.</b> Android는 무시.</li>
+<li><b>AI 도구는 필수.</b> Warp(AI 터미널) + Claude Code. 이걸 안 쓰면 뒤처진다.</li>
+<li><b>보안·스케일링 체크리스트 6개.</b> Rate limit, 인증 프로바이더, row-level security, API 키 서버 사이드 저장, Redis 캐시, 비동기 작업, 로드 테스트.</li>
+<li><b>Distribution이 진짜 moat.</b> 99%는 이 지점에서 실패. TikTok에서 니치 viral 카피 → 자기 twist + CTA 변경 → 마이크로 인플루언서 $30~50 → TikTok/Meta Ads 부스팅.</li>
+<li><b>목표 ROAS 2.6배.</b> Erik은 $50 광고비로 $130 매출. 이 수치가 유지되면 광고를 계속 태워라.</li>
+<li><b>월 $5,000이 현실적 첫 목표.</b> 23일 개발 + 2~3개월 iteration이면 도달 가능.</li>
+</ul>
+
+<p style="color:#888; font-size:13px; margin-top:32px;">본 리포트는 유튜브 원본 영상을 요약·정리한 것이며, 이미지 캡처는 학습·비평 목적입니다. 원본 채널: <a href="https://www.youtube.com/@ErikCupsa" target="_blank" style="color:#888;">Erik Cupsa</a></p>
+
+</div>

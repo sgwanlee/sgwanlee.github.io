@@ -1,0 +1,144 @@
+---
+layout: post
+comments: true
+title: "거의 3,000개의 유료 결제 화면을 뜯어보니 알게 된 것들"
+categories: [solobiz]
+date: 2026-09-02 10:07:07 +0900
+source_video: https://www.youtube.com/watch?v=9ypqs_2fAl8
+---
+
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #222; max-width: 820px; margin: 0 auto;">
+
+<h1 style="font-size: 28px; font-weight: 700; margin: 0 0 8px; line-height: 1.3;">거의 3,000개의 유료 결제 화면을 뜯어보니 알게 된 것들</h1>
+<p style="color: #666; margin: 0 0 24px;">출처: <a href="https://www.youtube.com/watch?v=9ypqs_2fAl8" target="_blank" style="color: #666;">Mobbin — We Studied 2,995 Paywalls. Here's What Actually Converts.</a> · 러닝타임 12분 31초</p>
+
+<blockquote style="border-left: 4px solid #4285f4; background: #f3f7fe; padding: 16px 20px; margin: 0 0 32px; border-radius: 4px;">
+"내가 무슨 짓을 하든, 텍스트가 잔뜩 들어간 보기 흉한 유료 구독 페이지는 내가 하려는 모든 노력을 무색하게 만들었다." — 인터뷰이(개발자)
+</blockquote>
+
+<p>디자인 레퍼런스 플랫폼 Mobbin이 자사 라이브러리에 쌓인 <b>거의 3,000개의 paywall(유료 결제 화면)</b>과 수백 가지 구독 흐름을 분석하고, 4,700개 이상의 paywall을 직접 설계해 온 전문가(Superwall의 Jonathan)를 인터뷰해서 만든 영상이다. 결론부터 말하면 "예쁜 디자인이 잘 팔린다"는 통념은 절반만 맞다. 오히려 못생기고 마찰이 많은 paywall이 더 높은 전환율을 내는 사례가 반복적으로 등장한다. 아래는 영상에서 다룬 핵심 전략을 타임라인 순서로 정리한 것이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  1. 인트로 — 3,000개에 가까운 paywall을 분석하다 <span style="color:#999; font-size:14px; font-weight:400;">(0:00~0:12)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s01_intro.jpg" alt="다양한 앱의 paywall 스크린샷 모음" style="width:100%; border-radius:8px;"></p>
+<p>Mobbin은 자사 라이브러리에 축적된 약 3,000개의 paywall과 수백 가지 구독 흐름을 분석했다. 여기에 4,700개 이상의 paywall을 실제로 설계해 온 Superwall의 Jonathan을 인터뷰해 "실적이 좋은 paywall과 평균적인 paywall을 가르는 요소가 무엇인지" 답을 찾아 나선다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  2. 못생긴 paywall이 이긴다 — 미학보다 마찰과 전환 <span style="color:#999; font-size:14px; font-weight:400;">(0:12~1:21)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s02_ugly_wins.jpg" alt="Mobbin 진행자가 인터뷰 내용을 소개하는 장면" style="width:100%; border-radius:8px;"></p>
+<p>영상은 반직관적인 명제로 시작한다. <b>"때로는 보기 흉한 유료 구독 서비스가 아름다운 서비스보다 더 큰 성과를 낸다."</b> 마찰이 커지면 오히려 전환율이 높아질 수 있고, 여러 페이지로 구성된 paywall은 거의 항상 한 페이지짜리 paywall보다 나은 성과를 낸다. 오늘날 대부분의 paywall은 서로 비슷해 보이기 때문에, 진짜 실력 차이는 결제 버튼 색깔이 아니라 <b>흐름 설계와 심리적 타이밍</b>에서 갈린다는 것이 이 영상의 출발점이다.</p>
+<p>또 하나 중요한 통찰은 "구매 결정은 결제 화면에서 이루어진다"는 예전 가정이 틀렸다는 점이다. 실제로는 사용자가 결제 화면이 뜨기도 전에 이미 마음을 정하는 경우가 많다. 즉 앱 안의 <b>모든 접점</b> — 가입 직후, 프리미엄 기능 잠금 해제 순간, 설정 메뉴, 심지어 이탈 직전 재방문 유도 화면까지 — 이 전부 잠재적 paywall 노출 지점이라는 뜻이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  3. Paywall은 화면이 아니라 흐름이다 — Opal 사례 <span style="color:#999; font-size:14px; font-weight:400;">(1:21~1:46)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s03_flow.jpg" alt="A paywall isn't just a screen 텍스트 카드" style="width:100%; border-radius:8px;"></p>
+<p>스크린타임 관리 앱 Opal은 돈을 요구하기 전에 "당신의 삶에서 8년을 되찾아준다"는 결과부터 설명하는 데 공을 들인다. 사용자가 실제 paywall에 도달할 즈음에는 음악이나 카피가 방해 요소처럼 느껴지지 않을 정도로 몰입이 되어 있는 상태다. 이렇게 사용자가 절약할 수 있는 시간의 크기를 먼저 보여주는 방식만으로 Opal의 체험판 가입률은 <b>7%에서 17%</b>로 뛰었다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  4. 여러 페이지 구성이 한 페이지보다 강하다 <span style="color:#999; font-size:14px; font-weight:400;">(1:46~2:19)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s04_multipage.jpg" alt="Multi-page paywalls 타이틀 카드" style="width:100%; border-radius:8px;"></p>
+<p>Superwall의 Jonathan은 멀티 페이지 paywall을 명확히 선호한다. 여러 페이지짜리 paywall은 고객 여정과 온보딩의 마지막 단계에 자연스럽게 자리 잡으면서, "이제 요금제가 준비됐다"는 메시지를 감정적인 관점에서 전달할 수 있다. 예를 들어 "4주 안에 원래의 모습으로 돌아갈 것"이라는 식으로 사용자가 실제로 바라는 이상적인 결과와 맞아떨어지는 말을 건넬 수 있다는 것이 핵심이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  5. 벽처럼 느껴지지 않게 — 정보를 점진적으로 드러내기 <span style="color:#999; font-size:14px; font-weight:400;">(2:19~2:45)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s05_progressive.jpg" alt="Mobbin 진행자가 설명하는 장면" style="width:100%; border-radius:8px;"></p>
+<p>정보를 한꺼번에 쏟아내지 않고 점진적으로 드러내면, 사용자가 결정을 내릴 시간을 확보할 수 있다. Paywall이 제대로 작동할 때는 "벽에 부딪힌 느낌"이 아니라 "자연스러운 다음 단계를 밟으라고 권유받는 느낌"이 들어야 한다. 반대로 아무리 잘 설계된 paywall이라도 등장 타이밍이 어긋나면 여전히 나쁜 시스템일 뿐이라는 경고도 함께 나온다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  6. 사라지는 일회성 할인 — 타이머와 애니메이션의 힘 <span style="color:#999; font-size:14px; font-weight:400;">(2:45~3:01)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s06_onetime_quittr.jpg" alt="QUITTR의 80% 일회성 할인 카운트다운 paywall" style="width:100%; border-radius:8px;"></p>
+<p><img src="/assets/reports/9ypqs_2fAl8/s07_onetime_tg.jpg" alt="한 앱의 33% 일회성 할인 paywall" style="width:100%; border-radius:8px;"></p>
+<p>대표적인 타이밍 전략이 "일회성 특별 할인"이다. 이 화면을 닫으면 할인이 사라진다는 메시지, 카운트다운 타이머, 애니메이션과 햅틱 피드백을 결합하면 사용자가 업그레이드를 고민하는 바로 그 순간의 관심을 붙잡을 수 있다. 다만 타이밍이 맞아도 사람들은 여전히 "취소하는 걸 잊어버리면 어쩌지", "내가 올바른 결정을 하는 걸까" 하는 망설임을 갖기 때문에, 가장 성공적인 paywall들은 결국 <b>위험을 줄이는 방향</b>에 초점을 맞춘다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  7. 위험을 줄여라 — Blinkist의 재설계 <span style="color:#999; font-size:14px; font-weight:400;">(3:08~3:31)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s08_blinkist_ab.jpg" alt="Blinkist의 재설계 전후 비교, 체험 신청 23% 증가, 불만 55% 감소" style="width:100%; border-radius:8px;"></p>
+<p>독서 요약 앱 Blinkist는 "무료 체험판을 썼다가 갑자기 요금이 부과돼 속았다"는 사용자 불만에 시달렸다. 해결책은 화려한 카피가 아니라 <b>"오늘 → 5일 후 리마인드 → 7일 후 결제"</b>처럼 단계별 진행 과정을 투명하게 보여주는 타임라인형 UI로 재설계하는 것이었다. 그 결과 체험 신청 건수는 <b>+23%</b> 늘고 불만 건수는 <b>-55%</b> 줄었으며, 푸시 알림 수신 동의율도 함께 상승했다. 사용자가 체험 종료 전 알림을 받을 수 있다는 걸 알게 되니 자연스럽게 나타난 결과다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  8. 약정 없는 구독과 종료 의도 감지 <span style="color:#999; font-size:14px; font-weight:400;">(3:31~5:17)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s09_nocommit.jpg" alt="언제든 취소 가능한 약정 없는 구독 paywall" style="width:100%; border-radius:8px;"></p>
+<p>Tipstop은 제안 자체를 바꾸지 않고 <b>표현 방식</b>만 바꿔 — 무료 체험을 강조하고 할인 배지를 추가해 — 직접 전환율을 거의 3배로 끌어올렸다. 한 걸음 더 나아가 Ramp라는 서비스는 paywall 자체를 없애고, 애플의 무료 체험 방식에서 영감을 받은 "유료 결제 시스템"을 만들었다. 사용자는 단 하나의 동작 — 무료 1주일 이용권 신청 — 만으로 혜택을 누리고, 기존의 결제 장벽이 사라지면서 임상시험(체험) 참여율이 <b>25%</b> 늘었다.</p>
+<p>버튼 디자인도 세부적으로 실험한다. "언제든 취소 가능"이라는 약정 없는 문구, "계속" 대신 구체적인 행동을 지시하는 카피, 버튼의 화살표 아이콘까지 상위권 paywall에서 공통적으로 발견된다. 여기서 한 단계 더 나아간 것이 <b>종료 의도(exit-intent) 감지</b>다. 사용자가 취소 버튼을 누르려는 순간 "1년 약정이 부담스럽다면 월간 플랜은 어떠세요?"라는 대안을 보여주는 방식이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  9. 신용카드를 요구하면 전환율이 오른다? — Outsider의 역설 <span style="color:#999; font-size:14px; font-weight:400;">(5:38~6:14)</span>
+</h2>
+<p>위험을 줄이는 게 전환율에 도움이 된다면, 마찰을 제거하는 것도 같은 효과를 낼 것 같지만 실제로는 그렇지 않다. Outsider는 무료 체험 시작 시 신용카드 정보 입력을 요구했다. 그 결과 가입자 수는 절반 이상 줄었지만, 전환율은 <b>5배</b> 증가해 유료 고객 수는 오히려 두 배 이상 늘었다. 추가된 마찰이 애초에 진지하지 않았던 사용자를 걸러낸 것이다. 명상 앱 Moonly도 비슷한 접근을 했다 — 무료 체험을 연간 구독 플랜에만 적용해서 진지한 사용자만 필터링했다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  10. 사회적 증거·가치 프레임·가격 고정 효과 <span style="color:#999; font-size:14px; font-weight:400;">(6:14~7:00)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s10_priceanchor.jpg" alt="Ahead 앱이 구독료를 스타벅스·심리치료 비용과 비교하는 화면" style="width:100%; border-radius:8px;"></p>
+<p>제안 자체가 아니라 <b>제시 방식</b>만 바뀌어도 결과가 달라지는 세 가지 대표 기법이 있다.</p>
+<ul>
+<li><b>사회적 증거:</b> 실제 사용자 리뷰와 별점 5점 만점 평가로 신뢰성과 권위를 보여준다.</li>
+<li><b>가치 프레임:</b> 사용자가 중요하게 여기는 것과 일치하는 방식으로 가치를 제시한다 — 각 화면은 결국 "각기 다른 미래"를 팔고 있다.</li>
+<li><b>가격 고정 효과:</b> Tide는 가격을 더 작은 주간 단위로 쪼개 보여주고, Ahead는 자사 구독료를 사람들이 이미 지출 중인 커피·심리치료 비용과 나란히 비교한다.</li>
+</ul>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  11. Headspace의 가격 실험 — 7일 대신 14일 무료체험 <span style="color:#999; font-size:14px; font-weight:400;">(7:00~7:12)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s11_headspace.jpg" alt="Headspace의 7일 체험과 14일 체험 비교 화면" style="width:100%; border-radius:8px;"></p>
+<p>Headspace는 7일, 14일, 30일 무료 체험판을 모두 테스트했고, 최종 채택된 옵션은 <b>연간 플랜에 대한 14일 무료 체험</b>이었다. 연간 플랜 비용이 더 비쌈에도 불구하고, 체험 기간이 길어진 덕분에 전체적인 결정에 대한 위험 부담이 오히려 덜하게 느껴졌기 때문이다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  12. 연간 상품을 우선하고, 선택지는 2개로 <span style="color:#999; font-size:14px; font-weight:400;">(7:12~7:59)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s12_yazio_plans.jpg" alt="Yazio의 12개월 vs 3개월 요금제, 'Most popular' 배지" style="width:100%; border-radius:8px;"></p>
+<p>최적의 가격 구조는 어떤 목표를 최적화하려는지에 따라 다르지만, 이상적으로는 <b>연간 상품</b>을 우선하는 것이 좋다고 조언한다. 연간 상품이 고객 생애 가치(LTV) 대비 가장 좋은 비율을 내기 때문이다. 다만 모든 사업에 정답은 아니므로 필요하면 주간·월간 상품도 함께 준비하되, 사용자의 인지 부담을 줄이기 위해 기본 화면에는 <b>딱 2개의 옵션만</b> 보여주고 나머지는 "모든 요금제 보기" 버튼 뒤에 숨겨두는 것을 권한다. 기본 paywall은 단순하게 유지해 많은 사용자로 기본 통계를 확보한 뒤, 이후 다양한 광고 게재 위치를 최적화하는 순서가 바람직하다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  13. 완성도가 경쟁력이다 — Focus Town 사례 <span style="color:#999; font-size:14px; font-weight:400;">(8:05~9:06)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s13_focustown.jpg" alt="Superwall 에디터로 만든 애니메이션 기반 paywall" style="width:100%; border-radius:8px;"></p>
+<p>Jonathan은 표(table) 기반 paywall도 강력히 지지한다. 구독하지 않으면 어떤 콘텐츠를 놓치는지 명확히 보여주는 영상형 paywall도 효과적인데, 정적인 스크린샷이나 글머리 기호보다 더 빠르게 가치를 전달할 수 있기 때문이다. 그리고 반복해서 강조되는 키워드가 바로 <b>세련됨(polish)</b>이다. 애니메이션이 실제로 효과가 있다는 것이다. 최근 큰 인기를 끈 앱 Focus Town은 브랜딩과 '동물의 숲' 같은 게임 경험을 잘 살려낸 사례로 소개된다. 누구나 앱을 출시할 수 있게 된 지금, 앞으로 가장 성공할 앱은 애니메이션·맞춤 캐릭터 디자인·세계관 구축에 시간을 투자해 완성도를 끌어올린 앱일 것이라는 전망이다. 두 제품이 같은 고객을 두고 경쟁할 때, 완성도가 곧 선택의 이유가 된다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  14. Mobbin MCP — AI에게 실제 패턴을 참조시키기 <span style="color:#999; font-size:14px; font-weight:400;">(9:06~9:31)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s14_mobbinmcp.jpg" alt="Introducing Mobbin MCP 타이틀 카드" style="width:100%; border-radius:8px;"></p>
+<p>AI를 활용해 개발 중이라면 Mobbin MCP가 도움이 된다. Claude, ChatGPT, Cursor 같은 도구가 Mobbin의 라이브러리에 직접 접근할 수 있게 해주는 도구로, AI가 임의로 무언가를 만들어내는 대신 <b>현실에 이미 존재하는 검증된 패턴</b>을 참조하고, 앱들이 유료 콘텐츠를 디자인하는 방식을 비교하며, 예시를 워크플로에 바로 통합할 수 있다. 이미 출시된 제품을 기반으로 AI의 출력값을 도출하는 접근이라고 이해하면 된다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  15. 회의적이지만 효과적인 전술 — 룰렛 결제와 가짜 긴급성의 대가 <span style="color:#999; font-size:14px; font-weight:400;">(9:31~10:48)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s15_roulette.jpg" alt="룰렛을 돌려 할인을 받는 형태의 paywall" style="width:100%; border-radius:8px;"></p>
+<p>모든 패턴이 따라할 가치가 있는 것은 아니다. 전환율이 가장 높은 paywall 중 일부는 Jonathan 본인이 가장 회의적으로 보는 것들이다. 드롭쉬핑 스토어나 전자상거래 사이트에서 흔히 쓰이는 전략, 대표적으로 <b>룰렛을 돌려 할인을 받는</b> 게임형 결제 화면이 그렇다. 미리 정해진 결과값을 가진 룰렛 애니메이션(Lottie 파일)으로 특정 할인율을 보여주는데, 사용자가 "당첨됐다"는 느낌을 받으면 해당 가격대에 구독할 가능성이 높아진다는 원리다.</p>
+<p>장기적인 사업 성장이 목표라면 이런 방식은 어울리지 않을 수 있지만, 단기적으로 주간 가격을 최적화하고 수익을 극대화하려는 목적이라면 안타깝게도 효과가 있다. 문제는 이미 너무 많은 앱이 같은 수법을 쓰기 시작했다는 점이다. 모든 앱이 가짜 긴급성 전략을 사용하면 결국 사용자들은 그것을 믿지 않게 된다. 실제로 2026년 초 애플은 혼란스럽거나 오해의 소지가 있다고 판단한 일부 무료 체험 전환 방식의 paywall을 거부하기 시작했다. 이는 장기적인 게임이라는 것을 명심해야 한다.</p>
+
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">
+  16. 정답은 없다, 실험만 있을 뿐 — 그리고 진짜 지표는 리텐션과 LTV <span style="color:#999; font-size:14px; font-weight:400;">(10:48~12:26)</span>
+</h2>
+<p><img src="/assets/reports/9ypqs_2fAl8/s16_grid_notonesize.jpg" alt="다양한 형태의 무료체험/할인 paywall 모음" style="width:100%; border-radius:8px;"></p>
+<p>Jonathan은 과거 AI 여자친구 앱 작업 당시 "본 것 중 가장 못생긴 paywall"을 만든 적이 있다고 말한다. 요소가 너무 빽빽하게 배치돼 공격적인 랜딩 페이지처럼 보였지만, 결과적으로 그가 시도했던 거의 모든 paywall보다 훨씬 뛰어난 성과를 냈다. 결론은 명확하다 — <b>모두에게 맞는 최고의 paywall은 없고, 더 나은 실험만 있을 뿐이다.</b> Superwall의 Jake와 Nick에게 배운 것도 결국 디자인 테스트가 가장 큰 변화를 만든다는 사실이었다. 동영상형, 목록형, 체험 기간 강조형 등 완전히 다른 디자인을 시도해보고, 카피·가격·흐름을 모두 테스트해 압도적으로 나은 결과가 나올 때까지 반복하는 것이 유일한 정답이다.</p>
+<p><img src="/assets/reports/9ypqs_2fAl8/s17_classpass.jpg" alt="ClassPass 등 구독 취소 플로우 화면 모음" style="width:100%; border-radius:8px;"></p>
+<p>다만 구독자를 확보하는 것과, 사람들이 계속 돈을 내게 만드는 것은 완전히 다른 문제다. 영상은 더 많은 창업자가 진짜로 신경 써야 할 지표는 <b>고객 유지율(리텐션)과 고객 생애 가치(LTV)</b>라고 강조한다. 리텐션과 LTV가 좋다면 좋은 제품을 만들고 있다는 뜻이고, 좋은 제품이 있어야 생태계 자체가 번창할 수 있다. 그러니 질문은 "어떻게 사람들이 돈을 내게 할까"가 아니라 "어떻게 돈을 주고 살 만한 가치가 있는 무언가를 만들까"에 더 가까워야 한다. 재미있는 사실 하나 — ClassPass는 구독하는 데는 5개 화면도 안 걸리지만, 구독을 취소하려면 <b>17개 화면</b>을 거쳐야 한다.</p>
+
+<hr style="border:none; border-top:1px solid #eee; margin: 40px 0 20px;">
+<h2 style="font-size: 22px; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 40px;">핵심 요약 & 실행 체크리스트</h2>
+<p><b>한줄 요약:</b> 예쁜 paywall이 아니라, 위험을 줄이고 타이밍이 맞고 완성도가 높은 paywall이 이긴다 — 그리고 정답은 실험으로만 찾을 수 있다.</p>
+<ul>
+<li>☑ paywall을 단일 화면이 아니라 온보딩부터 이어지는 <b>흐름 전체</b>로 설계하라 — 돈 얘기 전에 결과부터 보여줘라 (Opal: 체험 가입률 7%→17%)</li>
+<li>☑ 한 페이지보다 <b>여러 페이지 구성</b>을 먼저 테스트하라. 감정적 맥락과 온보딩 완결감을 함께 줄 수 있다</li>
+<li>☑ 체험판을 쓸 거라면 <b>단계별 타임라인 UI</b>로 "언제 얼마가 청구되는지" 투명하게 보여줘라 (Blinkist: 체험 +23%, 불만 -55%)</li>
+<li>☑ 마찰을 무조건 없애려 하지 마라. 신용카드 요구·연간 한정 체험처럼 <b>의도적 마찰</b>이 진지한 사용자만 걸러 전환율을 오히려 끌어올릴 수 있다 (Outsider: 전환율 5배)</li>
+<li>☑ 취소 버튼을 누르는 순간에 <b>종료 의도 감지 팝업</b>(대안 플랜 제시)을 배치해 마지막 기회를 만들어라</li>
+<li>☑ 기본 paywall은 <b>연간 상품 + 옵션 2개</b>로 단순하게 유지하고, 나머지 요금제는 "전체 보기" 뒤에 숨겨 인지 부담을 낮춰라</li>
+<li>☑ 애니메이션·캐릭터 디자인 등 <b>완성도(polish)</b>에 투자하라 — 기능이 비슷해지는 시대엔 완성도가 선택의 이유가 된다</li>
+<li>☑ 룰렛 할인, 가짜 긴급성 같은 전술은 단기 수익엔 통하지만 신뢰를 갉아먹고 애플 심사 리스크도 있다 — 장기 게임을 생각하라</li>
+<li>☑ 궁극적으로 추적해야 할 지표는 전환율이 아니라 <b>리텐션과 LTV</b>다. 결국 "돈을 내게 만드는 법"이 아니라 "돈 낼 가치가 있는 제품을 만드는 법"이 먼저다</li>
+</ul>
+
+<p style="color:#888; font-size:13px; margin-top:32px;">본 리포트는 유튜브 원본 영상을 요약·정리한 것이며, 이미지 캡처는 학습·비평 목적입니다. 원본 채널: <a href="https://www.youtube.com/@mobbin" target="_blank" style="color:#888;">Mobbin</a></p>
+
+</div>

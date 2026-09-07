@@ -1,0 +1,178 @@
+---
+layout: post
+comments: true
+title: "월 $3,000 안드로이드 앱 사업을 버리고 iOS로 전향한 1인 개발자의 세 가지 이유"
+categories: [solobiz]
+date: 2026-08-06 12:49:37 +0900
+source_video: https://www.youtube.com/watch?v=JgYi-6Upldg
+---
+
+<h2>월 $3,000 안드로이드 앱 사업을 버리고 iOS로 전향한 1인 개발자의 세 가지 이유</h2>
+
+<p><strong>Adam Lyttle</strong>은 안드로이드 앱만으로 <strong>매월 $2,000~3,000</strong>의 수익을 안정적으로 내던 1인 앱 개발자였다. 같은 앱을 App Store에 올렸을 때는 겨우 $800 수준. 표면만 보면 이 상황에서 안드로이드를 버리는 결정은 이해하기 어렵다. 그러나 그는 2023년 <strong>안드로이드 사업 전체를 완전히 접었다</strong>. 왜? 이 리포트는 그가 밝힌 <strong>세 가지 근본 이유</strong>와, 그 결정이 어떻게 <em>중고 부서진 맥북 하나</em>에서 시작됐는지, 그리고 왜 그가 iOS Xcode 워크플로우를 <strong>"평생 처음 먹어본 사탕"</strong>이라고 표현했는지를 다룬다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:12px 16px;background:#fef2f2;margin:16px 0;">
+<strong>핵심 격차</strong><br>
+- 동일한 10,000 다운로드: <strong>Android $1,000</strong> vs <strong>iOS $5,000~10,000</strong><br>
+- iOS 지원 디바이스 모델: <strong>23개</strong> · Android 지원 디바이스 모델: <strong>20,070개</strong><br>
+- Android 유저: 광고 30초 시청을 <strong>연 $2.99 구독보다 선호</strong>
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">왜 안드로이드를 안 만드는가?</a></li>
+<li><a href="#s2">Android 수익 $3,000 vs iOS $800의 함정</a></li>
+<li><a href="#s3">이유 1 — Android 유저의 LTV는 5~10배 낮다</a></li>
+<li><a href="#s4">이유 2 — 광고 30초를 유료 구독보다 선호하는 유저</a></li>
+<li><a href="#s5">이유 3 — 컴플라이언스 지옥과 20,070개 디바이스</a></li>
+<li><a href="#s6">웹 개발자에서 앱 개발자로: Cordova가 열어준 문</a></li>
+<li><a href="#s7">중고 부서진 맥북에서 시작된 iOS 실험</a></li>
+<li><a href="#s8">iOS 워크플로우가 "마법 같은" 이유</a></li>
+<li><a href="#s9">2023 갈림길: KitKat SDK 강제 리컴파일과 이별 결심</a></li>
+<li><a href="#takeaways">핵심 요약(Takeaways)</a></li>
+</ol>
+
+<h3 id="s1">1. 왜 안드로이드를 안 만드는가? <span style="color:#888;font-size:0.85em;">(0:00~0:32)</span></h3>
+
+<p><img src="__SECTION1_IMG__" alt="Adam Lyttle이 영상 오프닝에서 질문을 던지는 장면" style="max-width:100%;height:auto;"></p>
+
+<p>Adam이 가장 자주 받는 질문은 이것이다. "왜 안드로이드 앱을 만들지 않느냐?" 그의 대답은 흥미롭다. <strong>과거에는 만들었고, 잘 되었다</strong>. 매월 <strong>수만 건의 다운로드</strong>가 발생했고, 매출 · 월 다운로드 · 일간 유저 지표 모두에서 <strong>iOS 버전을 능가</strong>했다. 그러나 2023년, 그는 어떤 사실을 깨달았고 그 순간부터 안드로이드를 완전히 포기했다.</p>
+
+<p>이 리포트는 소규모 1인 개발자 · 컨슈머 앱 포트폴리오 운영자에게 특히 중요하다. Adam의 결정 근거는 대기업 관점이 아니라 <strong>제한된 개발 리소스를 어디에 투입할 것인가</strong>라는 <em>인디해커의 자원 배분 문제</em>이기 때문이다.</p>
+
+<h3 id="s2">2. Android 수익 $3,000 vs iOS $800의 함정 <span style="color:#888;font-size:0.85em;">(0:32~1:20)</span></h3>
+
+<p><img src="__SECTION2_IMG__" alt="Google 페이체크와 Apple 페이체크 비교 설명" style="max-width:100%;height:auto;"></p>
+
+<p>표면만 보면 이 결정은 비상식적이다. Adam의 재무 상황은 이랬다.</p>
+
+<table border="1" cellpadding="8" style="border-collapse:collapse;margin:16px 0;background:#fafafa;">
+<tr style="background:#f0f9ff;"><th>플랫폼</th><th>월 수익</th><th>지급일</th></tr>
+<tr><td>Google Play</td><td><strong>$2,000~3,000</strong></td><td>월 중순</td></tr>
+<tr><td>App Store</td><td>$800</td><td>월 초</td></tr>
+</table>
+
+<p>양쪽에 앱을 올려두면 <strong>격주로 페이체크가 들어오는</strong> 매력적인 캐시플로우 구조였다. 대부분의 개발자는 이 상황에서 "당연히 두 플랫폼에 다 올려야 한다"고 생각한다. Adam은 그것이 <strong>잘못된 결론</strong>이었다고 말한다. 왜? 다음 세 가지 이유 때문이다.</p>
+
+<h3 id="s3">3. 이유 1 — Android 유저의 LTV는 5~10배 낮다 <span style="color:#888;font-size:0.85em;">(1:20~1:50)</span></h3>
+
+<p><img src="__SECTION3_IMG__" alt="Android 유저 LTV 격차 설명 장면" style="max-width:100%;height:auto;"></p>
+
+<p>같은 10,000 다운로드가 발생할 때 두 플랫폼의 수익 차이는 극명했다.</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+<strong>Android</strong>: 10,000 다운로드 → 약 <strong>$1,000</strong> 매출<br>
+<strong>iOS</strong>: 10,000 다운로드 → <strong>$5,000~10,000</strong> 매출
+</blockquote>
+
+<p>즉 <strong>다운로드 한 건당 iOS가 5~10배</strong> 더 큰 매출을 만든다. Adam은 이를 "no-brainer"라고 표현한다. 표면적 총액이 $3,000 vs $800이라 해도, <strong>단위 다운로드당 효율</strong>로 보면 iOS가 압도적이다. 이는 마케팅 · 광고비 투입 시 <strong>ROAS(광고 수익률)</strong>도 iOS가 압도적으로 유리하다는 뜻이다. 광고 예산을 어디에 넣을지 결정할 때 이 지표가 결정적 근거가 된다.</p>
+
+<h3 id="s4">4. 이유 2 — 광고 30초를 유료 구독보다 선호하는 유저 <span style="color:#888;font-size:0.85em;">(1:50~2:35)</span></h3>
+
+<p><img src="__SECTION4_IMG__" alt="광고 vs 유료 구독 유저 행동 차이 설명" style="max-width:100%;height:auto;"></p>
+
+<p>Adam의 앱은 광고 지원(ad-supported) 모델이었다. 이 광고는 <strong>의도적인 마찰(intentional frustration point)</strong>로 설계되었다. 즉 자주 쓰는 유저가 광고 30초를 반복해서 보는 것이 귀찮아지면 <strong>업그레이드(유료 구독)</strong>를 선택하게 만드는 UX였다.</p>
+
+<blockquote style="border-left:4px solid #d97706;padding:10px 14px;background:#fff8e6;margin:14px 0;">
+<strong>결과</strong>: 안드로이드 유저는 구독료를 <strong>연 $2.99까지 내려도</strong> 여전히 광고 30초 시청을 선택했다. 즉 광고 → 구독 전환 퍼널이 근본적으로 작동하지 않았다.
+</blockquote>
+
+<p>이는 두 가지 심각한 결과를 낳는다.</p>
+
+<ol>
+<li><strong>구독 매출 성장 불가능</strong>. 아무리 낮은 가격을 제시해도 유저는 지불을 회피한다.</li>
+<li><strong>광고 매출로 수익화하려면 훨씬 많은 DAU가 필요</strong>. 1인 개발자의 예산으로는 그 수준의 다운로드 볼륨을 만들 수 없다. 즉 <em>break-even에 도달하는 것 자체가 어렵다</em>.</li>
+</ol>
+
+<p>이 유저 행동 차이는 개인의 소득 문제가 아니라 <strong>플랫폼 문화 · 유저 구성 · 구매 습관의 시스템 격차</strong>다. 개발자가 UX로 해결할 수 있는 종류의 문제가 아니라는 뜻이다.</p>
+
+<h3 id="s5">5. 이유 3 — 컴플라이언스 지옥과 20,070개 디바이스 <span style="color:#888;font-size:0.85em;">(2:35~3:36)</span></h3>
+
+<p><img src="__SECTION5_IMG__" alt="Google Play 컴플라이언스 알림과 디바이스 지원 목록" style="max-width:100%;height:auto;"></p>
+
+<p>세 번째 이유는 <strong>운영 부담의 비대칭</strong>이다. Adam이 Google Play에 로그인할 때마다 반복되는 알림은 이랬다. "당신의 앱이 컴플라이언스를 위반하고 있습니다. 계정이 정지될 수 있고, 앱이 제거될 수 있습니다." Google과의 이 <strong>영구적 전쟁</strong>은 1인 개발자의 시간을 뿌리부터 잡아먹었다.</p>
+
+<p>더 결정적인 숫자는 이것이다.</p>
+
+<table border="1" cellpadding="8" style="border-collapse:collapse;margin:16px 0;background:#fafafa;">
+<tr style="background:#fef2f2;"><th>플랫폼</th><th>지원 디바이스 모델 수</th><th>화면·아키텍처</th></tr>
+<tr><td>Google Play (앱 하나 기준)</td><td><strong>20,070개</strong></td><td>매우 다양</td></tr>
+<tr><td>App Store (iOS 16+ 기준)</td><td><strong>23개</strong> (iPhone 모델)</td><td>유사한 해상도·아키텍처</td></tr>
+</table>
+
+<p>이 격차는 개발 속도 · 테스트 부담 · 사용자 서포트 부담을 <strong>세 자릿수 배로</strong> 증폭시킨다. Adam의 표현: "이름도 들어본 적 없는 디바이스의 서포트 요청에 갇혀서 시간을 잃었다."</p>
+
+<blockquote style="border-left:4px solid #dc2626;padding:10px 14px;background:#fef2f2;margin:14px 0;">
+<strong>인디해커의 관점</strong>: 1인 개발자에게 필요한 것은 "빠르게 만들고 · 새 시도를 하고 · 기술 세부에 갇히지 않는" 워크플로우다. Android는 이 세 조건과 <strong>정면으로 반대</strong>다.
+</blockquote>
+
+<h3 id="s6">6. 웹 개발자에서 앱 개발자로: Cordova가 열어준 문 <span style="color:#888;font-size:0.85em;">(3:36~5:00)</span></h3>
+
+<p><img src="__SECTION6_IMG__" alt="Cordova와 웹 개발 배경 설명" style="max-width:100%;height:auto;"></p>
+
+<p>여기서 Adam은 <strong>공정한 이야기</strong>를 덧붙인다. "Cordova와 Google Play Store가 없었다면 나는 오늘 앱 개발자가 아니었을 것이다." 그의 배경은 웹 개발이었다. 프론트엔드 · 백엔드를 만들 수 있었지만 네이티브 모바일 앱은 완전히 낯선 영역이었다.</p>
+
+<p><strong>Cordova</strong>는 네이티브 JavaScript나 다른 웹 언어로 코드를 짜서 안드로이드 앱 · 아이폰 앱으로 동시에 패키징할 수 있게 해주는 크로스 플랫폼 도구다. 이런 앱은 "하이브리드 앱"이라고 불린다. 사용자 관점에서 대부분 차이를 느끼지 못한다. 가끔 리뷰에 "앱이 오래돼 보인다"는 코멘트가 붙긴 하지만 대부분의 유저는 신경 쓰지 않았다.</p>
+
+<blockquote style="border-left:4px solid #2b8a3e;padding:10px 14px;background:#f1f8f4;margin:14px 0;">
+<strong>공정한 시각</strong>: Google Play는 <em>진입 장벽이 낮은 첫 번째 문</em>이다. 웹 개발자가 Cordova를 통해 앱을 만들어 <strong>첫 달러를 벌 수 있게</strong> 해줬다. 안드로이드가 없었다면 많은 인디 앱 개발자가 존재하지 못했을 것이다.
+</blockquote>
+
+<p>그러나 <em>시작을 도와준 도구</em>와 <em>계속 쓸 도구</em>는 다르다. 이 구분이 이 영상의 진짜 통찰이다.</p>
+
+<h3 id="s7">7. 중고 부서진 맥북에서 시작된 iOS 실험 <span style="color:#888;font-size:0.85em;">(5:00~6:20)</span></h3>
+
+<p><img src="__SECTION7_IMG__" alt="Adam이 맥북과 iOS로 전환한 이야기를 하는 장면" style="max-width:100%;height:auto;"></p>
+
+<p>Cordova는 크로스 플랫폼이었지만 <strong>iOS로 빌드하려면 MacBook이 필요했다</strong>. Adam은 오랫동안 Windows 유저였다. 심지어 "포토샵 쓰겠다고 비싼 MacBook 사는 디자인계 사람들을 비웃곤 했다"고 회고한다. 그러나 2020년, 그는 마침내 결심한다. <strong>중고로 부서진 MacBook을 하나 산다</strong>. 오직 컴파일해서 App Store에 올려보기 위해서.</p>
+
+<p>그리고 이때 그의 인생이 바뀌었다.</p>
+
+<blockquote style="border-left:4px solid #7c3aed;padding:12px 16px;background:#f5f3ff;margin:14px 0;">
+<em>"평생 처음 먹어본 사탕 같았어요. 이 달콤한 맛은 뭐지? 왜 이걸 이제야 알았지?"</em>
+</blockquote>
+
+<p>안드로이드 앱을 만드는 것이 쉽다고 생각했지만, <strong>아이폰 앱을 만드는 것은 그보다 훨씬 더 쉬웠다</strong>는 것이 그의 발견이었다. 그리고 2025년 시점에서 그는 <strong>MacBook 두 대 · Apple Watch · iPad · iPhone · AirPod Max</strong>를 모두 갖춘 완전한 애플 생태계 유저가 되었다.</p>
+
+<h3 id="s8">8. iOS 워크플로우가 "마법 같은" 이유 <span style="color:#888;font-size:0.85em;">(6:20~7:00)</span></h3>
+
+<p><img src="__SECTION8_IMG__" alt="Xcode 워크플로우 설명" style="max-width:100%;height:auto;"></p>
+
+<p>Adam이 iOS 개발 워크플로우에서 감동받은 세 가지 지점은 다음과 같다.</p>
+
+<blockquote style="border-left:4px solid #059669;padding:10px 14px;background:#ecfdf5;margin:14px 0;">
+<strong>iOS 워크플로우의 마법</strong><br>
+1. <strong>Xcode에서 버튼 하나로 App Store 업로드</strong>. Android처럼 각 빌드를 개별 서명할 필요 없음.<br>
+2. <strong>파일을 수동으로 업로드할 필요 없음</strong>. IDE와 스토어가 완전히 통합.<br>
+3. <strong>존재하는 모든 iPhone · iPad 모델을 같은 프로그램에서 테스트 가능</strong>. 별도의 에뮬레이터 지옥 없음.
+</blockquote>
+
+<p>Adam의 결론: "제 전체 MacBook 셋업은 앱을 <strong>빌드 · 테스트 · 배포</strong>하는 <em>기름칠 잘 된 기계</em> 같습니다. 반면 제 안드로이드 셋업은 <strong>파편적이고, 오래됐고, 투박하고, 시간이 많이 걸립니다</strong>." 이 비교는 감정적 표현처럼 들리지만 실제로는 <strong>1인 개발자 생산성의 실측 격차</strong>다.</p>
+
+<h3 id="s9">9. 2023 갈림길: KitKat SDK 강제 리컴파일과 이별 결심 <span style="color:#888;font-size:0.85em;">(7:00~7:54)</span></h3>
+
+<p><img src="__SECTION9_IMG__" alt="2023 결정의 순간에 대해 설명하는 마무리 장면" style="max-width:100%;height:auto;"></p>
+
+<p>2023년, Adam은 갈림길에 섰다. Cordova는 예전만큼 잘 지원되지 않았고, Android는 새 버전(예: KitKat)이 나올 때마다 <strong>새 SDK로 강제 리컴파일</strong>을 요구했다. 리컴파일하지 않으면 앱이 스토어에서 <strong>완전히 제거된다</strong>. 그런데 Cordova는 이미 지원이 축소된 상태였고, 새 SDK와 함께 작동하게 만드는 것이 점점 어려워졌다.</p>
+
+<p>Adam의 최종 결정: <strong>"이제 그만이다. 진짜 프로그래밍 언어를 배우고, 오직 iOS만을 위해 만들겠다."</strong> 이 결심 하나로 그의 앱 사업은 완전히 재구성됐다. Swift UI 학습 · Xcode 워크플로우 정착 · Android 사업 정리. 그리고 이 결정 이후 그의 앱 개발 속도와 수익성이 어떻게 변했는지가 그의 지금 채널의 주요 콘텐츠가 된다.</p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<div style="border:2px solid #2b8a3e;border-radius:8px;padding:16px;background:#f1f8f4;margin:20px 0;">
+<ol style="margin:0;padding-left:20px;">
+<li><strong>총 수익이 아니라 "다운로드당 매출"로 판단하라</strong>. Android $3,000 vs iOS $800이라도 다운로드당 매출은 iOS가 5~10배. 광고비 투입 시 ROAS가 완전히 뒤집힌다.</li>
+<li><strong>Android 유저의 유료 구독 저항은 UX로 해결 불가능</strong>. 광고 30초 vs 연 $2.99에서도 광고를 택하는 사용자 문화는 개발자가 바꿀 수 없다.</li>
+<li><strong>20,070개 디바이스 지원 vs 23개 iPhone 모델</strong>. 1인 개발자에게 이 격차는 개발 · 테스트 · 서포트 시간을 <em>세 자릿수 배</em>로 증폭시킨다.</li>
+<li><strong>Google Play 컴플라이언스 알림은 항구적 시간 도둑</strong>. "계정 정지 · 앱 제거 위협"이 반복되면 인디해커의 정신적 대역폭이 마모된다.</li>
+<li><strong>Cordova · 하이브리드 앱은 시작하기 좋은 도구, 계속 쓰기는 나쁜 도구</strong>. 시작 도구와 성장 도구를 구분하라.</li>
+<li><strong>iOS로 전환하려면 MacBook이 필요</strong>하지만, 중고 부서진 것으로도 충분하다. 소득 없어도 이 실험은 감당 가능한 진입 비용.</li>
+<li><strong>iOS Xcode 워크플로우의 통합성이 곧 1인 개발자의 생산성 프리미엄</strong>이다. 빌드 · 테스트 · 배포가 한 프로그램에서 끝나는 것이 감정이 아니라 실측 우위.</li>
+<li><strong>플랫폼 SDK 리컴파일 강제는 크로스 플랫폼 도구 채택의 실질 리스크</strong>다. 지원 축소된 Cordova + 강제 리컴파일 = 사업 중단 위기.</li>
+</ol>
+</div>
+
+<p style="margin-top:24px;">
+<strong>원본 영상</strong>: <a href="https://www.youtube.com/watch?v=JgYi-6Upldg" target="_blank">Why Android sucks (for solo app developers) — Adam Lyttle</a><br>
+<strong>블로그</strong>: <a href="https://adamlyttleapps.com" target="_blank">adamlyttleapps.com</a>
+</p>

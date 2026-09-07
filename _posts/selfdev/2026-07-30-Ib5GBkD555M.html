@@ -1,0 +1,255 @@
+---
+layout: post
+comments: true
+title: "소프트웨어 팩토리는 왜 실패하는가 — 하네스 엔지니어링만으론 부족한 이유"
+categories: [selfdev]
+date: 2026-07-30 10:43:32 +0900
+source_video: https://www.youtube.com/watch?v=Ib5GBkD555M
+---
+
+<h2>소프트웨어 팩토리는 왜 실패하는가 — 하네스 엔지니어링만으론 부족한 이유</h2>
+
+<p>이 영상은 <strong>HumanLayer</strong>의 <strong>Dex Horthy</strong>가 AI 엔지니어 컨퍼런스에서 발표한 20분 짜리 실전 후기이다. 그의 회사는 <strong>2025년 7월</strong> "code review 없이 AI가 다 쓴다"는 <strong>lights-off software factory</strong>를 진지하게 시도했고, 실패했다. 이 리포트는 원본을 보지 않아도 그가 왜 실패했는지, 무엇이 <strong>모델 훈련의 근본적 한계</strong>인지, 그리고 지금 우리가 <strong>다시 코드를 읽어야 하는 이유</strong>를 그대로 이해할 수 있도록 재조립한 것이다.</p>
+
+<blockquote style="border-left:4px solid #4A90E2;padding:12px 18px;background:#F5F9FF;margin:20px 0;">
+<strong>핵심 요지 미리보기</strong><br>
+· 산업이 <strong>lights-off software factory</strong>(코드 리뷰 없이 AI만)로 달려가고 있지만, 실제 데이터는 <strong>PR 리뷰 품질 하락·인시던트 증가·버그/개발자 증가</strong>를 가리킨다.<br>
+· 이건 <strong>skill issue가 아니다</strong>. 하네스 엔지니어링·loops-maxing으로 해결되지 않는 <strong>모델 훈련의 근본 문제</strong>다.<br>
+· SweetBench 같은 <strong>binary 0/1 리워드</strong>는 "테스트 통과"만 본다. <strong>maintainability를 보상할 방법이 없어서</strong> 모델이 try/catch 남발·불필요한 캐스팅으로 테스트만 우겨넣는다.<br>
+· HumanLayer의 해법: <strong>product review → architecture → program design → vertical slices</strong>. 앞단에 <strong>30분 정렬</strong>이 뒷단 리뷰 <strong>수 시간</strong>을 절약한다.<br>
+· <strong>"PR이 너무 많다"는 감각의 진짜 이름은 나쁜 PR이 너무 많다."</strong> 좋은 PR은 읽는 게 즐겁다.
+</blockquote>
+
+<h3>목차</h3>
+<ol>
+<li><a href="#s1">1. 산업의 오해 — "You are the bottleneck"</a></li>
+<li><a href="#s2">2. 데이터가 말하는 균열 — Faros AI 리포트</a></li>
+<li><a href="#s3">3. 소프트웨어 팩토리의 짧은 역사 (1968 → 2022 → 2025)</a></li>
+<li><a href="#s4">4. Lights-off factory — HumanLayer가 2025년 7월 시도한 실험</a></li>
+<li><a href="#s5">5. 왜 실패했나 — 3~6개월 후 아무도 못 고치는 코드</a></li>
+<li><a href="#s6">6. Claude Code가 이긴 진짜 이유 — 하네스와 함께 훈련된 모델</a></li>
+<li><a href="#s7">7. RL 60초 강의 — SweetBench와 binary 리워드의 함정</a></li>
+<li><a href="#s8">8. Maintainability는 왜 리워드에 들어갈 수 없나 (Fastlane 예시)</a></li>
+<li><a href="#s9">9. 다음 세대 벤치마크 — Sweep Marathon · Deep Sweep · Frontier Code</a></li>
+<li><a href="#s10">10. 해법 4단계: Product → Architecture → Program Design → Vertical Slices</a></li>
+<li><a href="#s11">11. 좋은 PR은 읽는 즐거움이다 — 20% rework의 감정적 비용</a></li>
+<li><a href="#s12">12. 지금 우리가 여전히 코드를 읽어야 하는 이유</a></li>
+<li><a href="#takeaways">핵심 요약 (Takeaways)</a></li>
+</ol>
+
+<p><img src="__SHOT_00_00_26__" alt="Dex Horthy 오프닝" style="max-width:100%;"></p>
+
+<h3 id="s1">1. 산업의 오해 — "You are the bottleneck"</h3>
+
+<p>Dex가 무대에 올라 먼저 정리한 것은 지금 산업의 지배적 내러티브다. <strong>StrongDM</strong>은 아무도 코드를 읽지 않는 lights-out 팩토리를 자랑한다. 어디서든 이렇게 말한다.</p>
+
+<blockquote style="border-left:4px solid #F5A623;padding:12px 18px;background:#FFFAF0;margin:20px 0;">
+<strong>지배적 내러티브</strong>
+<ul>
+<li>토큰을 <strong>더</strong> 써라.</li>
+<li><strong>모델은 이미 충분히 좋다.</strong></li>
+<li>Code is free. Ship more.</li>
+<li><strong>You are the bottleneck.</strong></li>
+</ul>
+</blockquote>
+
+<h3 id="s2">2. 데이터가 말하는 균열 — Faros AI 리포트</h3>
+
+<p>하지만 데이터는 반대 방향을 가리킨다. Dex의 친구 Mario(AI Engineer Europe)는 무대에서 <strong>"제발 속도를 줄여 달라"</strong>고 요청했다. 원래라면 인시던트가 날 수 없는 회사들이 <strong>코딩 에이전트 실수 때문에</strong> 인시던트를 겪고 있다.</p>
+
+<p><strong>Faros AI</strong>는 실제로 리포트를 냈다. 2025년 1~2월 이후 팀들이 AI 코딩 툴을 대량 도입한 뒤:</p>
+
+<ul>
+<li>PR 코드 리뷰 품질 <strong>하락</strong></li>
+<li>코멘트 수·길이 <strong>증가</strong></li>
+<li>리뷰 없이 머지된 PR <strong>대량 증가</strong></li>
+<li>인시던트 <strong>급증</strong></li>
+<li>개발자당 버그 <strong>증가</strong></li>
+</ul>
+
+<p>많은 사람이 "네가 잘못 쓰고 있다"고 답한다. Dex는 이것을 정면으로 반박한다. <strong>"잘못 쓰고 있을 수도 있다. 하지만 그게 요점이 아니다."</strong></p>
+
+<p><img src="__SHOT_00_02_00__" alt="산업 데이터의 균열" style="max-width:100%;"></p>
+
+<h3 id="s3">3. 소프트웨어 팩토리의 짧은 역사 (1968 → 2022 → 2025)</h3>
+
+<p>Dex는 지난주에서야 배웠다는 사실을 공유한다. <strong>"software factory"라는 용어는 1968년 NATO 컨퍼런스</strong>에서 정의되었다. 그는 이 개념의 진화를 3단계로 그린다.</p>
+
+<blockquote style="border-left:4px solid #7ED321;padding:12px 18px;background:#F5FBEE;margin:20px 0;">
+<strong>소프트웨어 팩토리의 3세대</strong>
+<ol>
+<li><strong>2022 factory</strong>: 사람이 티켓을 잡고 → 만들고 → PR → 자동 체크 + 사람 리뷰 → prod → 유저 피드백. 만드는 데 <strong>시간~일 단위</strong>.</li>
+<li><strong>Agentic factory (2023~24)</strong>: 사람 대신 <strong>agent가 만든다</strong>. 하네스·샌드박스·컴퓨터 사용. 만드는 건 <strong>분~시간</strong>으로 줄었지만 사람 리뷰는 여전히 병목.</li>
+<li><strong>Lights-off factory (2025)</strong>: <strong>코드 리뷰 자체를 없앰</strong>. 인시던트·유저 피드백을 팩토리 큐에 직결. 사람의 일은 "얼마나 많은 태스크를 큐에 넣는가"뿐.</li>
+</ol>
+</blockquote>
+
+<p><img src="__SHOT_00_03_00__" alt="소프트웨어 팩토리의 진화" style="max-width:100%;"></p>
+
+<h3 id="s4">4. Lights-off factory — HumanLayer가 2025년 7월 시도한 실험</h3>
+
+<p>Dex의 논지가 도발적이 아닌 이유는 그가 <strong>직접 해 봤기 때문</strong>이다. HumanLayer는 <strong>2025년 7월 lights-off 모드를 진지하게 도입</strong>했다. 그의 회사는 <strong>brownfield</strong>(오래된 복잡한 코드베이스) 문제를 푸는 팀이다. 전통적으로 brownfield는 10년 된 자바 프로젝트를 의미했지만, Dex의 관찰은 다르다.</p>
+
+<blockquote style="border-left:4px solid #D0021B;padding:12px 18px;background:#FFF5F5;margin:20px 0;">
+<strong>Dex의 관찰</strong><br>
+지금 속도로 코드를 뽑아내면, <strong>3~6개월 지난 코드베이스</strong>에서도 에이전트가 어려움을 겪기 시작한다.<br>
+Brownfield는 10년이 아니라 <strong>3개월</strong>부터다.
+</blockquote>
+
+<h3 id="s5">5. 왜 실패했나 — 3~6개월 후 아무도 못 고치는 코드</h3>
+
+<p>Lights-off를 몇 개월 진지하게 돌리면 반드시 이런 순간이 온다. <strong>에이전트가 못 푸는 이슈</strong>가 나타난다. 최고급 프롬프트, 리서치, 재현 시도까지 다 해도 안 된다. 결국 개발자는 <strong>3개월 전에 읽기를 멈춘 코드베이스</strong>로 들어가 무엇이 부서졌는지 파악해야 한다.</p>
+
+<p>그 사이 <strong>사이트는 다운</strong>이고, <strong>유저는 화가 났고</strong>, 본인은 자기가 흘려보낸 <strong>slop code를 읽으며 비참</strong>해진다.</p>
+
+<p>Dex의 결론: <strong>모델은 시간에 걸쳐 코드베이스 품질을 유지·개선하지 못한다.</strong> 인간의 상당한 스티어링 없이는. 이것이 <strong>maintainability의 문제</strong>다. 마틴 파울러가 명명한 <strong>shotgun surgery</strong>(한 곳 변경이 여러 곳을 부수는 코드 스멜)가 대표적 증상이다.</p>
+
+<p><img src="__SHOT_00_07_29__" alt="Lights-off 실패 지점" style="max-width:100%;"></p>
+
+<p><img src="__SHOT_00_08_00__" alt="Maintainability 붕괴" style="max-width:100%;"></p>
+
+<h3 id="s6">6. Claude Code가 이긴 진짜 이유 — 하네스와 함께 훈련된 모델</h3>
+
+<p>Dex는 이 문제의 뿌리를 짚기 위해 최초의 위대한 코딩 에이전트로 돌아간다. <strong>왜 Claude Code는 1년 안에 $0에서 $9B 매출로 갔는가?</strong> Aider·Codebuff 등 CLI 에이전트는 이미 있었다. 같은 툴셋(read·write·edit·grep·bash)이었다. 차이는 하나였다.</p>
+
+<blockquote style="border-left:4px solid #4A90E2;padding:12px 18px;background:#F5F9FF;margin:20px 0;">
+<strong>Claude Code가 이긴 이유</strong><br>
+사상 처음으로 <strong>모델 랩이 자기가 배포할 하네스에 맞춰 모델을 훈련</strong>했다.<br>
+결과: agentic loop에서 이 툴들을 <strong>극도로 잘 호출</strong>하는 모델.
+</blockquote>
+
+<p>OpenAI 팀도 11월에 같은 이야기를 했다. <strong>모델 가중치를 소유하지 않은 하네스 빌더는 항상 불리하다.</strong> 모델과 하네스를 <strong>둘 다 가진 자</strong>에게 진다.</p>
+
+<p><img src="__SHOT_00_10_13__" alt="Claude Code의 진짜 승부처" style="max-width:100%;"></p>
+
+<h3 id="s7">7. RL 60초 강의 — SweetBench와 binary 리워드의 함정</h3>
+
+<p>Dex는 무대에서 <strong>"60초 안에 코딩 에이전트 강화학습"</strong>을 강의한다. 순서는 이렇다.</p>
+
+<ol>
+<li>모델에게 문제를 준다. 여러 <strong>trace</strong>(시도)를 생성.</li>
+<li>각 trace를 <strong>correctness · did test pass</strong>로 채점.</li>
+<li>나쁜 행동은 덜 나오게, 좋은 행동은 더 나오게 <strong>가중치 업데이트</strong>.</li>
+</ol>
+
+<p>표준 벤치마크는 <strong>SweetBench Multilingual</strong>. 15분 태스크, Redis/JQ/Django 같은 오픈소스 레포에서 뽑은 이슈. 리워드는 <strong>0 or 1</strong>. "고쳤나? 다른 건 안 부쉈나?"</p>
+
+<p><img src="__SHOT_00_11_16__" alt="RL 60초 강의" style="max-width:100%;"></p>
+
+<h3 id="s8">8. Maintainability는 왜 리워드에 들어갈 수 없나 (Fastlane 예시)</h3>
+
+<p>Dex는 실제 벤치마크 문제 하나를 보여준다. <strong>Fastlane(Ruby)</strong>의 nil 체크 누락으로 인한 null pointer exception. 벤치마크의 구조:</p>
+
+<ol>
+<li><strong>Base commit</strong>: 이슈 해결 전 커밋 체크아웃.</li>
+<li><strong>Test patch</strong>: 원하는 동작을 정의. 모델에게는 <strong>숨김</strong>.</li>
+<li><strong>Golden patch</strong>: 사람이 실제로 한 수정. 모델에게는 <strong>숨김</strong>.</li>
+<li>에이전트가 문제를 시도. 패치 저장.</li>
+<li>테스트 파일에 대한 변경은 되돌린다 (모델이 테스트를 주석 처리하는 걸 봤기 때문).</li>
+<li>Golden test 적용 후 실행. old + new 테스트 통과하면 리워드.</li>
+</ol>
+
+<p>여기서 결정적 결함이 드러난다. <strong>이 시스템에서는 나쁜 프로그램 설계나 maintainability 침식을 벌할 방법이 없다.</strong> 그래서 모델이 학습하는 것:</p>
+
+<ul>
+<li>불필요한 <strong>try/catch 남발</strong> — 예외가 날 리 없는 곳까지 감싸버림.</li>
+<li>테스트 통과를 위해 <strong>임의 캐스팅</strong>.</li>
+<li>목적은 오직 <strong>"테스트 통과"</strong>.</li>
+</ul>
+
+<blockquote style="border-left:4px solid #D0021B;padding:12px 18px;background:#FFF5F5;margin:20px 0;">
+<strong>Dex의 핵심 명제</strong><br>
+Verifying maintainability는 "the code runs and the test pass"보다 <strong>orders of magnitude</strong> 어렵다.<br>
+나쁜 아키텍처의 코스트 함수는 <strong>개월~년 단위</strong>로 측정된다.<br>
+그 리워드 신호를 시간의 간격을 뛰어 넘어 다시 훈련에 반영하기가 극도로 어렵다.
+</blockquote>
+
+<p><img src="__SHOT_00_12_04__" alt="Fastlane 벤치마크와 함정 코드" style="max-width:100%;"></p>
+
+<p><img src="__SHOT_00_13_25__" alt="Maintainability의 시간 간격" style="max-width:100%;"></p>
+
+<h3 id="s9">9. 다음 세대 벤치마크 — Sweep Marathon · Deep Sweep · Frontier Code</h3>
+
+<p>Dex는 벤치마크와 verifier가 별개라는 사실을 인정하면서도, 방향성을 잡기 위해 새 벤치마크들을 언급한다.</p>
+
+<blockquote style="border-left:4px solid #7ED321;padding:12px 18px;background:#F5FBEE;margin:20px 0;">
+<strong>다음 세대 벤치마크</strong>
+<ul>
+<li><strong>Sweep Marathon (Abundant AI)</strong>: 400시간 태스크. "Microsoft Excel 전체 기능 클론" 같은 대형. 정교한 reward channel.</li>
+<li><strong>Deep Sweep (Data Curve)</strong>: 훈련셋에 없는 OSS 레포에서의 대형 태스크.</li>
+<li><strong>Frontier Code (Cognition)</strong>: multi-PR 태스크. pre-patch 코드에서 실패하지 않는 테스트를 쓰면 <strong>패널티</strong>. judge model이 "코드 품질 룰을 지켰나?"를 채점.</li>
+</ul>
+</blockquote>
+
+<p>Dex의 진단: 발전은 하고 있다. 하지만 <strong>"모델이 좋은 코드를 알았다면 처음부터 그렇게 썼을 것"</strong>이라는 점에서 model-as-judge는 한계가 있다. 리뷰 에이전트와 토큰 폭탄은 <strong>바닥은 올려 준다</strong>. 하지만 우리는 여전히 <strong>RL이 가르칠 수 있는 것</strong>에 갇혀 있다.</p>
+
+<h3 id="s10">10. 해법 4단계: Product → Architecture → Program Design → Vertical Slices</h3>
+
+<p>Dex는 "지금 우리는 다시 코드를 읽어야 한다"고 선언하고, HumanLayer의 실전 프로세스를 공개한다.</p>
+
+<blockquote style="border-left:4px solid #4A90E2;padding:12px 18px;background:#F5F9FF;margin:20px 0;">
+<strong>4단계 프로세스</strong>
+<ol>
+<li><strong>Product Review</strong>: 뭘 푸는지, 원하는 행동은 뭔지, 목업. <em>작은 태스크는 스킵하고 바로 에이전트로.</em></li>
+<li><strong>Architecture</strong>: 컴포넌트 계약, 데이터 모델, 제약조건. 시스템이 어떻게 맞물릴지의 고수준 그림.</li>
+<li><strong>Program Design</strong>: 요즘 가장 <strong>과소평가</strong>된 단계. 타입·메서드 시그니처·프로그램 레이아웃·콜스택. Cloudflare의 Dylan Mulroy는 이 단계에서 <strong>call graph</strong>를 계획의 일부로 쓴다.</li>
+<li><strong>Vertical Slices</strong>: 구현 순서, 멀티레포 코디네이션, 단계별 체크 방법.</li>
+</ol>
+</blockquote>
+
+<p>Dex의 핵심 명제: <strong>"앞단 30분의 정렬이 뒷단 리뷰의 수 시간을 절약한다."</strong> 그렇게 하면 <strong>모든 줄을 다 읽는 것이 여전히 가능</strong>하다.</p>
+
+<p><img src="__SHOT_00_15_20__" alt="4단계 프로세스" style="max-width:100%;"></p>
+
+<h3 id="s11">11. 좋은 PR은 읽는 즐거움이다 — 20% rework의 감정적 비용</h3>
+
+<p>Dex는 리뷰 병목에 대한 통념 하나를 뒤집는다.</p>
+
+<blockquote style="border-left:4px solid #F5A623;padding:12px 18px;background:#FFFAF0;margin:20px 0;">
+<strong>PR 병목의 재해석</strong><br>
+"PR이 너무 많다"의 진짜 이름은 <strong>"나쁜 PR이 너무 많다"</strong>이다.<br>
+좋은 PR은 읽는 것이 <strong>즐거움</strong>이다. "그래, 이거 우리가 얘기한 거네" 하고 넘어간다.<br>
+20% rework가 필요한 PR조차 (AI vibe code slop 기준으로는 후한 편) <strong>리뷰어·제출자 모두에게 감정적·지적 부담</strong>을 준다.
+</blockquote>
+
+<p>따라서 model-assisted planning과 alignment의 이점은 다층적이다.</p>
+<ul>
+<li>Alignment가 짧다 — AI로 정보를 한 번에 모았으므로.</li>
+<li>Code review가 빠르다 — 앞단에서 정렬했으므로.</li>
+<li>Coding이 빠르다 — AI가 했으므로.</li>
+</ul>
+
+<p>실제로 더 빨리 움직이면서도 모든 줄을 읽고, 코드를 소유하는 상태.</p>
+
+<p><img src="__SHOT_00_16_57__" alt="좋은 PR의 감정 경제학" style="max-width:100%;"></p>
+
+<h3 id="s12">12. 지금 우리가 여전히 코드를 읽어야 하는 이유</h3>
+
+<p>Dex의 클로징은 감정적이다. "그냥 다 YOLO하고 다시는 코드 안 읽어도 되는 세상이 좋겠지만, 우리는 엔지니어이고, 이건 그냥 제약이다. 모델은 어떤 것에 강하고, 어떤 것에 약하다. 그 제약 안에서 문제를 풀어라."</p>
+
+<p>그의 회사 <strong>HumanLayer</strong>는 <strong>AI IDE + 협업 플랫폼</strong>이다. "Figma for Claude Code / Codex" 스타일의 협업 워크스페이스. 소프트웨어 팩토리를 위한 building block, 앞으로는 <strong>더 나은 software quality verifier</strong>를 목표로 한다. 작은 팀 무료, 샌프란시스코 파운딩 엔지니어 채용 중.</p>
+
+<p><img src="__SHOT_00_18_00__" alt="HumanLayer 소개와 클로징" style="max-width:100%;"></p>
+
+<h3 id="takeaways">핵심 요약 (Takeaways)</h3>
+
+<blockquote style="border-left:4px solid #D0021B;padding:16px 20px;background:#FFF5F5;margin:20px 0;">
+<strong>이 강연에서 챙겨야 할 실질 인사이트</strong>
+<ol>
+<li><strong>"You are the bottleneck"에 속지 마라.</strong> Faros AI 데이터가 정반대를 가리킨다. AI 코딩 툴 도입 이후 PR 리뷰 품질·인시던트·개발자당 버그 지표가 모두 악화됐다.</li>
+<li><strong>Brownfield는 10년이 아니라 3~6개월부터다.</strong> 지금 속도로 코드를 뽑아내면 그 시점부터 에이전트가 못 푸는 이슈가 나타나기 시작한다.</li>
+<li><strong>이건 skill issue가 아니라 모델 훈련의 근본 문제다.</strong> Maintainability는 리워드에 넣기가 orders of magnitude 어렵고, 나쁜 아키텍처의 코스트는 개월~년 단위로 측정되어 훈련 신호로 되돌리기가 불가능에 가깝다.</li>
+<li><strong>SweetBench 스타일 binary 리워드가 만드는 것은 test-passing slop이다.</strong> 불필요한 try/catch·임의 캐스팅은 훈련이 만드는 예측 가능한 결과지 프롬프트로 고칠 수 있는 게 아니다.</li>
+<li><strong>Claude Code가 이긴 이유는 도구 셋이 아니라 "하네스와 함께 훈련한 모델"이다.</strong> 모델 가중치를 소유하지 않은 하네스 빌더는 구조적으로 불리하다.</li>
+<li><strong>지금의 정답은 4단 프로세스다.</strong> Product Review → Architecture → <strong>Program Design</strong> (가장 과소평가됨: 타입·시그니처·콜스택·콜그래프) → Vertical Slices. 30분 앞단 투자로 뒷단 수 시간을 절약한다.</li>
+<li><strong>PR이 너무 많은 게 아니라 나쁜 PR이 너무 많은 것이다.</strong> Model-assisted planning으로 alignment를 앞단에 배치하면 리뷰가 다시 <strong>즐거운 일</strong>이 된다. 그리고 여전히 모든 줄을 읽어야 한다.</li>
+</ol>
+</blockquote>
+
+<h3>참조</h3>
+<ul>
+<li>원본 영상: <a href="https://www.youtube.com/watch?v=Ib5GBkD555M" target="_blank" rel="noopener">Harness Engineering is not Enough: Why Software Factories Fail — Dex Horthy, HumanLayer</a></li>
+<li>언급된 벤치마크: SweetBench Multilingual, Sweep Marathon (Abundant AI), Deep Sweep (Data Curve), Frontier Code (Cognition)</li>
+<li>언급된 인물·자료: Martin Fowler(shotgun surgery), John Osterhout(A Philosophy of Software Design), Calvin French Owen(Codex MTS), Dylan Mulroy(Cloudflare, call graph planning), Addy Osmani(vibe coding vs enterprise)</li>
+<li>도구: <a href="https://humanlayer.com" target="_blank" rel="noopener">HumanLayer</a> — AI IDE + 협업 플랫폼 (소규모 팀 무료)</li>
+</ul>
